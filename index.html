@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Легенда — комиссионный магазин</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://api-maps.yandex.ru/v3/?apikey=90f168b9-9002-4a75-ad9b-fadd23f1e34b&lang=ru_RU"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <button
+          class="header__menu"
+          type="button"
+          aria-label="Меню"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="header__logo" href="#">
+          <img
+            src="assets/logo.svg"
+            width="160"
+            height="36"
+            alt="Легенда — комиссионный магазин"
+          />
+        </a>
+        <nav class="header__nav">
+          <a href="#categories">Что выкупаем</a>
+          <a href="#process">Процесс выкупа</a>
+          <a href="#contacts">Контакты</a>
+          <a href="#lead" class="header__nav-cta">Онлайн оценка</a>
+        </nav>
+        <div class="header__right">
+          <div class="header__phone-group">
+            <a class="header__phone-link" href="tel:+79013260869"
+              >+7 901-326-08-69</a
+            >
+            <span class="header__city">
+              <img
+                src="assets/phone-icon.svg"
+                width="12"
+                height="12"
+                alt=""
+                class="header__city-icon"
+              />
+              Санкт-Петербург
+            </span>
+          </div>
+          <div class="header__socials">
+            <a href="#" class="header__social" aria-label="WhatsApp">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.9622 0.0218709C5.72784 0.506051 -0.367879 7.7732 0.0172539 16.9371C0.185473 20.9482 1.79241 24.3997 2.17311 28.2065C2.2705 29.1926 1.98719 30.4098 3.12045 30.8406C4.5149 31.3692 6.65305 30.4808 7.82173 29.6679C8.22014 29.397 8.60085 29.0816 8.89302 28.6907C10.1015 29.4947 11.2481 30.272 12.6868 30.6185C19.0216 32.1421 25.9628 28.6551 29.0483 23.0538C34.8474 12.5306 27.0075 -0.608896 14.9622 0.0218709ZM11.3765 21.9832C10.8762 22.3741 10.3937 22.9072 9.84035 23.2137C9.0391 23.6445 8.7912 23.1959 8.49018 22.4852C7.54284 20.2242 7.42774 16.373 7.98109 14.0054C8.7248 10.7849 11.2082 7.95088 14.6213 7.64882C18.0742 7.34233 21.2792 9.10137 22.7268 12.2774C25.9318 19.3447 17.7289 26.3231 11.3765 21.9877V21.9832Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a href="#" class="header__social" aria-label="Telegram">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15.5 0C6.94012 0 0 6.94012 0 15.5C0 24.0599 6.94012 31 15.5 31C24.0599 31 31 24.0599 31 15.5C31 6.94012 24.0599 0 15.5 0ZM23.1131 10.6188L20.5685 22.6055C20.3812 23.4554 19.8749 23.662 19.1683 23.2616L15.2933 20.407L13.4256 22.2076C13.2447 22.4401 12.9645 22.5887 12.6506 22.5887C12.648 22.5887 12.6467 22.5887 12.6441 22.5887L12.9192 18.6439L20.1009 12.1572C20.4109 11.882 20.0312 11.7258 19.6191 12.0009L10.7467 17.5886L6.92333 16.3951C6.09667 16.1329 6.07342 15.5685 7.09771 15.1629L22.0371 9.40462C22.732 9.15146 23.3365 9.56996 23.1118 10.6201L23.1131 10.6188Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <a class="header__phone" href="tel:+79013260869" aria-label="Позвонить">
+          <img src="assets/phone-icon.svg" width="16" height="16" alt="" />
+        </a>
+      </header>
+
+      <section class="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <img class="hero__decor" src="assets/hero-mask.svg" alt="" />
+        </div>
+        <div class="hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title">Выкупим вашу технику быстро и дорого</h1>
+            <ul class="hero__features">
+              <li class="hero__feature">
+                <img
+                  class="hero__feature-icon"
+                  src="assets/hero-icon-chat.svg"
+                  width="20"
+                  height="20"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <p class="hero__feature-text">Без объявлений и переписок</p>
+              </li>
+              <li class="hero__feature">
+                <img
+                  class="hero__feature-icon"
+                  src="assets/hero-icon-clock.svg"
+                  width="21"
+                  height="21"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <p class="hero__feature-text">Без торга и ожидания</p>
+              </li>
+              <li class="hero__feature">
+                <img
+                  class="hero__feature-icon"
+                  src="assets/hero-icon-pay.svg"
+                  width="25"
+                  height="18"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <p class="hero__feature-text">Деньги сразу после сделки</p>
+              </li>
+            </ul>
+            <a class="btn btn--primary hero__cta" href="#lead"
+              >Оценить онлайн</a
+            >
+            <div class="hero__warning">
+              <span class="hero__warning-badge" aria-hidden="true">!</span>
+              <p class="hero__warning-text">Выкупаем только рабочую технику</p>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <img
+              class="hero__poly"
+              src="assets/decor-poly1.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="hero__laptop"
+              src="assets/laptop.png"
+              width="211"
+              height="239"
+              alt="Ноутбук"
+            />
+            <div class="hero__badge">
+              <p>Продайте быстрее, чем через Авито!</p>
+            </div>
+            <img
+              class="hero__poly-small"
+              src="assets/decor-poly5.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="hero__vector"
+              src="assets/decor-vector.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="categories" id="categories">
+        <h2 class="section-title">Что мы выкупаем</h2>
+        <div class="swiper categories-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide categories-col">
+              <article class="cat-tile">
+                <p class="cat-tile__label">Инструмент</p>
+                <img
+                  class="cat-tile__img cat-tile__img--tools"
+                  src="assets/tools.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Телевизоры</p>
+                <img
+                  class="cat-tile__img cat-tile__img--tv"
+                  src="assets/tv.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Умные часы</p>
+                <img
+                  class="cat-tile__img cat-tile__img--smartwatch"
+                  src="assets/smartwatch.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Умные колонки</p>
+                <img
+                  class="cat-tile__img cat-tile__img--speaker"
+                  src="assets/speaker.png"
+                  alt=""
+                />
+              </article>
+            </div>
+            <div class="swiper-slide categories-col">
+              <article class="cat-tile">
+                <p class="cat-tile__label">Ноутбуки</p>
+                <img
+                  class="cat-tile__img cat-tile__img--notebook"
+                  src="assets/notebook.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Айфоны</p>
+                <img
+                  class="cat-tile__img cat-tile__img--iphones"
+                  src="assets/iphones.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Антикварные часы</p>
+                <img
+                  class="cat-tile__img cat-tile__img--antique"
+                  src="assets/antique-watch.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Музыкальные колонки</p>
+                <img
+                  class="cat-tile__img cat-tile__img--music"
+                  src="assets/music-speakers.png"
+                  alt=""
+                />
+              </article>
+            </div>
+            <div class="swiper-slide categories-col">
+              <article class="cat-tile">
+                <p class="cat-tile__label">Компьютеры</p>
+                <img
+                  class="cat-tile__img cat-tile__img--pc"
+                  src="assets/pc.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Телефоны</p>
+                <img
+                  class="cat-tile__img cat-tile__img--phones"
+                  src="assets/phones.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Игровые приставки</p>
+                <div class="cat-tile__stack">
+                  <img
+                    class="cat-tile__img cat-tile__img--console"
+                    src="assets/console.png"
+                    alt=""
+                  />
+                  <img
+                    class="cat-tile__img cat-tile__img--ctrl"
+                    src="assets/console-ctrl.png"
+                    alt=""
+                  />
+                </div>
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Наушники</p>
+                <img
+                  class="cat-tile__img cat-tile__img--airpods"
+                  src="assets/airpods.png"
+                  alt=""
+                />
+              </article>
+            </div>
+            <div class="swiper-slide categories-col">
+              <article class="cat-tile">
+                <p class="cat-tile__label">Макбуки</p>
+                <img
+                  class="cat-tile__img cat-tile__img--macbook"
+                  src="assets/macbook.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Фотоаппараты</p>
+                <img
+                  class="cat-tile__img cat-tile__img--camera"
+                  src="assets/camera.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Планшеты</p>
+                <img
+                  class="cat-tile__img cat-tile__img--tablet"
+                  src="assets/tablet.png"
+                  alt=""
+                />
+              </article>
+              <article class="cat-tile">
+                <p class="cat-tile__label">Видеокарты</p>
+                <img
+                  class="cat-tile__img cat-tile__img--gpu"
+                  src="assets/gpu.png"
+                  alt=""
+                />
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="approach">
+        <h2 class="section-title section-title--multiline">
+          Ответственный подход к каждому клиенту
+        </h2>
+        <div class="swiper approach-swiper">
+          <div class="swiper-wrapper">
+            <article class="swiper-slide approach-card">
+              <h3 class="approach-card__title">Бесплатный выезд к вам</h3>
+              <p class="approach-card__text">
+                Не нужно никуда ехать — приедем домой или в офис в удобное
+                время.
+              </p>
+              <div class="approach-card__media">
+                <img src="assets/approach-drive.png" alt="" />
+              </div>
+            </article>
+            <article class="swiper-slide approach-card">
+              <h3 class="approach-card__title">Безопасность данных</h3>
+              <p class="approach-card__text">
+                При вас удаляем всю личную информацию с устройств.
+              </p>
+              <div class="approach-card__media">
+                <img src="assets/approach-phone.png" alt="" />
+              </div>
+            </article>
+            <article class="swiper-slide approach-card">
+              <h3 class="approach-card__title">Простая процедура</h3>
+              <p class="approach-card__text">
+                Без лишних вопросов и стресса — быстро оцениваем и оформляем
+                выкуп.
+              </p>
+              <div class="approach-card__media">
+                <img src="assets/approach-handshake.png" alt="" />
+              </div>
+            </article>
+            <article class="swiper-slide approach-card">
+              <h3 class="approach-card__title">Оплата сразу</h3>
+              <p class="approach-card__text approach-card__text--tight">
+                После согласования сделки выплачиваем деньги в тот же день.
+              </p>
+              <div class="approach-card__media">
+                <img src="assets/approach-pay.png" alt="" />
+              </div>
+            </article>
+          </div>
+          <div class="swiper-scrollbar approach__scrollbar"></div>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <h2 class="section-title section-title--multiline">
+          Как проходит процесс выкупа?
+        </h2>
+        <ol class="process__list">
+          <li class="process-step">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>1</span>
+            </div>
+            <h3 class="process-step__title">Заявка</h3>
+            <p class="process-step__text">
+              Оставляете заявку на сайте или отправляете фото в мессенджеры.
+              Менеджер связывается с вами, уточняет детали и отвечает на
+              вопросы.
+            </p>
+          </li>
+          <li class="process-step process-step--tall">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>2</span>
+            </div>
+            <h3 class="process-step__title">Онлайн оценка</h3>
+            <p class="process-step__text">
+              По фото и описанию предварительно оцениваем стоимость или
+              созваниваемся с вами по видео-связи. Озвучиваем ориентир по цене и
+              согласовываем дальнейшие шаги.
+            </p>
+          </li>
+          <li class="process-step">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>3</span>
+            </div>
+            <h3 class="process-step__title">Выезд оценщика</h3>
+            <p class="process-step__text">
+              Специалист бесплатно приезжает к вам в удобное время. Проводит
+              осмотр на месте и подтверждает итоговую стоимость.
+            </p>
+          </li>
+          <li class="process-step process-step--short">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>4</span>
+            </div>
+            <h3 class="process-step__title">Выкуп</h3>
+            <p class="process-step__text">
+              Оформляем сделку на месте без лишних формальностей. Сразу
+              выплачиваем деньги удобным для вас способом.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="lead" id="lead">
+        <img
+          class="lead__watermark"
+          src="assets/lead-watermark.svg"
+          width="641"
+          height="583"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="section-title">Оставьте заявку</h2>
+        <div class="lead__content">
+          <p class="lead__subtitle">
+            Мы свяжемся с вами, уточним информацию по товару и предложим
+            предварительную оценку.
+          </p>
+          <form class="lead__form" action="#" method="post">
+            <label class="visually-hidden" for="name">Ваше имя</label>
+            <input
+              class="lead__input"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Ваше имя"
+              autocomplete="name"
+            />
+            <label class="visually-hidden" for="phone">Ваш телефон</label>
+            <input
+              class="lead__input"
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Ваш телефон"
+              autocomplete="tel"
+            />
+            <button class="btn btn--primary lead__submit" type="submit">
+              Свяжитесь со мной
+            </button>
+            <label class="lead__legal">
+              <input
+                class="lead__check"
+                type="checkbox"
+                name="personal-data-consent"
+                checked
+              />
+              <span>
+                Нажимая на кнопку, вы даете согласие на
+                <a href="#">обработку персональных данных</a>
+              </span>
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <div class="bottom-band">
+        <img
+          class="bottom-band__watermark"
+          src="assets/bottom-watermark.svg"
+          width="716"
+          height="651"
+          alt=""
+          aria-hidden="true"
+        />
+        <section class="reviews">
+          <div class="reviews__header">
+            <div class="reviews__title-group">
+              <h2 class="section-title">Отзывы</h2>
+              <p class="reviews__subtitle">
+                Наши клиенты уже продали свои вещи быстро и без лишних
+                сложностей. Ознакомьтесь с реальными отзывами, чтобы убедиться в
+                качестве сервиса и прозрачности оценки.
+              </p>
+            </div>
+            <div class="reviews__nav">
+              <button
+                class="reviews__btn reviews__btn--prev"
+                type="button"
+                aria-label="Предыдущий отзыв"
+              >
+                <svg
+                  width="53"
+                  height="53"
+                  viewBox="0 0 53 53"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17 26.5001C17 26.3182 17.0756 26.1445 17.2014 26.0137L24.007 19.2016C24.2758 18.9325 24.711 18.9331 24.9791 19.2016C25.2479 19.47 25.2479 19.906 24.9791 20.1744L19.3464 25.812H38.3125C38.692 25.812 39 26.12 39 26.5001C39 26.8803 38.692 27.1882 38.3125 27.1882H19.3471L24.9791 32.8258C25.2479 33.0942 25.2473 33.5303 24.9791 33.7987C24.7103 34.0671 24.2751 34.0671 24.007 33.7987L17.2014 26.9866C17.0729 26.8578 17.0021 26.6807 17 26.5001Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <button
+                class="reviews__btn reviews__btn--next"
+                type="button"
+                aria-label="Следующий отзыв"
+              >
+                <svg
+                  width="53"
+                  height="53"
+                  viewBox="0 0 53 53"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M36 26.5001C36 26.3182 35.9244 26.1445 35.7986 26.0137L28.993 19.2016C28.7242 18.9325 28.289 18.9331 28.0209 19.2016C27.7521 19.47 27.7521 19.906 28.0209 20.1744L33.6536 25.812H14.6875C14.308 25.812 14 26.12 14 26.5001C14 26.8803 14.308 27.1882 14.6875 27.1882H33.6529L28.0209 32.8258C27.7521 33.0942 27.7527 33.5303 28.0209 33.7987C28.2897 34.0671 28.7249 34.0671 28.993 33.7987L35.7986 26.9866C35.9271 26.8578 35.9979 26.6807 36 26.5001Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="swiper reviews-swiper">
+            <div class="swiper-wrapper">
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--yellow"
+                    aria-hidden="true"
+                    >Е</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Елена</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--blue"
+                    aria-hidden="true"
+                    >Г</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Геннадий Самойлов</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Очень удобно, что не пришлось никуда ехать! Оставили заявку на
+                  сайте на оценку ноутбука. Уде через 5 минут получили
+                  предварительную оценку специалиста. Выкупили всё в тот же
+                  день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--pink"
+                    aria-hidden="true"
+                    >Т</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Татьяна Белоногова</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--yellow"
+                    aria-hidden="true"
+                    >Е</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Елена</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--blue"
+                    aria-hidden="true"
+                    >Г</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Геннадий Самойлов</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Очень удобно, что не пришлось никуда ехать! Оставили заявку на
+                  сайте на оценку ноутбука. Уде через 5 минут получили
+                  предварительную оценку специалиста. Выкупили всё в тот же
+                  день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--pink"
+                    aria-hidden="true"
+                    >Т</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Татьяна Белоногова</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq">
+          <h2 class="section-title">Частые вопросы</h2>
+          <div class="faq__list">
+            <details class="faq-item">
+              <summary class="faq-item__summary">
+                <span>Нужны ли документы на товар?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+            <details class="faq-item" open>
+              <summary class="faq-item__summary faq-item__summary--multiline">
+                <span>Можно ли продать партию (10+ штук)?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__summary">
+                <span>Вы выезжаете на дом?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section class="stores" id="stores">
+          <h2 class="section-title">Наши магазины</h2>
+          <div class="swiper stores-tabs-swiper">
+            <div
+              class="swiper-wrapper"
+              role="tablist"
+              aria-label="Адреса магазинов"
+            >
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab is-active"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  data-store="0"
+                >
+                  Санкт-Петербург, пр.Энгельса, 137А
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-store="1"
+                >
+                  Санкт-Петербург, ул.Белы Куна, 6к1
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-store="2"
+                >
+                  Санкт-Петербург, пр.Науки, 12
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="stores__galleries">
+            <button
+              class="stores__btn stores__btn--prev"
+              type="button"
+              aria-label="Предыдущее фото"
+            >
+              <svg
+                width="53"
+                height="53"
+                viewBox="0 0 53 53"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17 26.5001C17 26.3182 17.0756 26.1445 17.2014 26.0137L24.007 19.2016C24.2758 18.9325 24.711 18.9331 24.9791 19.2016C25.2479 19.47 25.2479 19.906 24.9791 20.1744L19.3464 25.812H38.3125C38.692 25.812 39 26.12 39 26.5001C39 26.8803 38.692 27.1882 38.3125 27.1882H19.3471L24.9791 32.8258C25.2479 33.0942 25.2473 33.5303 24.9791 33.7987C24.7103 34.0671 24.2751 34.0671 24.007 33.7987L17.2014 26.9866C17.0729 26.8578 17.0021 26.6807 17 26.5001Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button
+              class="stores__btn stores__btn--next"
+              type="button"
+              aria-label="Следующее фото"
+            >
+              <svg
+                width="53"
+                height="53"
+                viewBox="0 0 53 53"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M36 26.5001C36 26.3182 35.9244 26.1445 35.7986 26.0137L28.993 19.2016C28.7242 18.9325 28.289 18.9331 28.0209 19.2016C27.7521 19.47 27.7521 19.906 28.0209 20.1744L33.6536 25.812H14.6875C14.308 25.812 14 26.12 14 26.5001C14 26.8803 14.308 27.1882 14.6875 27.1882H33.6529L28.0209 32.8258C27.7521 33.0942 27.7527 33.5303 28.0209 33.7987C28.2897 34.0671 28.7249 34.0671 28.993 33.7987L35.7986 26.9866C35.9271 26.8578 35.9979 26.6807 36 26.5001Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <!-- Магазин 1 -->
+            <div class="swiper stores-photos-swiper is-active" data-gallery="0">
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на пр. Энгельса, 137А - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на пр. Энгельса, 137А - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+            <!-- Магазин 2 -->
+            <div
+              class="swiper stores-photos-swiper"
+              data-gallery="1"
+              style="display: none"
+            >
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на ул. Белы Куна, 6к1 - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на ул. Белы Куна, 6к1 - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+            <!-- Магазин 3 -->
+            <div
+              class="swiper stores-photos-swiper"
+              data-gallery="2"
+              style="display: none"
+            >
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на пр. Науки, 12 - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на пр. Науки, 12 - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="contacts" id="contacts">
+        <div class="contacts__container">
+          <h2 class="section-title">Контакты</h2>
+          <div class="contacts__cities">
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Сочи</h3>
+              <ul class="contacts-card__list">
+                <li>Сочи, Донская, 58</li>
+                <li>Адлер, Демократическая, 75/1</li>
+                <li>Лазаревское, пер.Павлова, 2/3Б</li>
+                <li>Сочи, Московская, 18, стр 1а</li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Анапа</h3>
+              <ul class="contacts-card__list">
+                <li>Анапа, Крымская, 260</li>
+                <li>Анапа, Промышленная, 17</li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Геленджик</h3>
+              <ul class="contacts-card__list">
+                <li>Геленджик, Кирова, 60Б</li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Новороссийск</h3>
+              <ul class="contacts-card__list">
+                <li>Новороссийск, пр.Ленина, 23</li>
+                <li>Новороссийск, ул.Свободы, 3/5</li>
+                <li>Новороссийск, пр.Ленина, 23</li>
+                <li>Новороссийск, ул.Свободы, 3/5</li>
+                <li>Новороссийск, пр.Ленина, 23</li>
+                <li>Новороссийск, ул.Свободы, 3/5</li>
+                <li>Новороссийск, пр.Ленина, 23</li>
+                <li>Новороссийск, ул.Свободы, 3/5</li>
+              </ul>
+            </div>
+          </div>
+          <div class="contacts__map">
+            <div
+              id="contacts-map"
+              class="contacts__map-canvas"
+              role="region"
+              aria-label="Карта магазинов Легенда"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a class="footer__logo" href="#">
+          <img
+            src="assets/logo-footer.svg"
+            width="227"
+            height="53"
+            alt="Легенда"
+          />
+        </a>
+        <div class="footer__contacts">
+          <a class="footer__phone" href="tel:+79013260869">+7 901-326-08-69</a>
+          <div class="footer__socials">
+            <a class="footer__social" href="#" aria-label="WhatsApp">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.9622 0.0218709C5.72784 0.506051 -0.367879 7.7732 0.0172539 16.9371C0.185473 20.9482 1.79241 24.3997 2.17311 28.2065C2.2705 29.1926 1.98719 30.4098 3.12045 30.8406C4.5149 31.3692 6.65305 30.4808 7.82173 29.6679C8.22014 29.397 8.60085 29.0816 8.89302 28.6907C10.1015 29.4947 11.2481 30.272 12.6868 30.6185C19.0216 32.1421 25.9628 28.6551 29.0483 23.0538C34.8474 12.5306 27.0075 -0.608896 14.9622 0.0218709ZM11.3765 21.9832C10.8762 22.3741 10.3937 22.9072 9.84035 23.2137C9.0391 23.6445 8.7912 23.1959 8.49018 22.4852C7.54284 20.2242 7.42774 16.373 7.98109 14.0054C8.7248 10.7849 11.2082 7.95088 14.6213 7.64882C18.0742 7.34233 21.2792 9.10137 22.7268 12.2774C25.9318 19.3447 17.7289 26.3231 11.3765 21.9877V21.9832Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a class="footer__social" href="#" aria-label="Telegram">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15.5 0C6.94012 0 0 6.94012 0 15.5C0 24.0599 6.94012 31 15.5 31C24.0599 31 31 24.0599 31 15.5C31 6.94012 24.0599 0 15.5 0ZM23.1131 10.6188L20.5685 22.6055C20.3812 23.4554 19.8749 23.662 19.1683 23.2616L15.2933 20.407L13.4256 22.2076C13.2447 22.4401 12.9645 22.5887 12.6506 22.5887C12.648 22.5887 12.6467 22.5887 12.6441 22.5887L12.9192 18.6439L20.1009 12.1572C20.4109 11.882 20.0312 11.7258 19.6191 12.0009L10.7467 17.5886L6.92333 16.3951C6.09667 16.1329 6.07342 15.5685 7.09771 15.1629L22.0371 9.40462C22.732 9.15146 23.3365 9.56996 23.1118 10.6201L23.1131 10.6188Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <a href="#categories">Что выкупаем</a>
+          <a href="#process">Процесс выкупа</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="footer__line"></div>
+        <a class="footer__policy" href="#">Политика конфиденциальности</a>
+      </footer>
+    </div>
+
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Меню"
+      aria-hidden="true"
+    >
+      <div class="mobile-menu__panel">
+        <div class="mobile-menu__top">
+          <a class="mobile-menu__logo" href="#">
+            <img
+              src="assets/logo.svg"
+              width="160"
+              height="36"
+              alt="Легенда — комиссионный магазин"
+            />
+          </a>
+          <button
+            class="mobile-menu__close"
+            type="button"
+            aria-label="Закрыть меню"
+          >
+            <img src="assets/menu-close.svg" width="13" height="13" alt="" />
+          </button>
+        </div>
+        <nav class="mobile-menu__nav">
+          <a href="#categories">Что выкупаем</a>
+          <a href="#process">Процесс выкупа</a>
+          <a href="#contacts">Контакты</a>
+          <a href="#lead">Онлайн оценка</a>
+        </nav>
+        <div class="mobile-menu__contacts">
+          <a class="mobile-menu__phone" href="tel:+79013260869"
+            >+7 901-326-08-69</a
+          >
+          <div class="mobile-menu__socials">
+            <a href="#" class="mobile-menu__social" aria-label="WhatsApp">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.9622 0.0218709C5.72784 0.506051 -0.367879 7.7732 0.0172539 16.9371C0.185473 20.9482 1.79241 24.3997 2.17311 28.2065C2.2705 29.1926 1.98719 30.4098 3.12045 30.8406C4.5149 31.3692 6.65305 30.4808 7.82173 29.6679C8.22014 29.397 8.60085 29.0816 8.89302 28.6907C10.1015 29.4947 11.2481 30.272 12.6868 30.6185C19.0216 32.1421 25.9628 28.6551 29.0483 23.0538C34.8474 12.5306 27.0075 -0.608896 14.9622 0.0218709ZM11.3765 21.9832C10.8762 22.3741 10.3937 22.9072 9.84035 23.2137C9.0391 23.6445 8.7912 23.1959 8.49018 22.4852C7.54284 20.2242 7.42774 16.373 7.98109 14.0054C8.7248 10.7849 11.2082 7.95088 14.6213 7.64882C18.0742 7.34233 21.2792 9.10137 22.7268 12.2774C25.9318 19.3447 17.7289 26.3231 11.3765 21.9877V21.9832Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a href="#" class="mobile-menu__social" aria-label="Telegram">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15.5 0C6.94012 0 0 6.94012 0 15.5C0 24.0599 6.94012 31 15.5 31C24.0599 31 31 24.0599 31 15.5C31 6.94012 24.0599 0 15.5 0ZM23.1131 10.6188L20.5685 22.6055C20.3812 23.4554 19.8749 23.662 19.1683 23.2616L15.2933 20.407L13.4256 22.2076C13.2447 22.4401 12.9645 22.5887 12.6506 22.5887C12.648 22.5887 12.6467 22.5887 12.6441 22.5887L12.9192 18.6439L20.1009 12.1572C20.4109 11.882 20.0312 11.7258 19.6191 12.0009L10.7467 17.5886L6.92333 16.3951C6.09667 16.1329 6.07342 15.5685 7.09771 15.1629L22.0371 9.40462C22.732 9.15146 23.3365 9.56996 23.1118 10.6201L23.1131 10.6188Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <img
+          class="mobile-menu__watermark"
+          src="assets/menu-watermark.svg"
+          width="479"
+          height="429"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
