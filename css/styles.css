@@ -473,7 +473,7 @@ body.is-menu-open {
 
 /* ========== Categories ========== */
 .categories {
-  padding: 17px 0 40px;
+  padding: 17px 0 37px;
   background: #fff;
 }
 
@@ -664,7 +664,7 @@ body.is-menu-open {
 }
 
 .approach .section-title {
-  margin-bottom: 26px;
+  margin-bottom: 27px;
 }
 
 .approach-swiper {
@@ -753,7 +753,7 @@ body.is-menu-open {
 }
 
 .process .section-title {
-  margin-bottom: 26px;
+  margin-bottom: 17px;
 }
 
 .process__list {
@@ -836,7 +836,7 @@ body.is-menu-open {
 }
 
 .lead .section-title {
-  margin-bottom: 7px;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -1235,13 +1235,13 @@ body.is-menu-open {
 
 /* ========== Contacts ========== */
 .contacts {
-  background: linear-gradient(to bottom, #425576, #414763);
-  color: #fff;
-  padding: 40px 0 0;
+  background: transparent;
+  color: #282828;
+  padding: 0;
 }
 
 .contacts .section-title {
-  color: #fff;
+  color: #282828;
   padding: 0 15px;
   margin-bottom: 0;
 }
@@ -1334,10 +1334,15 @@ body.is-menu-open {
 @media (min-width: 668px) {
   /* Adding contacts responsive grid for tablet */
   .contacts {
-    padding: 50px 0 0;
+    background: transparent;
+    color: #282828;
+    padding: 0;
   }
 
   .contacts .section-title {
+    color: #282828;
+    font-size: 32px;
+    line-height: 50px;
     padding: 0 24px;
   }
 
@@ -1484,7 +1489,11 @@ body.is-menu-open {
 
   /* ========== Categories ========== */
   .categories {
-    padding: 29px 0 40px;
+    padding: 33px 0 79px;
+  }
+
+  .categories .section-title {
+    margin-bottom: 18px;
   }
 
   .categories-swiper {
@@ -1636,6 +1645,10 @@ body.is-menu-open {
     padding: 40px 0;
   }
 
+  .approach .section-title {
+    margin-bottom: 30px;
+  }
+
   .approach-swiper {
     padding: 0 24px 26px;
   }
@@ -1664,6 +1677,10 @@ body.is-menu-open {
   /* ========== Process ========== */
   .process {
     padding: 40px 24px 50px;
+  }
+
+  .process .section-title {
+    margin-bottom: 29px;
   }
 
   .process__list {
@@ -1712,13 +1729,17 @@ body.is-menu-open {
 
   /* ========== Lead ========== */
   .lead {
-    padding: 40px 24px;
+    padding: 28px 24px 39px;
+  }
+
+  .lead .section-title {
+    margin-bottom: 5px;
   }
 
   .lead__subtitle {
     font-size: 16px;
     max-width: 436px;
-    margin-bottom: 31px;
+    margin-bottom: 15px;
   }
 
   .lead__form {
@@ -1734,12 +1755,12 @@ body.is-menu-open {
 
   .lead__submit {
     width: 242px;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .lead__legal {
     font-size: 14px;
-    margin-top: 11px;
+    margin-top: 10px;
   }
 
   /* ========== Reviews ========== */
@@ -1751,6 +1772,10 @@ body.is-menu-open {
     padding: 0 24px 37px;
   }
 
+  .reviews .section-title {
+    margin-bottom: 18px;
+  }
+
   .review-card {
     width: 270px !important;
     padding: 26px 29px 24px;
@@ -1759,6 +1784,10 @@ body.is-menu-open {
   /* ========== FAQ ========== */
   .faq {
     padding: 0 24px 27px;
+  }
+
+  .faq .section-title {
+    margin-bottom: 20px;
   }
 
   .faq-item__summary {
@@ -1777,6 +1806,10 @@ body.is-menu-open {
     padding: 0 0 40px;
   }
 
+  .stores .section-title {
+    margin-bottom: 11px;
+  }
+
   .stores-tabs-swiper {
     padding: 0 24px 14px;
   }
@@ -1788,6 +1821,10 @@ body.is-menu-open {
   .stores__photo {
     width: 281px !important;
     height: 352px;
+  }
+
+  .contacts .section-title {
+    margin-bottom: 20px;
   }
 
   /* ========== Footer ========== */
@@ -2075,7 +2112,11 @@ body.is-menu-open {
 
   /* ========== Categories ========== */
   .categories {
-    padding: 60px 0 50px;
+    padding: 70px 0 110px;
+  }
+
+  .categories .section-title {
+    margin-bottom: 40px;
   }
 
   .categories-swiper {
@@ -2087,7 +2128,11 @@ body.is-menu-open {
 
   /* ========== Approach ========== */
   .approach {
-    padding: 60px 0;
+    padding: 73px 0 74px;
+  }
+
+  .approach .section-title {
+    margin-bottom: 42px;
   }
 
   .approach-swiper {
@@ -2103,13 +2148,13 @@ body.is-menu-open {
 
   /* ========== Process ========== */
   .process {
-    padding: 60px 0 70px;
+    padding: 83px 0 66px;
     max-width: 1202px;
     margin: 0 auto;
   }
 
   .process .section-title {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
 
   .process__list {
@@ -2169,7 +2214,7 @@ body.is-menu-open {
     column-gap: 0;
     align-items: start;
     max-width: 1202px;
-    margin: 50px auto;
+    margin: 66px auto 68px;
     height: 379px;
     padding: 41px 28px 48px 56px;
     box-sizing: border-box;
@@ -2287,8 +2332,8 @@ body.is-menu-open {
     overflow: hidden;
     background: #f4f5f7;
     border-radius: 50px 50px 0 0;
-    padding-top: 60px;
-    padding-bottom: 50px;
+    padding-top: 90px;
+    padding-bottom: 0;
   }
 
   .bottom-band__watermark {
@@ -2312,7 +2357,7 @@ body.is-menu-open {
 
   .reviews {
     max-width: 1202px;
-    margin: 0 auto 50px;
+    margin: 0 auto 97px;
   }
 
   .reviews__header {
@@ -2458,7 +2503,7 @@ body.is-menu-open {
   /* ========== FAQ ========== */
   .faq {
     max-width: 1202px;
-    margin: 0 auto 60px;
+    margin: 0 auto 96px;
     padding: 0;
   }
 
@@ -2531,7 +2576,7 @@ body.is-menu-open {
   .stores {
     max-width: 1202px;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 0 0 57px;
     overflow: visible;
   }
 
@@ -2666,7 +2711,7 @@ body.is-menu-open {
   .contacts {
     background-color: #414763;
     background-image: linear-gradient(to bottom, #425576, #414763);
-    padding: 80px 0 58px;
+    padding: 137px 0 58px;
   }
 
   .contacts__container {
@@ -2679,7 +2724,7 @@ body.is-menu-open {
       "title title"
       "cities map";
     column-gap: 40px;
-    row-gap: 30px;
+    row-gap: 37px;
     align-items: start;
   }
 
