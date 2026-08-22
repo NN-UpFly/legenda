@@ -21,87 +21,89 @@
     ></script>
   </head>
   <body>
-    <div class="page">
-      <header class="header">
-        <button
-          class="header__menu"
-          type="button"
-          aria-label="Меню"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+    <header class="header">
+      <button
+        class="header__menu"
+        type="button"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="header__logo" href="#">
+        <img
+          src="assets/logo.svg"
+          width="160"
+          height="36"
+          alt="Легенда — комиссионный магазин"
+        />
+      </a>
+      <nav class="header__nav">
+        <a href="#categories">Что выкупаем</a>
+        <a href="#process">Процесс выкупа</a>
+        <a href="#contacts">Контакты</a>
+        <button type="button" class="header__nav-cta" data-eval-open>
+          Онлайн оценка
         </button>
-        <a class="header__logo" href="#">
-          <img
-            src="assets/logo.svg"
-            width="160"
-            height="36"
-            alt="Легенда — комиссионный магазин"
-          />
-        </a>
-        <nav class="header__nav">
-          <a href="#categories">Что выкупаем</a>
-          <a href="#process">Процесс выкупа</a>
-          <a href="#contacts">Контакты</a>
-          <a href="#lead" class="header__nav-cta">Онлайн оценка</a>
-        </nav>
-        <div class="header__right">
-          <div class="header__phone-group">
-            <a class="header__phone-link" href="tel:+79013260869"
-              >+7 901-326-08-69</a
-            >
-            <span class="header__city">
-              <img
-                src="assets/phone-icon.svg"
-                width="12"
-                height="12"
-                alt=""
-                class="header__city-icon"
-              />
-              Санкт-Петербург
-            </span>
-          </div>
-          <div class="header__socials">
-            <a href="#" class="header__social" aria-label="WhatsApp">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 31 31"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M14.9622 0.0218709C5.72784 0.506051 -0.367879 7.7732 0.0172539 16.9371C0.185473 20.9482 1.79241 24.3997 2.17311 28.2065C2.2705 29.1926 1.98719 30.4098 3.12045 30.8406C4.5149 31.3692 6.65305 30.4808 7.82173 29.6679C8.22014 29.397 8.60085 29.0816 8.89302 28.6907C10.1015 29.4947 11.2481 30.272 12.6868 30.6185C19.0216 32.1421 25.9628 28.6551 29.0483 23.0538C34.8474 12.5306 27.0075 -0.608896 14.9622 0.0218709ZM11.3765 21.9832C10.8762 22.3741 10.3937 22.9072 9.84035 23.2137C9.0391 23.6445 8.7912 23.1959 8.49018 22.4852C7.54284 20.2242 7.42774 16.373 7.98109 14.0054C8.7248 10.7849 11.2082 7.95088 14.6213 7.64882C18.0742 7.34233 21.2792 9.10137 22.7268 12.2774C25.9318 19.3447 17.7289 26.3231 11.3765 21.9877V21.9832Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-            <a href="#" class="header__social" aria-label="Telegram">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 31 31"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M15.5 0C6.94012 0 0 6.94012 0 15.5C0 24.0599 6.94012 31 15.5 31C24.0599 31 31 24.0599 31 15.5C31 6.94012 24.0599 0 15.5 0ZM23.1131 10.6188L20.5685 22.6055C20.3812 23.4554 19.8749 23.662 19.1683 23.2616L15.2933 20.407L13.4256 22.2076C13.2447 22.4401 12.9645 22.5887 12.6506 22.5887C12.648 22.5887 12.6467 22.5887 12.6441 22.5887L12.9192 18.6439L20.1009 12.1572C20.4109 11.882 20.0312 11.7258 19.6191 12.0009L10.7467 17.5886L6.92333 16.3951C6.09667 16.1329 6.07342 15.5685 7.09771 15.1629L22.0371 9.40462C22.732 9.15146 23.3365 9.56996 23.1118 10.6201L23.1131 10.6188Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-          </div>
+      </nav>
+      <div class="header__right">
+        <div class="header__phone-group">
+          <a class="header__phone-link" href="tel:+79013260869"
+            >+7 901-326-08-69</a
+          >
+          <span class="header__city">
+            <img
+              src="assets/phone-icon.svg"
+              width="12"
+              height="12"
+              alt=""
+              class="header__city-icon"
+            />
+            Санкт-Петербург
+          </span>
         </div>
-        <a class="header__phone" href="tel:+79013260869" aria-label="Позвонить">
-          <img src="assets/phone-icon.svg" width="16" height="16" alt="" />
-        </a>
-      </header>
+        <div class="header__socials">
+          <a href="#" class="header__social" aria-label="WhatsApp">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 31 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14.9622 0.0218709C5.72784 0.506051 -0.367879 7.7732 0.0172539 16.9371C0.185473 20.9482 1.79241 24.3997 2.17311 28.2065C2.2705 29.1926 1.98719 30.4098 3.12045 30.8406C4.5149 31.3692 6.65305 30.4808 7.82173 29.6679C8.22014 29.397 8.60085 29.0816 8.89302 28.6907C10.1015 29.4947 11.2481 30.272 12.6868 30.6185C19.0216 32.1421 25.9628 28.6551 29.0483 23.0538C34.8474 12.5306 27.0075 -0.608896 14.9622 0.0218709ZM11.3765 21.9832C10.8762 22.3741 10.3937 22.9072 9.84035 23.2137C9.0391 23.6445 8.7912 23.1959 8.49018 22.4852C7.54284 20.2242 7.42774 16.373 7.98109 14.0054C8.7248 10.7849 11.2082 7.95088 14.6213 7.64882C18.0742 7.34233 21.2792 9.10137 22.7268 12.2774C25.9318 19.3447 17.7289 26.3231 11.3765 21.9877V21.9832Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+          <a href="#" class="header__social" aria-label="Telegram">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 31 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M15.5 0C6.94012 0 0 6.94012 0 15.5C0 24.0599 6.94012 31 15.5 31C24.0599 31 31 24.0599 31 15.5C31 6.94012 24.0599 0 15.5 0ZM23.1131 10.6188L20.5685 22.6055C20.3812 23.4554 19.8749 23.662 19.1683 23.2616L15.2933 20.407L13.4256 22.2076C13.2447 22.4401 12.9645 22.5887 12.6506 22.5887C12.648 22.5887 12.6467 22.5887 12.6441 22.5887L12.9192 18.6439L20.1009 12.1572C20.4109 11.882 20.0312 11.7258 19.6191 12.0009L10.7467 17.5886L6.92333 16.3951C6.09667 16.1329 6.07342 15.5685 7.09771 15.1629L22.0371 9.40462C22.732 9.15146 23.3365 9.56996 23.1118 10.6201L23.1131 10.6188Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <a class="header__phone" href="tel:+79013260869" aria-label="Позвонить">
+        <img src="assets/phone-icon.svg" width="16" height="16" alt="" />
+      </a>
+    </header>
 
+    <div class="page">
       <section class="hero">
         <div class="hero__bg" aria-hidden="true">
           <img class="hero__decor" src="assets/hero-mask.svg" alt="" />
@@ -144,9 +146,13 @@
                 <p class="hero__feature-text">Деньги сразу после сделки</p>
               </li>
             </ul>
-            <a class="btn btn--primary hero__cta" href="#lead"
-              >Оценить онлайн</a
+            <button
+              class="btn btn--primary hero__cta"
+              type="button"
+              data-eval-open
             >
+              Оценить онлайн
+            </button>
             <div class="hero__warning">
               <span class="hero__warning-badge" aria-hidden="true">!</span>
               <p class="hero__warning-text">Выкупаем только рабочую технику</p>
@@ -728,7 +734,7 @@
                 согласования цены.
               </p>
             </details>
-            <details class="faq-item" open>
+            <details class="faq-item">
               <summary class="faq-item__summary faq-item__summary--multiline">
                 <span>Можно ли продать партию (10+ штук)?</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
@@ -1037,7 +1043,7 @@
           <a href="#categories">Что выкупаем</a>
           <a href="#process">Процесс выкупа</a>
           <a href="#contacts">Контакты</a>
-          <a href="#lead">Онлайн оценка</a>
+          <button type="button" data-eval-open>Онлайн оценка</button>
         </nav>
         <div class="mobile-menu__contacts">
           <a class="mobile-menu__phone" href="tel:+79013260869"
@@ -1084,6 +1090,157 @@
           alt=""
           aria-hidden="true"
         />
+      </div>
+    </div>
+
+    <div
+      class="eval-modal"
+      id="eval-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="eval-modal-title"
+      aria-hidden="true"
+    >
+      <div class="eval-modal__backdrop" data-eval-close></div>
+      <div class="eval-modal__scroll">
+        <div class="eval-modal__dialog" role="document">
+        <button
+          class="eval-modal__close"
+          type="button"
+          aria-label="Закрыть"
+          data-eval-close
+        >
+          <span class="eval-modal__close-icon" aria-hidden="true"></span>
+        </button>
+        <h2 class="eval-modal__title" id="eval-modal-title">
+          <span class="eval-modal__title-line">Онлайн оценка</span>
+          <span class="eval-modal__title-line">техники</span>
+        </h2>
+        <p class="eval-modal__subtitle">
+          Оставьте заявку на оценку, мы свяжемся с вами в ближайшее время
+        </p>
+        <form class="eval-modal__form" action="#" method="post">
+          <div class="eval-modal__fields">
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-name">Ваше имя</label>
+              <input
+                class="eval-modal__input"
+                id="eval-name"
+                name="name"
+                type="text"
+                placeholder="Введите имя"
+                autocomplete="name"
+              />
+            </div>
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-phone">Телефон</label>
+              <input
+                class="eval-modal__input"
+                id="eval-phone"
+                name="phone"
+                type="tel"
+                placeholder="+7 (___)___-__-__"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-city">Ваш город</label>
+              <div class="eval-modal__select-wrap">
+                <select
+                  class="eval-modal__input eval-modal__select"
+                  id="eval-city"
+                  name="city"
+                  required
+                >
+                  <option value="" selected disabled>Выберите город</option>
+                  <option value="sankt-peterburg">Санкт-Петербург</option>
+                  <option value="sochi">Сочи</option>
+                  <option value="anapa">Анапа</option>
+                  <option value="gelendzhik">Геленджик</option>
+                  <option value="novorossiysk">Новороссийск</option>
+                </select>
+              </div>
+            </div>
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-product"
+                >Наименование товара</label
+              >
+              <input
+                class="eval-modal__input"
+                id="eval-product"
+                name="product"
+                type="text"
+                placeholder="Бренд, марка, модель"
+              />
+            </div>
+            <div class="eval-modal__field eval-modal__field--full">
+              <label class="eval-modal__label" for="eval-description"
+                >Описание товара</label
+              >
+              <textarea
+                class="eval-modal__input eval-modal__textarea"
+                id="eval-description"
+                name="description"
+                placeholder="Состояние, комплектность, характеристики"
+              ></textarea>
+            </div>
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-price"
+                >Желаемая стоимость</label
+              >
+              <input
+                class="eval-modal__input"
+                id="eval-price"
+                name="price"
+                type="text"
+                inputmode="numeric"
+                placeholder="Введите сумму"
+              />
+            </div>
+            <div class="eval-modal__field">
+              <label class="eval-modal__label" for="eval-photos"
+                >Фотографии (максимально 3 фото)</label
+              >
+              <label class="eval-modal__upload">
+                <input
+                  class="visually-hidden"
+                  id="eval-photos"
+                  name="photos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <span class="eval-modal__upload-text"
+                  >Загрузите или перетащите фото</span
+                >
+                <span class="eval-modal__upload-icon" aria-hidden="true">
+                  <img
+                    class="eval-modal__upload-icon-bg"
+                    src="assets/modal-camera-bg.svg"
+                    width="33"
+                    height="33"
+                    alt=""
+                  />
+                  <img
+                    class="eval-modal__upload-icon-cam"
+                    src="assets/modal-camera.svg"
+                    width="17"
+                    height="15"
+                    alt=""
+                  />
+                </span>
+              </label>
+            </div>
+          </div>
+          <p class="eval-modal__legal">
+            Нажимая на кнопку, вы соглашаетесь с
+            <a href="#">политикой конфиденциальности</a>
+          </p>
+          <button class="btn btn--primary eval-modal__submit" type="submit">
+            Оставить заявку
+          </button>
+        </form>
+      </div>
       </div>
     </div>
 

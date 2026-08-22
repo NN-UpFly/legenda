@@ -1,9 +1,99 @@
 const menuBtn = document.querySelector(".header__menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuClose = document.querySelector(".mobile-menu__close");
+const evalModal = document.querySelector("#eval-modal");
+const evalOpenTriggers = document.querySelectorAll("[data-eval-open]");
+
+let setEvalModalOpen = () => {};
+
+if (evalModal && evalOpenTriggers.length) {
+  let lastEvalTrigger = null;
+  const evalCloseBtn = evalModal.querySelector(".eval-modal__close");
+
+  setEvalModalOpen = (open, { restoreFocus = true } = {}) => {
+    evalModal.classList.toggle("is-open", open);
+    evalModal.setAttribute("aria-hidden", open ? "false" : "true");
+    document.documentElement.classList.toggle("is-modal-open", open);
+    document.body.classList.toggle("is-modal-open", open);
+    evalModal.inert = !open;
+
+    if (open) {
+      evalCloseBtn?.focus();
+    } else if (restoreFocus && lastEvalTrigger) {
+      const menuIsClosed =
+        mobileMenu &&
+        mobileMenu.contains(lastEvalTrigger) &&
+        !mobileMenu.classList.contains("is-open");
+      if (menuIsClosed && menuBtn) {
+        menuBtn.focus();
+      } else {
+        lastEvalTrigger.focus();
+      }
+    }
+  };
+
+  evalModal.inert = true;
+
+  evalOpenTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      lastEvalTrigger = trigger;
+      setEvalModalOpen(true);
+    });
+  });
+
+  evalModal.querySelectorAll("[data-eval-close]").forEach((el) => {
+    el.addEventListener("click", () => setEvalModalOpen(false));
+  });
+
+  const evalScroll = evalModal.querySelector(".eval-modal__scroll");
+  if (evalScroll) {
+    evalScroll.addEventListener("click", (event) => {
+      if (event.target === evalScroll) {
+        setEvalModalOpen(false);
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && evalModal.classList.contains("is-open")) {
+      setEvalModalOpen(false);
+    }
+  });
+
+  const evalForm = evalModal.querySelector(".eval-modal__form");
+  const evalPhotos = evalModal.querySelector("#eval-photos");
+  const evalUploadText = evalModal.querySelector(".eval-modal__upload-text");
+  const evalUploadDefault =
+    evalUploadText?.textContent?.trim() || "Загрузите или перетащите фото";
+
+  if (evalPhotos && evalUploadText) {
+    evalPhotos.addEventListener("change", () => {
+      const files = [...(evalPhotos.files || [])].slice(0, 3);
+      if (evalPhotos.files && evalPhotos.files.length > 3) {
+        const dt = new DataTransfer();
+        files.forEach((file) => dt.items.add(file));
+        evalPhotos.files = dt.files;
+      }
+      evalUploadText.textContent = files.length
+        ? files.map((file) => file.name).join(", ")
+        : evalUploadDefault;
+    });
+  }
+
+  if (evalForm) {
+    evalForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+    });
+  }
+}
 
 if (menuBtn && mobileMenu && menuClose) {
   const setMenuOpen = (open, { restoreFocus = true } = {}) => {
+    if (open) {
+      setEvalModalOpen(false, { restoreFocus: false });
+    }
+
     mobileMenu.classList.toggle("is-open", open);
     mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -23,7 +113,7 @@ if (menuBtn && mobileMenu && menuClose) {
   menuBtn.addEventListener("click", () => setMenuOpen(true));
   menuClose.addEventListener("click", () => setMenuOpen(false));
 
-  mobileMenu.querySelectorAll("a").forEach((link) => {
+  mobileMenu.querySelectorAll("a, [data-eval-open]").forEach((link) => {
     link.addEventListener("click", () => setMenuOpen(false));
   });
 
