@@ -1481,7 +1481,7 @@ body.is-menu-open {
 
 .contacts-card__address:hover,
 .contacts-card__address:focus-visible {
-  color: #282828;
+  color: #8bb5e8;
 }
 
 .contacts__detail {
@@ -1500,7 +1500,6 @@ body.is-menu-open {
 
 .contacts__detail:not([hidden]) {
   display: flex;
-  margin-top: 10px;
 }
 
 .contacts.is-detail-open .contacts__toggles {
@@ -1620,13 +1619,13 @@ body.is-menu-open {
 }
 
 .contacts-detail__route {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: fit-content;
   min-height: 53px;
   margin-bottom: 18px;
-  padding: 12px 16px;
+  padding: 12px 24px;
   border: 1px solid #8bb5e8;
   border-radius: 15px;
   background: #fff;
@@ -1752,6 +1751,13 @@ body.is-menu-open {
 
 /* ========== Узкий мобильный (320–479) ========== */
 @media (max-width: 479px) {
+  .contacts-detail__route {
+    display: flex;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .contacts-detail__messengers {
     flex-direction: column;
     gap: 8px;
@@ -1915,7 +1921,7 @@ body.is-menu-open {
   }
 
   .contacts__detail:not([hidden]) {
-    border-radius: 0 0 30px 30px;
+    border-radius: 20px 0 0 20px;
     padding: 20px 20px 24px;
   }
 

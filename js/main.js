@@ -548,109 +548,7 @@ $(function () {
       '[data-contacts-panel="detail"]',
     );
     const $detailBack = $contactsSection.find("[data-contacts-detail-back]");
-    const $detailTitle = $contactsSection.find("[data-contacts-detail-title]");
-    const $detailHours = $contactsSection.find("[data-contacts-detail-hours]");
-    const $detailPhone = $contactsSection.find("[data-contacts-detail-phone]");
-    const $detailMax = $contactsSection.find("[data-contacts-detail-max]");
-    const $detailTelegram = $contactsSection.find(
-      "[data-contacts-detail-telegram]",
-    );
-    const $detailRoute = $contactsSection.find("[data-contacts-detail-route]");
-    const $detailPhoto = $contactsSection.find("[data-contacts-detail-photo]");
-
-    // Данные магазинов для вкладки адреса
-    const storesById = {
-      "sochi-donskaya-58": {
-        title: "Сочи, Донская, 58",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-1.png",
-        coords: [39.723, 43.599],
-      },
-      "adler-demokraticheskaya": {
-        title: "Адлер, Демократическая, 75/1",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-2.png",
-        coords: [39.924, 43.437],
-      },
-      "lazarevskoye-pavlova": {
-        title: "Лазаревское, пер.Павлова, 2/3Б",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-1.png",
-        coords: [39.331, 43.909],
-      },
-      "sochi-moskovskaya": {
-        title: "Сочи, Московская, 18, стр 1а",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-2.png",
-        coords: [39.725, 43.585],
-      },
-      "anapa-krymskaya": {
-        title: "Анапа, Крымская, 260",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-1.png",
-        coords: [37.317, 44.895],
-      },
-      "anapa-promyshlennaya": {
-        title: "Анапа, Промышленная, 17",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-2.png",
-        coords: [37.347, 44.898],
-      },
-      "gelendzhik-kirova": {
-        title: "Геленджик, Кирова, 60Б",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-1.png",
-        coords: [38.077, 44.562],
-      },
-      "novorossiysk-lenina": {
-        title: "Новороссийск, пр.Ленина, 23",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-2.png",
-        coords: [37.769, 44.724],
-      },
-      "novorossiysk-svobody": {
-        title: "Новороссийск, ул.Свободы, 3/5",
-        hours: "Ежедневно 10:00 - 20:00",
-        phone: "+7 999 888-00-00",
-        phoneHref: "tel:+79998880000",
-        max: "https://max.ru/",
-        telegram: "https://t.me/",
-        photo: "assets/store-1.png",
-        coords: [37.771, 44.726],
-      },
-    };
+    const $detailStores = $contactsSection.find("[data-store-detail]");
 
     let contactsView = "map";
     let contactsMapApi = null;
@@ -670,28 +568,19 @@ $(function () {
       $listPanel.prop("hidden", view !== "list");
     };
 
-    const fillStoreDetail = (store) => {
-      $detailTitle.text(store.title);
-      $detailHours.text(store.hours);
-      $detailPhone.text(store.phone).attr("href", store.phoneHref);
-      $detailMax.attr("href", store.max);
-      $detailTelegram.attr("href", store.telegram);
-      $detailPhoto
-        .attr("src", store.photo)
-        .attr("alt", `Магазин ${store.title}`);
-
-      const [lng, lat] = store.coords;
-      $detailRoute.attr(
-        "href",
-        `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`,
+    const openStoreDetail = ($address) => {
+      const storeId = $address.data("storeDetail");
+      const coords = String($address.data("storeCoords"))
+        .split(",")
+        .map(Number);
+      const $storeDetail = $contactsSection.find(
+        `[data-store-detail="${storeId}"]`,
       );
-    };
+      if (!$storeDetail.length) return;
 
-    const openStoreDetail = (storeId) => {
-      const store = storesById[storeId];
-      if (!store) return;
+      $detailStores.prop("hidden", true);
+      $storeDetail.prop("hidden", false);
 
-      fillStoreDetail(store);
       $contactsSection.addClass("is-detail-open");
       $listPanel.prop("hidden", true);
       $detailPanel.prop("hidden", false);
@@ -701,7 +590,7 @@ $(function () {
       $mapPanel.prop("hidden", !isDesktop);
 
       if (isDesktop && contactsMapApi) {
-        contactsMapApi.focusStore(store.coords);
+        contactsMapApi.focusStore(coords);
       }
 
       $detailBack.trigger("focus");
@@ -726,7 +615,7 @@ $(function () {
     });
 
     $contactsSection.on("click", ".contacts-card__address", function () {
-      openStoreDetail($(this).data("storeId"));
+      openStoreDetail($(this));
     });
 
     $detailBack.on("click", closeStoreDetail);
