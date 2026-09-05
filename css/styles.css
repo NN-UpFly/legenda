@@ -143,7 +143,7 @@ ol {
 }
 
 .header__menu {
-  position: static;
+  position: relative;
   z-index: 20;
   width: 35px;
   height: 18px;
@@ -161,6 +161,32 @@ ol {
   height: 2px;
   background: #282828;
   border-radius: 2px;
+  transition: opacity 0.2s ease;
+}
+
+/* При открытом меню скрываем полоски и показываем крестик, как в модальных окнах */
+.header__menu.is-open span {
+  opacity: 0;
+}
+
+.header__menu.is-open::before,
+.header__menu.is-open::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: #282828;
+}
+
+.header__menu.is-open::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.header__menu.is-open::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .header__logo {
@@ -1440,6 +1466,205 @@ body.is-menu-open {
   line-height: 1.2;
 }
 
+.contacts-card__address {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.contacts-card__address:hover,
+.contacts-card__address:focus-visible {
+  color: #282828;
+}
+
+.contacts__detail {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  background: #f4f5f7;
+  border-radius: 0 0 30px 30px;
+  padding: 18px 16px 24px 18px;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.contacts__detail:not([hidden]) {
+  display: flex;
+  margin-top: 10px;
+}
+
+.contacts.is-detail-open .contacts__toggles {
+  display: none;
+}
+
+.contacts-detail__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 10px -6px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #282828;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.contacts-detail__back:hover,
+.contacts-detail__back:focus-visible {
+  background: rgba(139, 181, 232, 0.25);
+}
+
+.contacts-detail__title {
+  margin: 0 0 10px;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #282828;
+}
+
+.contacts-detail__hours {
+  margin: 0 0 8px;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #282828;
+}
+
+.contacts-detail__phone {
+  display: inline-block;
+  margin: 0 0 18px;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #282828;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contacts-detail__phone:hover,
+.contacts-detail__phone:focus-visible {
+  color: #8bb5e8;
+}
+
+.contacts-detail__messengers-label {
+  margin: 0 0 10px;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #282828;
+}
+
+.contacts-detail__messengers {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contacts-detail__messenger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 53px;
+  padding: 10px 14px;
+  border: 1px solid #8bb5e8;
+  border-radius: 15px;
+  background: #fff;
+  color: #282828;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contacts-detail__messenger:hover,
+.contacts-detail__messenger:focus-visible {
+  background: #e5f1ff;
+}
+
+.contacts-detail__messenger img {
+  display: block;
+  flex-shrink: 0;
+}
+
+.contacts-detail__messenger[data-contacts-detail-max] {
+  width: 117px;
+}
+
+.contacts-detail__messenger[data-contacts-detail-telegram] {
+  width: 149px;
+}
+
+.contacts-detail__route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 53px;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border: 1px solid #8bb5e8;
+  border-radius: 15px;
+  background: #fff;
+  color: #282828;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contacts-detail__route:hover,
+.contacts-detail__route:focus-visible {
+  background: #e5f1ff;
+  border-color: #8bb5e8;
+}
+
+.contacts-detail__photo {
+  margin: 0;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.contacts-detail__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
 .contacts__map {
   width: 100%;
   height: 622px;
@@ -1527,6 +1752,16 @@ body.is-menu-open {
 
 /* ========== Узкий мобильный (320–479) ========== */
 @media (max-width: 479px) {
+  .contacts-detail__messengers {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contacts-detail__messenger[data-contacts-detail-max],
+  .contacts-detail__messenger[data-contacts-detail-telegram] {
+    width: 100%;
+  }
+
   .hero {
     padding: 101px 15px 27px;
   }
@@ -1546,7 +1781,6 @@ body.is-menu-open {
     width: auto;
     max-width: 100%;
   }
-
 
   .hero__title-line:first-child {
     font-size: 38px;
@@ -1678,6 +1912,15 @@ body.is-menu-open {
   .contacts__map {
     height: 622px;
     border-radius: 0 0 30px 30px;
+  }
+
+  .contacts__detail:not([hidden]) {
+    border-radius: 0 0 30px 30px;
+    padding: 20px 20px 24px;
+  }
+
+  .contacts-detail__title {
+    font-size: 24px;
   }
 
   .section-title {
@@ -1878,7 +2121,6 @@ body.is-menu-open {
   .approach {
     padding: 60px 0;
   }
-
 
   .approach__watermark {
     display: block;
@@ -2781,6 +3023,7 @@ body.is-modal-open {
   height: 2px;
   border-radius: 2px;
   background: #282828;
+  transition: background-color 0.2s ease;
 }
 
 .eval-modal__close-icon::before {
@@ -2789,6 +3032,18 @@ body.is-modal-open {
 
 .eval-modal__close-icon::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Цвет крестика при наведении на кнопку закрытия */
+.eval-modal__close:hover .eval-modal__close-icon::before,
+.eval-modal__close:hover .eval-modal__close-icon::after {
+  background: #e5f1ff;
+}
+
+/* Цвет крестика при нажатии на кнопку закрытия */
+.eval-modal__close:active .eval-modal__close-icon::before,
+.eval-modal__close:active .eval-modal__close-icon::after {
+  background: #8bb5e8;
 }
 
 .eval-modal__title {
@@ -3067,6 +3322,7 @@ body.is-modal-open {
   height: 2px;
   border-radius: 2px;
   background: #282828;
+  transition: background-color 0.2s ease;
 }
 
 .city-modal__close-icon::before {
@@ -3075,6 +3331,18 @@ body.is-modal-open {
 
 .city-modal__close-icon::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Цвет крестика при наведении на кнопку закрытия */
+.city-modal__close:hover .city-modal__close-icon::before,
+.city-modal__close:hover .city-modal__close-icon::after {
+  background: #e5f1ff;
+}
+
+/* Цвет крестика при нажатии на кнопку закрытия */
+.city-modal__close:active .city-modal__close-icon::before,
+.city-modal__close:active .city-modal__close-icon::after {
+  background: #8bb5e8;
 }
 
 .city-modal__title {
@@ -3544,6 +3812,76 @@ body.is-modal-open {
     scrollbar-color: #8bb5e8 transparent;
   }
 
+  .contacts.is-detail-open .contacts__cities,
+  .contacts.is-detail-open .contacts__cities[hidden] {
+    display: none;
+  }
+
+  .contacts__detail {
+    grid-area: cities;
+    display: none;
+    margin-top: 0;
+    height: 622px;
+    border-radius: 20px 0 0 20px;
+    padding: 20px 20px 24px 22px;
+  }
+
+  .contacts.is-detail-open .contacts__detail,
+  .contacts.is-detail-open .contacts__detail:not([hidden]) {
+    display: flex;
+  }
+
+  .contacts.is-detail-open .contacts__map,
+  .contacts.is-detail-open .contacts__map[hidden] {
+    display: block;
+    margin-top: 0;
+  }
+
+  .contacts-detail__title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .contacts-detail__hours,
+  .contacts-detail__phone {
+    font-size: 14px;
+  }
+
+  .contacts-detail__phone {
+    margin-bottom: 16px;
+  }
+
+  .contacts-detail__messengers-label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .contacts-detail__messengers {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .contacts-detail__messenger {
+    min-height: 53px;
+    padding: 10px 14px;
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .contacts-detail__route {
+    min-height: 53px;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .contacts-detail__photo {
+    margin-top: auto;
+  }
+
+  .contacts-detail__photo img {
+    aspect-ratio: 16 / 11;
+  }
+
   .contacts__cities::-webkit-scrollbar {
     width: 5px;
   }
@@ -3911,11 +4249,9 @@ body.is-modal-open {
     max-width: 497px;
   }
 
-
   .approach {
     padding: 60px 0 0;
   }
-
 
   .approach__watermark {
     display: block;
@@ -3985,6 +4321,19 @@ body.is-modal-open {
   }
 
   .contacts-card__list li {
+    font-size: 16px;
+  }
+
+  .contacts-detail__title {
+    font-size: 20px;
+  }
+
+  .contacts-detail__hours,
+  .contacts-detail__phone {
+    font-size: 15px;
+  }
+
+  .contacts-detail__messenger {
     font-size: 16px;
   }
 
@@ -4104,7 +4453,6 @@ body.is-modal-open {
     max-width: 497px;
   }
 
-
   .approach__watermark {
     left: 692px;
   }
@@ -4112,7 +4460,6 @@ body.is-modal-open {
   .bottom-band__watermark {
     right: -368px;
   }
-
 
   .categories {
     padding: 70px 0 104px;
@@ -4553,6 +4900,30 @@ body.is-modal-open {
     border-radius: 20px 0 0 20px;
   }
 
+  .contacts.is-detail-open .contacts__detail {
+    border-radius: 20px 0 0 20px;
+    padding: 24px 24px 28px 26px;
+  }
+
+  .contacts-detail__title {
+    font-size: 22px;
+  }
+
+  .contacts-detail__hours,
+  .contacts-detail__phone {
+    font-size: 16px;
+  }
+
+  .contacts-detail__messenger {
+    min-height: 53px;
+    font-size: 16px;
+  }
+
+  .contacts-detail__route {
+    min-height: 53px;
+    font-size: 18px;
+  }
+
   .contacts__map,
   .contacts__map[hidden] {
     border-radius: 0 20px 20px 0;
@@ -4585,7 +4956,6 @@ body.is-modal-open {
     margin-right: auto;
   }
 
-
   .approach__watermark {
     display: none;
   }
@@ -4604,7 +4974,6 @@ body.is-modal-open {
   .process__list {
     gap: 19px;
   }
-
 
   .process-step {
     padding: 51px 19px 40px 19px;

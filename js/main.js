@@ -52,7 +52,9 @@ $(function () {
       setEvalModalOpen(true);
     });
 
-    $evalModal.find("[data-eval-close]").on("click", () => setEvalModalOpen(false));
+    $evalModal
+      .find("[data-eval-close]")
+      .on("click", () => setEvalModalOpen(false));
 
     const $evalScroll = $evalModal.find(".eval-modal__scroll");
     if ($evalScroll.length) {
@@ -135,6 +137,7 @@ $(function () {
       if ($mobileMenu.hasClass("is-open") && $menuBtn.length) {
         $mobileMenu.removeClass("is-open");
         $mobileMenu.attr("aria-hidden", "true");
+        $menuBtn.removeClass("is-open");
         $menuBtn.attr("aria-expanded", "false");
         $("html, body").removeClass("is-menu-open");
         $mobileMenu.prop("inert", true);
@@ -142,7 +145,9 @@ $(function () {
       setCityModalOpen(true);
     });
 
-    $cityModal.find("[data-city-close]").on("click", () => setCityModalOpen(false));
+    $cityModal
+      .find("[data-city-close]")
+      .on("click", () => setCityModalOpen(false));
 
     const $cityScroll = $cityModal.find(".city-modal__scroll");
     if ($cityScroll.length) {
@@ -198,6 +203,7 @@ $(function () {
 
       $mobileMenu.toggleClass("is-open", open);
       $mobileMenu.attr("aria-hidden", open ? "false" : "true");
+      $menuBtn.toggleClass("is-open", open);
       $menuBtn.attr("aria-expanded", open ? "true" : "false");
 
       if (!open) {
@@ -239,7 +245,9 @@ $(function () {
 
     $menuBackdrop.on("click", () => setMenuOpen(false));
 
-    $mobileMenu.find("a, [data-eval-open]").on("click", () => setMenuOpen(false));
+    $mobileMenu
+      .find("a, [data-eval-open]")
+      .on("click", () => setMenuOpen(false));
 
     $(document).on("keydown", (event) => {
       if (event.key === "Escape" && $mobileMenu.hasClass("is-open")) {
@@ -511,6 +519,19 @@ $(function () {
           new YMapZoomControl({}),
         ),
       );
+
+      // API для фокуса на выбранный магазин из вкладки адреса
+      $(document).trigger("contacts-map-ready", {
+        focusStore(coordinates) {
+          map.update({
+            location: {
+              center: coordinates,
+              zoom: 15,
+              duration: 400,
+            },
+          });
+        },
+      });
     } catch (error) {
       console.error("Не удалось инициализировать карту:", error);
     }
@@ -523,8 +544,122 @@ $(function () {
     const $toggles = $contactsSection.find("[data-contacts-view]");
     const $mapPanel = $contactsSection.find('[data-contacts-panel="map"]');
     const $listPanel = $contactsSection.find('[data-contacts-panel="list"]');
+    const $detailPanel = $contactsSection.find(
+      '[data-contacts-panel="detail"]',
+    );
+    const $detailBack = $contactsSection.find("[data-contacts-detail-back]");
+    const $detailTitle = $contactsSection.find("[data-contacts-detail-title]");
+    const $detailHours = $contactsSection.find("[data-contacts-detail-hours]");
+    const $detailPhone = $contactsSection.find("[data-contacts-detail-phone]");
+    const $detailMax = $contactsSection.find("[data-contacts-detail-max]");
+    const $detailTelegram = $contactsSection.find(
+      "[data-contacts-detail-telegram]",
+    );
+    const $detailRoute = $contactsSection.find("[data-contacts-detail-route]");
+    const $detailPhoto = $contactsSection.find("[data-contacts-detail-photo]");
+
+    // Данные магазинов для вкладки адреса
+    const storesById = {
+      "sochi-donskaya-58": {
+        title: "Сочи, Донская, 58",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-1.png",
+        coords: [39.723, 43.599],
+      },
+      "adler-demokraticheskaya": {
+        title: "Адлер, Демократическая, 75/1",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-2.png",
+        coords: [39.924, 43.437],
+      },
+      "lazarevskoye-pavlova": {
+        title: "Лазаревское, пер.Павлова, 2/3Б",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-1.png",
+        coords: [39.331, 43.909],
+      },
+      "sochi-moskovskaya": {
+        title: "Сочи, Московская, 18, стр 1а",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-2.png",
+        coords: [39.725, 43.585],
+      },
+      "anapa-krymskaya": {
+        title: "Анапа, Крымская, 260",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-1.png",
+        coords: [37.317, 44.895],
+      },
+      "anapa-promyshlennaya": {
+        title: "Анапа, Промышленная, 17",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-2.png",
+        coords: [37.347, 44.898],
+      },
+      "gelendzhik-kirova": {
+        title: "Геленджик, Кирова, 60Б",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-1.png",
+        coords: [38.077, 44.562],
+      },
+      "novorossiysk-lenina": {
+        title: "Новороссийск, пр.Ленина, 23",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-2.png",
+        coords: [37.769, 44.724],
+      },
+      "novorossiysk-svobody": {
+        title: "Новороссийск, ул.Свободы, 3/5",
+        hours: "Ежедневно 10:00 - 20:00",
+        phone: "+7 999 888-00-00",
+        phoneHref: "tel:+79998880000",
+        max: "https://max.ru/",
+        telegram: "https://t.me/",
+        photo: "assets/store-1.png",
+        coords: [37.771, 44.726],
+      },
+    };
+
+    let contactsView = "map";
+    let contactsMapApi = null;
 
     const setContactsView = (view) => {
+      contactsView = view;
+      $contactsSection.removeClass("is-detail-open");
+      $detailPanel.prop("hidden", true);
+
       $toggles.each(function () {
         const active = $(this).data("contactsView") === view;
         $(this).toggleClass("is-active", active);
@@ -535,8 +670,79 @@ $(function () {
       $listPanel.prop("hidden", view !== "list");
     };
 
+    const fillStoreDetail = (store) => {
+      $detailTitle.text(store.title);
+      $detailHours.text(store.hours);
+      $detailPhone.text(store.phone).attr("href", store.phoneHref);
+      $detailMax.attr("href", store.max);
+      $detailTelegram.attr("href", store.telegram);
+      $detailPhoto
+        .attr("src", store.photo)
+        .attr("alt", `Магазин ${store.title}`);
+
+      const [lng, lat] = store.coords;
+      $detailRoute.attr(
+        "href",
+        `https://yandex.ru/maps/?rtext=~${lat},${lng}&rtt=auto`,
+      );
+    };
+
+    const openStoreDetail = (storeId) => {
+      const store = storesById[storeId];
+      if (!store) return;
+
+      fillStoreDetail(store);
+      $contactsSection.addClass("is-detail-open");
+      $listPanel.prop("hidden", true);
+      $detailPanel.prop("hidden", false);
+
+      // С 960px карта остаётся рядом; на мобиле — только вкладка адреса
+      const isDesktop = window.matchMedia("(min-width: 960px)").matches;
+      $mapPanel.prop("hidden", !isDesktop);
+
+      if (isDesktop && contactsMapApi) {
+        contactsMapApi.focusStore(store.coords);
+      }
+
+      $detailBack.trigger("focus");
+    };
+
+    const closeStoreDetail = () => {
+      $contactsSection.removeClass("is-detail-open");
+      $detailPanel.prop("hidden", true);
+
+      // На десктопе снова список + карта; на мобиле — список
+      const isDesktop = window.matchMedia("(min-width: 960px)").matches;
+      if (isDesktop) {
+        $listPanel.prop("hidden", false);
+        $mapPanel.prop("hidden", false);
+      } else {
+        setContactsView("list");
+      }
+    };
+
     $toggles.on("click", function () {
       setContactsView($(this).data("contactsView"));
+    });
+
+    $contactsSection.on("click", ".contacts-card__address", function () {
+      openStoreDetail($(this).data("storeId"));
+    });
+
+    $detailBack.on("click", closeStoreDetail);
+
+    $(document).on("keydown.contactsDetail", (event) => {
+      if (
+        event.key === "Escape" &&
+        $contactsSection.hasClass("is-detail-open")
+      ) {
+        closeStoreDetail();
+      }
+    });
+
+    // Пробрасываем API фокуса карты после инициализации
+    $(document).on("contacts-map-ready", function (_event, api) {
+      contactsMapApi = api;
     });
   }
 });
