@@ -5225,6 +5225,13 @@ body.is-modal-open {
     right: -178px;
   }
 }
+
+/* Отступ между page-hero и категориями: всегда 46px на всех разрешениях.
+   Нижний паддинг .page-hero равен 10px на всех брейкпоинтах,
+   поэтому здесь добавляем 36px => 10px + 36px = 46px. */
+.page-hero + .categories {
+  padding-top: 36px;
+}
 /* ========== Правила выкупа ========== */
 .rules {
   padding: 30px 15px 37px;
