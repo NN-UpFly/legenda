@@ -3728,8 +3728,8 @@ body.is-modal-open {
 
   .mobile-menu__panel {
     top: var(--header-height);
-    right: auto;
-    width: 526px;
+    right: 80px;
+    width: auto;
     max-height: none;
     padding: 20px 46px 24px;
   }
@@ -4797,6 +4797,13 @@ body.is-modal-open {
     max-width: 1440px;
     transform: translateX(-50%);
     padding: 0 119px;
+  }
+
+  /* Шапка на этих широтах ограничена max-width: 1440px и центрируется —
+     правый край контента шапки находится на 50vw + 601px (720 - 119).
+     Панель меню растягиваем до этого края. */
+  .mobile-menu__panel {
+    right: calc(50vw - 601px);
   }
 
   .header__actions {
