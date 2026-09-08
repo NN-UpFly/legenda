@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Правила выкупа — Легенда</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="modules/wix-madefor-display.css" />
+    <link rel="stylesheet" href="modules/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://api-maps.yandex.ru/v3/?apikey=90f168b9-9002-4a75-ad9b-fadd23f1e34b&lang=ru_RU"
+      type="text/javascript"
+    ></script>
   </head>
   <body>
     <header class="header">
@@ -22,16 +22,1902 @@
           alt="Легенда — комиссионный магазин"
         />
       </a>
-      <a class="header__menu" href="index.html" aria-label="На главную"
-        style="display:flex;align-items:center;font-size:16px;color:#282828;width:auto;height:auto;"
-        >← На главную</a
+      <button
+        class="header__menu"
+        type="button"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header__actions">
+        <button type="button" class="header__action" data-eval-open>
+          <img
+            src="assets/icon-eval.svg"
+            width="20"
+            height="15"
+            alt=""
+            aria-hidden="true"
+          />
+          Онлайн оценка
+        </button>
+        <a class="header__action header__action--stores" href="#contacts">
+          <img
+            src="assets/icon-stores.svg"
+            width="11"
+            height="15"
+            alt=""
+            aria-hidden="true"
+          />
+          Адреса магазинов
+        </a>
+      </div>
+      <div class="header__right">
+        <div class="header__phone-group">
+          <a class="header__phone-link" href="tel:+79013260869"
+            >+7 901-326-08-69</a
+          >
+          <button type="button" class="header__city" data-city-open>
+            Санкт-Петербург
+            <img
+              src="assets/icon-chevron.svg"
+              width="8"
+              height="5"
+              alt=""
+              class="header__city-icon"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        <div class="header__socials">
+          <a href="javascript:void(0)" class="header__social" aria-label="Max">
+            <img src="assets/icon-max.svg" width="37" height="37" alt="" />
+          </a>
+          <a
+            href="javascript:void(0)"
+            class="header__social"
+            aria-label="Telegram"
+          >
+            <img src="assets/icon-tg.svg" width="37" height="37" alt="" />
+          </a>
+        </div>
+      </div>
     </header>
-    <main class="page" style="padding:calc(40px + var(--header-height)) 24px 80px;max-width:800px;margin:0 auto;">
-      <h1 class="section-title" style="text-align:left;padding:0;">Правила выкупа</h1>
-      <p style="margin-top:24px;font-size:18px;line-height:1.5;color:#282828;">
-        Страница в разработке.
-      </p>
-    </main>
+
+    <div class="page">
+      <section class="page-hero">
+        <div class="page-hero__panel">
+          <p class="page-hero__crumbs">
+            <a href="index.html">Главная</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<span
+              >Правила выкупа</span
+            >
+          </p>
+          <h1 class="page-hero__title">Правила выкупа</h1>
+          <div class="page-hero__art" aria-hidden="true">
+            <img
+              src="assets/page-hero-art.svg"
+              width="490"
+              height="445"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="rules" id="rules">
+        <div class="rules__container">
+          <div class="rules__grid">
+            <p class="rules__lead">
+              Принимаем только рабочий, актуальный по характеристикам и
+              востребованный на рынке инструмент.
+            </p>
+            <div class="rules__media">
+              <img
+                src="assets/tools.png"
+                alt="Инструмент, который выкупает магазин «Легенда»"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <ul class="rules__advantages">
+            <li class="rules__advantage">
+              <svg
+                class="rules__advantage-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 12 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
+                  fill="#8BB5E8"
+                />
+              </svg>
+              <span class="rules__advantage-text">
+                Честная и прозрачная оценка по текущему рынку
+              </span>
+            </li>
+            <li class="rules__advantage">
+              <svg
+                class="rules__advantage-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 12 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
+                  fill="#8BB5E8"
+                />
+              </svg>
+              <span class="rules__advantage-text">Быстрая выплата на месте</span>
+            </li>
+            <li class="rules__advantage">
+              <svg
+                class="rules__advantage-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 12 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
+                  fill="#8BB5E8"
+                />
+              </svg>
+              <span class="rules__advantage-text">
+                Официальное оформление и безопасность сделки
+              </span>
+            </li>
+            <li class="rules__advantage">
+              <svg
+                class="rules__advantage-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 12 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
+                  fill="#8BB5E8"
+                />
+              </svg>
+              <span class="rules__advantage-text">
+                Возможность обмена на товары из ассортимента наших магазинов с
+                доплатой или доплатой с нашей стороны — по ситуации
+              </span>
+            </li>
+          </ul>
+          <ul class="rules__list">
+            <li>
+              Инструмент должен быть полностью рабочим и безопасным. Допустимы
+              незначительные следы аккуратной эксплуатации, не влияющие на
+              функционал.
+            </li>
+            <li>
+              Комплектация: приветствуется наличие кейса, руководства,
+              чеков/гарантийных талонов (если сохранились), оснастки. Полная
+              комплектация положительно влияет на цену.
+            </li>
+            <li>
+              Необходим документ, удостоверяющий личность (паспорт). Сделка
+              оформляется официально договором купли-продажи/приема.
+            </li>
+            <li>
+              Диагностика и оценка бесплатные. Проверяем по серийным номерам и
+              открытым базам на предмет утери/розыска.
+            </li>
+            <li>
+              Выплата производится сразу после подписания документов наличными
+              или переводом — как удобно вам.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="lead" id="lead">
+        <img
+          class="lead__watermark"
+          src="assets/lead-watermark.svg"
+          width="641"
+          height="583"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="section-title">Оставьте заявку</h2>
+        <div class="lead__content">
+          <p class="lead__subtitle">
+            Мы свяжемся с вами, уточним информацию по товару и предложим
+            предварительную оценку.
+          </p>
+          <form class="lead__form" action="#" method="post">
+            <label class="visually-hidden" for="name">Ваше имя</label>
+            <input
+              class="lead__input"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Ваше имя"
+              autocomplete="name"
+            />
+            <label class="visually-hidden" for="phone">Ваш телефон</label>
+            <input
+              class="lead__input"
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Ваш телефон"
+              autocomplete="tel"
+            />
+            <button class="btn btn--primary lead__submit" type="submit">
+              Свяжитесь со мной
+            </button>
+            <label class="lead__legal">
+              <input
+                class="lead__check"
+                type="checkbox"
+                name="personal-data-consent"
+                checked
+              />
+              <span>
+                Нажимая на кнопку, вы даете согласие на
+                <a href="javascript:void(0)">обработку персональных данных</a>
+              </span>
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <div class="bottom-band">
+        <img
+          class="bottom-band__watermark"
+          src="assets/bottom-watermark.svg"
+          width="716"
+          height="651"
+          alt=""
+          aria-hidden="true"
+        />
+        <section class="reviews">
+          <div class="reviews__header">
+            <div class="reviews__title-group">
+              <h2 class="section-title">Отзывы</h2>
+              <p class="reviews__subtitle">
+                Наши клиенты уже продали свои вещи быстро и без лишних
+                сложностей. Ознакомьтесь с реальными отзывами, чтобы убедиться в
+                качестве сервиса и прозрачности оценки.
+              </p>
+            </div>
+            <div class="reviews__nav">
+              <button
+                class="reviews__btn reviews__btn--prev"
+                type="button"
+                aria-label="Предыдущий отзыв"
+              >
+                <svg
+                  width="53"
+                  height="53"
+                  viewBox="0 0 53 53"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17 26.5001C17 26.3182 17.0756 26.1445 17.2014 26.0137L24.007 19.2016C24.2758 18.9325 24.711 18.9331 24.9791 19.2016C25.2479 19.47 25.2479 19.906 24.9791 20.1744L19.3464 25.812H38.3125C38.692 25.812 39 26.12 39 26.5001C39 26.8803 38.692 27.1882 38.3125 27.1882H19.3471L24.9791 32.8258C25.2479 33.0942 25.2473 33.5303 24.9791 33.7987C24.7103 34.0671 24.2751 34.0671 24.007 33.7987L17.2014 26.9866C17.0729 26.8578 17.0021 26.6807 17 26.5001Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <button
+                class="reviews__btn reviews__btn--next"
+                type="button"
+                aria-label="Следующий отзыв"
+              >
+                <svg
+                  width="53"
+                  height="53"
+                  viewBox="0 0 53 53"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M36 26.5001C36 26.3182 35.9244 26.1445 35.7986 26.0137L28.993 19.2016C28.7242 18.9325 28.289 18.9331 28.0209 19.2016C27.7521 19.47 27.7521 19.906 28.0209 20.1744L33.6536 25.812H14.6875C14.308 25.812 14 26.12 14 26.5001C14 26.8803 14.308 27.1882 14.6875 27.1882H33.6529L28.0209 32.8258C27.7521 33.0942 27.7527 33.5303 28.0209 33.7987C28.2897 34.0671 28.7249 34.0671 28.993 33.7987L35.7986 26.9866C35.9271 26.8578 35.9979 26.6807 36 26.5001Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="swiper reviews-swiper">
+            <div class="swiper-wrapper">
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--yellow"
+                    aria-hidden="true"
+                    >Е</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Елена</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--blue"
+                    aria-hidden="true"
+                    >Г</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Геннадий Самойлов</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Очень удобно, что не пришлось никуда ехать! Оставили заявку на
+                  сайте на оценку ноутбука. Уде через 5 минут получили
+                  предварительную оценку специалиста. Выкупили всё в тот же
+                  день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--pink"
+                    aria-hidden="true"
+                    >Т</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Татьяна Белоногова</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--yellow"
+                    aria-hidden="true"
+                    >Е</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Елена</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--blue"
+                    aria-hidden="true"
+                    >Г</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Геннадий Самойлов</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Очень удобно, что не пришлось никуда ехать! Оставили заявку на
+                  сайте на оценку ноутбука. Уде через 5 минут получили
+                  предварительную оценку специалиста. Выкупили всё в тот же
+                  день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+              <article class="swiper-slide review-card">
+                <div class="review-card__top">
+                  <span
+                    class="review-card__avatar review-card__avatar--pink"
+                    aria-hidden="true"
+                    >Т</span
+                  >
+                  <div class="review-card__person">
+                    <h3 class="review-card__name">Татьяна Белоногова</h3>
+                    <p class="review-card__meta">20 апреля на Яндекс</p>
+                  </div>
+                </div>
+                <img
+                  class="review-card__stars"
+                  src="assets/stars.svg"
+                  width="109"
+                  height="17"
+                  alt="5 из 5"
+                />
+                <p class="review-card__text">
+                  Оставили заявку на сайте на оценку ноутбука. Уже через 5 минут
+                  получили предварительную оценку специалиста. Выкупили всё в
+                  тот же день, деньги тоже сразу после осмотра.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq">
+          <h2 class="section-title">Частые вопросы</h2>
+          <div class="faq__list">
+            <details class="faq-item">
+              <summary class="faq-item__summary">
+                <span>Нужны ли документы на товар?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__summary faq-item__summary--multiline">
+                <span>Можно ли продать партию (10+ штук)?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__summary">
+                <span>Вы выезжаете на дом?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-item__answer">
+                Да, вы можете продать партию техники (от 10 штук). Мы организуем
+                вывоз, проведём оценку на месте и выплатим деньги сразу после
+                согласования цены.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section class="stores" id="stores">
+          <h2 class="section-title">Наши магазины</h2>
+          <div class="swiper stores-tabs-swiper">
+            <div
+              class="swiper-wrapper"
+              role="tablist"
+              aria-label="Адреса магазинов"
+            >
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab is-active"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  data-store="0"
+                >
+                  Санкт-Петербург, пр.Энгельса, 137А
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-store="1"
+                >
+                  Санкт-Петербург, ул.Белы Куна, 6к1
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button
+                  class="stores__tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-store="2"
+                >
+                  Санкт-Петербург, пр.Науки, 12
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="stores__galleries">
+            <button
+              class="stores__btn stores__btn--prev"
+              type="button"
+              aria-label="Предыдущее фото"
+            >
+              <svg
+                width="53"
+                height="53"
+                viewBox="0 0 53 53"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17 26.5001C17 26.3182 17.0756 26.1445 17.2014 26.0137L24.007 19.2016C24.2758 18.9325 24.711 18.9331 24.9791 19.2016C25.2479 19.47 25.2479 19.906 24.9791 20.1744L19.3464 25.812H38.3125C38.692 25.812 39 26.12 39 26.5001C39 26.8803 38.692 27.1882 38.3125 27.1882H19.3471L24.9791 32.8258C25.2479 33.0942 25.2473 33.5303 24.9791 33.7987C24.7103 34.0671 24.2751 34.0671 24.007 33.7987L17.2014 26.9866C17.0729 26.8578 17.0021 26.6807 17 26.5001Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button
+              class="stores__btn stores__btn--next"
+              type="button"
+              aria-label="Следующее фото"
+            >
+              <svg
+                width="53"
+                height="53"
+                viewBox="0 0 53 53"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M36 26.5001C36 26.3182 35.9244 26.1445 35.7986 26.0137L28.993 19.2016C28.7242 18.9325 28.289 18.9331 28.0209 19.2016C27.7521 19.47 27.7521 19.906 28.0209 20.1744L33.6536 25.812H14.6875C14.308 25.812 14 26.12 14 26.5001C14 26.8803 14.308 27.1882 14.6875 27.1882H33.6529L28.0209 32.8258C27.7521 33.0942 27.7527 33.5303 28.0209 33.7987C28.2897 34.0671 28.7249 34.0671 28.993 33.7987L35.7986 26.9866C35.9271 26.8578 35.9979 26.6807 36 26.5001Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <!-- Магазин 1 -->
+            <div class="swiper stores-photos-swiper is-active" data-gallery="0">
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на пр. Энгельса, 137А - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на пр. Энгельса, 137А - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+            <!-- Магазин 2 -->
+            <div
+              class="swiper stores-photos-swiper"
+              data-gallery="1"
+              style="display: none"
+            >
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на ул. Белы Куна, 6к1 - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на ул. Белы Куна, 6к1 - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+            <!-- Магазин 3 -->
+            <div
+              class="swiper stores-photos-swiper"
+              data-gallery="2"
+              style="display: none"
+            >
+              <div class="swiper-wrapper">
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-1.png"
+                    alt="Магазин на пр. Науки, 12 - Фото 1"
+                  />
+                </figure>
+                <figure class="swiper-slide stores__photo">
+                  <img
+                    src="assets/store-2.png"
+                    alt="Магазин на пр. Науки, 12 - Фото 2"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="contacts" id="contacts">
+        <div class="contacts__container">
+          <h2 class="section-title">Контакты</h2>
+          <div
+            class="contacts__toggles"
+            role="tablist"
+            aria-label="Вид контактов"
+          >
+            <button
+              type="button"
+              class="contacts__toggle is-active"
+              role="tab"
+              aria-selected="true"
+              data-contacts-view="map"
+            >
+              Показать на карте
+            </button>
+            <button
+              type="button"
+              class="contacts__toggle"
+              role="tab"
+              aria-selected="false"
+              data-contacts-view="list"
+            >
+              Показать списком
+            </button>
+          </div>
+          <div class="contacts__cities" data-contacts-panel="list" hidden>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Сочи</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="sochi-donskaya-58"
+                    data-store-coords="39.723,43.599"
+                  >
+                    Сочи, Донская, 58
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="adler-demokraticheskaya"
+                    data-store-coords="39.924,43.437"
+                  >
+                    Адлер, Демократическая, 75/1
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="lazarevskoye-pavlova"
+                    data-store-coords="39.331,43.909"
+                  >
+                    Лазаревское, пер.Павлова, 2/3Б
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="sochi-moskovskaya"
+                    data-store-coords="39.725,43.585"
+                  >
+                    Сочи, Московская, 18, стр 1а
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Анапа</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="anapa-krymskaya"
+                    data-store-coords="37.317,44.895"
+                  >
+                    Анапа, Крымская, 260
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="anapa-promyshlennaya"
+                    data-store-coords="37.347,44.898"
+                  >
+                    Анапа, Промышленная, 17
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Геленджик</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="gelendzhik-kirova"
+                    data-store-coords="38.077,44.562"
+                  >
+                    Геленджик, Кирова, 60Б
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Новороссийск</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Новороссийск</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-card">
+              <h3 class="contacts-card__city">Новороссийск</h3>
+              <ul class="contacts-card__list">
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-lenina"
+                    data-store-coords="37.769,44.724"
+                  >
+                    Новороссийск, пр.Ленина, 23
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="contacts-card__address"
+                    data-store-detail="novorossiysk-svobody"
+                    data-store-coords="37.771,44.726"
+                  >
+                    Новороссийск, ул.Свободы, 3/5
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="contacts__detail"
+            data-contacts-panel="detail"
+            hidden
+            aria-live="polite"
+          >
+            <button
+              type="button"
+              class="contacts-detail__back"
+              data-contacts-detail-back
+              aria-label="Назад к списку адресов"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+
+            <!-- Магазин: Сочи, Донская, 58 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="sochi-donskaya-58"
+            >
+              <h3 class="contacts-detail__title">Сочи, Донская, 58</h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~43.599,39.723&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img src="assets/store-1.png" alt="Магазин Сочи, Донская, 58" />
+              </figure>
+            </div>
+
+            <!-- Магазин: Адлер, Демократическая, 75/1 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="adler-demokraticheskaya"
+              hidden
+            >
+              <h3 class="contacts-detail__title">
+                Адлер, Демократическая, 75/1
+              </h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~43.437,39.924&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-2.png"
+                  alt="Магазин Адлер, Демократическая, 75/1"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Лазаревское, пер.Павлова, 2/3Б -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="lazarevskoye-pavlova"
+              hidden
+            >
+              <h3 class="contacts-detail__title">
+                Лазаревское, пер.Павлова, 2/3Б
+              </h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~43.909,39.331&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-1.png"
+                  alt="Магазин Лазаревское, пер.Павлова, 2/3Б"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Сочи, Московская, 18, стр 1а -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="sochi-moskovskaya"
+              hidden
+            >
+              <h3 class="contacts-detail__title">
+                Сочи, Московская, 18, стр 1а
+              </h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~43.585,39.725&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-2.png"
+                  alt="Магазин Сочи, Московская, 18, стр 1а"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Анапа, Крымская, 260 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="anapa-krymskaya"
+              hidden
+            >
+              <h3 class="contacts-detail__title">Анапа, Крымская, 260</h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~44.895,37.317&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-1.png"
+                  alt="Магазин Анапа, Крымская, 260"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Анапа, Промышленная, 17 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="anapa-promyshlennaya"
+              hidden
+            >
+              <h3 class="contacts-detail__title">Анапа, Промышленная, 17</h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~44.898,37.347&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-2.png"
+                  alt="Магазин Анапа, Промышленная, 17"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Геленджик, Кирова, 60Б -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="gelendzhik-kirova"
+              hidden
+            >
+              <h3 class="contacts-detail__title">Геленджик, Кирова, 60Б</h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~44.562,38.077&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-1.png"
+                  alt="Магазин Геленджик, Кирова, 60Б"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Новороссийск, пр.Ленина, 23 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="novorossiysk-lenina"
+              hidden
+            >
+              <h3 class="contacts-detail__title">
+                Новороссийск, пр.Ленина, 23
+              </h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~44.724,37.769&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-2.png"
+                  alt="Магазин Новороссийск, пр.Ленина, 23"
+                />
+              </figure>
+            </div>
+
+            <!-- Магазин: Новороссийск, ул.Свободы, 3/5 -->
+            <div
+              class="contacts-detail__store"
+              data-store-detail="novorossiysk-svobody"
+              hidden
+            >
+              <h3 class="contacts-detail__title">
+                Новороссийск, ул.Свободы, 3/5
+              </h3>
+              <p class="contacts-detail__hours">Ежедневно 10:00 - 20:00</p>
+              <a class="contacts-detail__phone" href="tel:+79998880000"
+                >+7 999 888-00-00</a
+              >
+              <p class="contacts-detail__messengers-label">
+                Напишите нам в мессенджерах:
+              </p>
+              <div class="contacts-detail__messengers">
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-max.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Max
+                </a>
+                <a
+                  class="contacts-detail__messenger"
+                  href="javascript:void(0)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/icon-tg-sm.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  Telegram
+                </a>
+              </div>
+              <a
+                class="contacts-detail__route"
+                href="https://yandex.ru/maps/?rtext=~44.726,37.771&rtt=auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Построить маршрут
+              </a>
+              <figure class="contacts-detail__photo">
+                <img
+                  src="assets/store-1.png"
+                  alt="Магазин Новороссийск, ул.Свободы, 3/5"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="contacts__map" data-contacts-panel="map">
+            <div
+              id="contacts-map"
+              class="contacts__map-canvas"
+              role="region"
+              aria-label="Карта магазинов Легенда"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a class="footer__logo" href="index.html">
+          <img
+            src="assets/logo-footer.svg"
+            width="227"
+            height="53"
+            alt="Легенда"
+          />
+        </a>
+        <div class="footer__contacts">
+          <a class="footer__phone" href="tel:+79013260869">+7 901-326-08-69</a>
+          <div class="footer__socials">
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Max"
+            >
+              <img src="assets/icon-max.svg" width="31" height="31" alt="" />
+            </a>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Telegram"
+            >
+              <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
+            </a>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <a href="#categories">Что выкупаем</a>
+          <a href="rules.html">Правила выкупа</a>
+          <a href="#contacts">Адреса магазинов</a>
+        </nav>
+        <div class="footer__line"></div>
+        <a class="footer__policy" href="privacy.html"
+          >Политика конфиденциальности</a
+        >
+      </footer>
+    </div>
+
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Меню"
+      aria-hidden="true"
+    >
+      <button
+        class="mobile-menu__backdrop"
+        type="button"
+        aria-label="Закрыть меню"
+        tabindex="-1"
+      ></button>
+      <div class="mobile-menu__panel">
+        <img
+          class="mobile-menu__watermark"
+          src="assets/menu-watermark.svg"
+          width="519"
+          height="465"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="mobile-menu__content">
+          <div class="mobile-menu__extras">
+            <button type="button" class="mobile-menu__city" data-city-open>
+              Санкт-Петербург
+              <img
+                src="assets/icon-chevron.svg"
+                width="8"
+                height="5"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <button type="button" class="mobile-menu__eval" data-eval-open>
+              <img
+                src="assets/icon-eval.svg"
+                width="20"
+                height="15"
+                alt=""
+                aria-hidden="true"
+              />
+              Онлайн оценка
+            </button>
+          </div>
+          <nav class="mobile-menu__nav">
+            <a href="#contacts">Адреса магазинов</a>
+            <a href="#categories">Что выкупаем</a>
+            <a href="rules.html">Правила выкупа</a>
+            <a href="#approach">О нас</a>
+          </nav>
+          <div class="mobile-menu__footer">
+            <a class="mobile-menu__phone" href="tel:+79013260869"
+              >+7 901-326-08-69</a
+            >
+            <div class="mobile-menu__socials">
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Max"
+              >
+                <img src="assets/icon-max.svg" width="31" height="31" alt="" />
+                <span>Max</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Telegram"
+              >
+                <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
+                <span>Telegram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="city-modal"
+      id="city-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="city-modal-title"
+      aria-hidden="true"
+    >
+      <div class="city-modal__backdrop" data-city-close></div>
+      <div class="city-modal__scroll">
+        <div class="city-modal__dialog" role="document">
+          <img
+            class="city-modal__watermark"
+            src="assets/menu-watermark.svg"
+            width="519"
+            height="465"
+            alt=""
+            aria-hidden="true"
+          />
+          <button
+            class="city-modal__close"
+            type="button"
+            aria-label="Закрыть"
+            data-city-close
+          >
+            <span class="city-modal__close-icon" aria-hidden="true"></span>
+          </button>
+          <h2 class="city-modal__title" id="city-modal-title">Выбор города</h2>
+          <nav class="city-modal__list" aria-label="Города">
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="moskva"
+              >Москва</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="sankt-peterburg"
+              >Санкт-Петербург</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="sochi"
+              >Сочи</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="lazarevskoye"
+              >Лазаревское</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="novorossiysk"
+              >Новороссийск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="anapa"
+              >Анапа</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="nevinnomyssk"
+              >Невинномысск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="pyatigorsk"
+              >Пятигорск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="adler"
+              >Адлер</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="stavropol"
+              >Ставрополь</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="gelendzhik"
+              >Геленджик</a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="eval-modal"
+      id="eval-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="eval-modal-title"
+      aria-hidden="true"
+    >
+      <div class="eval-modal__backdrop" data-eval-close></div>
+      <div class="eval-modal__scroll">
+        <div class="eval-modal__dialog" role="document">
+          <button
+            class="eval-modal__close"
+            type="button"
+            aria-label="Закрыть"
+            data-eval-close
+          >
+            <span class="eval-modal__close-icon" aria-hidden="true"></span>
+          </button>
+          <h2 class="eval-modal__title" id="eval-modal-title">
+            <span class="eval-modal__title-line">Онлайн оценка</span>
+            <span class="eval-modal__title-line">техники</span>
+          </h2>
+          <p class="eval-modal__subtitle">
+            Оставьте заявку на оценку, мы свяжемся с вами в ближайшее время
+          </p>
+          <form class="eval-modal__form" action="#" method="post">
+            <div class="eval-modal__fields">
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-name"
+                  >Ваше имя</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-name"
+                  name="name"
+                  type="text"
+                  placeholder="Введите имя"
+                  autocomplete="name"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-phone"
+                  >Телефон</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+7 (___)___-__-__"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-city"
+                  >Ваш город</label
+                >
+                <div class="eval-modal__select-wrap">
+                  <select
+                    class="eval-modal__input eval-modal__select"
+                    id="eval-city"
+                    name="city"
+                    required
+                  >
+                    <option value="" selected disabled>Выберите город</option>
+                    <option value="sankt-peterburg">Санкт-Петербург</option>
+                    <option value="sochi">Сочи</option>
+                    <option value="anapa">Анапа</option>
+                    <option value="gelendzhik">Геленджик</option>
+                    <option value="novorossiysk">Новороссийск</option>
+                  </select>
+                </div>
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-product"
+                  >Наименование товара</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-product"
+                  name="product"
+                  type="text"
+                  placeholder="Бренд, марка, модель"
+                />
+              </div>
+              <div class="eval-modal__field eval-modal__field--full">
+                <label class="eval-modal__label" for="eval-description"
+                  >Описание товара</label
+                >
+                <textarea
+                  class="eval-modal__input eval-modal__textarea"
+                  id="eval-description"
+                  name="description"
+                  placeholder="Состояние, комплектность, характеристики"
+                ></textarea>
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-price"
+                  >Желаемая стоимость</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-price"
+                  name="price"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="Введите сумму"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-photos"
+                  >Фотографии (максимально 3 фото)</label
+                >
+                <label class="eval-modal__upload">
+                  <input
+                    class="visually-hidden"
+                    id="eval-photos"
+                    name="photos"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                  />
+                  <span class="eval-modal__upload-text"
+                    >Загрузите или перетащите фото</span
+                  >
+                  <span class="eval-modal__upload-icon" aria-hidden="true">
+                    <img
+                      class="eval-modal__upload-icon-bg"
+                      src="assets/modal-camera-bg.svg"
+                      width="33"
+                      height="33"
+                      alt=""
+                    />
+                    <img
+                      class="eval-modal__upload-icon-cam"
+                      src="assets/modal-camera.svg"
+                      width="17"
+                      height="15"
+                      alt=""
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+            <p class="eval-modal__legal">
+              Нажимая на кнопку, вы соглашаетесь с
+              <a href="javascript:void(0)">политикой конфиденциальности</a>
+            </p>
+            <button class="btn btn--primary eval-modal__submit" type="submit">
+              Оставить заявку
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="modules/jquery.min.js"></script>
+    <script src="modules/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
