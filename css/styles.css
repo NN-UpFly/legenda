@@ -1785,8 +1785,8 @@ body.is-menu-open {
 
   .hero__title-line,
   .hero__title-line--accent {
-    font-size: 38px;
-    line-height: 1.1;
+    font-size: 23px;
+    line-height: 27px; /* 23px + 4px расстояние между строками */
   }
 
   .hero__feature {
@@ -1799,7 +1799,7 @@ body.is-menu-open {
 @container hero (max-width: 360px) {
   .hero__title-line,
   .hero__title-line--accent {
-    font-size: min(38px, 13cqi);
+    font-size: min(23px, 13cqi);
   }
 }
 
@@ -1823,7 +1823,7 @@ body.is-menu-open {
 
   .hero__title-line,
   .hero__title-line--accent {
-    font-size: clamp(40px, 10vw, 48px);
+    font-size: 28px;
     line-height: 1.15;
   }
 
@@ -1978,7 +1978,7 @@ body.is-menu-open {
   .hero__title-line,
   .hero__title-line--accent,
   .hero__title-line:first-child {
-    font-size: 48px;
+    font-size: 36px;
     line-height: 1.15;
     white-space: nowrap;
   }
@@ -3936,7 +3936,7 @@ body.is-modal-open {
   .hero__title-line,
   .hero__title-line--accent,
   .hero__title-line:first-child {
-    font-size: 50px;
+    font-size: 36px;
     line-height: 1;
     white-space: nowrap;
   }
@@ -4327,7 +4327,7 @@ body.is-modal-open {
   .hero__title-line,
   .hero__title-line--accent,
   .hero__title-line:first-child {
-    font-size: 50px;
+    font-size: 42px;
     line-height: 1;
     white-space: nowrap;
   }
@@ -4803,7 +4803,7 @@ body.is-modal-open {
   .hero__title-line,
   .hero__title-line--accent,
   .hero__title-line:first-child {
-    font-size: 50px;
+    font-size: 42px;
     line-height: 1;
     white-space: nowrap;
   }
@@ -5191,6 +5191,7 @@ body.is-modal-open {
    (.categories/.rules/.contacts) и их медиазапросы без !important. */
 .page-hero + .categories,
 .page-hero + .rules,
+.page-hero + .about,
 .page-hero + .contacts {
   padding-top: 36px;
 }
@@ -5378,6 +5379,131 @@ body.is-modal-open {
      чем на 1200 (44px). */
   .rules__list {
     margin-top: 39px;
+  }
+}
+/* ========== «О нас» ========== */
+.about {
+  padding: 30px 15px 37px;
+  background: #fff;
+}
+
+.about__container {
+  display: grid;
+  row-gap: 30px;
+  width: 100%;
+  max-width: 1202px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about__media {
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.about__media img {
+  display: block;
+  width: 100%;
+  height: 410px;
+  object-fit: cover;
+}
+
+.about__text p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #282828;
+}
+
+.about__text p + p {
+  margin-top: 18px;
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  .about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 640px) {
+  .about {
+    padding: 40px 24px 79px;
+  }
+}
+
+@media (min-width: 960px) {
+  .about {
+    padding: 56px 80px 90px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    padding: 56px 80px 104px;
+  }
+
+  /* По макету с 1200px — две колонки: слева фото, справа текст. */
+  .about__container {
+    grid-template-columns: 461px minmax(0, 1fr);
+    column-gap: 35px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .about__text {
+    max-width: 545px;
+  }
+}
+
+@media (min-width: 1440px) {
+  /* На 1440+ фото шире (531px) и ниже по макету. */
+  .about__container {
+    grid-template-columns: 531px minmax(0, 1fr);
+    column-gap: 47px;
+  }
+
+  .about__media img {
+    height: 362px;
+  }
+
+  .about__text {
+    max-width: none;
+  }
+}
+/* Подход сразу после .about встречается только на странице «О нас»:
+   здесь по макету у секции нет серой подложки и она примыкает к блоку
+   .about. На остальных страницах .approach стоит после .categories,
+   где серый фон и собственные отступы уместны, — эти селекторы их не
+   затрагивают. */
+.about + .approach {
+  background: none;
+}
+
+/* Декоративный watermark на «О нас» не нужен. Селектор перекрывает
+   общие медиа-правила (0,2,1 против 0,1,0), где watermark показан
+   на 640–1439px. */
+.about + .approach .approach__watermark {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  /* Нижний паддинг .about (90px на 960+ / 104px на 1200+) уже даёт
+     отступ от фото и текста, поэтому убираем собственный верхний
+     отступ подхода — иначе между разделами получается двойной
+     просвет (104px + 60px). */
+  .about + .approach {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Общий стиль ограничивает заголовок шириной 497px и переносит
+     «Почему Легенда — это удобно и доступно?» на две строки.
+     На «О нас» по макету заголовок в одну строку. */
+  .about + .approach .section-title {
+    max-width: none;
   }
 }
 /* ================================================= */
