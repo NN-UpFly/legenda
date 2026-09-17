@@ -142,6 +142,12 @@ ol {
   box-shadow: 0 2px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* При открытой модалке или меню скрываем тень шапки */
+body.is-modal-open .header.is-scrolled,
+body.is-menu-open .header.is-scrolled {
+  box-shadow: none;
+}
+
 .header__menu {
   position: relative;
   z-index: 20;
@@ -229,11 +235,8 @@ body.is-menu-open {
 }
 
 .mobile-menu__backdrop {
-  position: absolute;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: fixed;
+  inset: 0;
   border: 0;
   padding: 0;
   background: rgba(0, 0, 0, 0.2);
@@ -248,14 +251,14 @@ body.is-menu-open {
 
 .mobile-menu__panel {
   position: absolute;
-  top: var(--header-height);
+  top: 0;
   left: 0;
   right: 0;
-  max-height: calc(100dvh - var(--header-height));
+  max-height: 100dvh;
   overflow: hidden;
   background: #fff;
   border-radius: 0 0 30px 30px;
-  padding: 42px 15px 24px;
+  padding: calc(42px + var(--header-height)) 15px 24px;
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(-8px);
@@ -1939,7 +1942,7 @@ body.is-menu-open {
   }
 
   .mobile-menu__panel {
-    padding: 42px 24px 24px;
+    padding: calc(42px + var(--header-height)) 24px 24px;
   }
 
   .mobile-menu__watermark {
@@ -2931,7 +2934,7 @@ body.is-modal-open {
 }
 
 .eval-modal__backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
   background: rgba(0, 0, 0, 0.2);
@@ -3221,7 +3224,7 @@ body.is-modal-open {
 }
 
 .city-modal__backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
   background: rgba(0, 0, 0, 0.2);
@@ -3698,11 +3701,10 @@ body.is-modal-open {
   }
 
   .mobile-menu__panel {
-    top: var(--header-height);
     right: 80px;
     width: auto;
     max-height: none;
-    padding: 20px 46px 24px;
+    padding: calc(20px + var(--header-height)) 46px 24px;
   }
 
   .mobile-menu__content {
@@ -4748,17 +4750,17 @@ body.is-modal-open {
   }
 
   .header {
-    left: 50%;
-    right: auto;
+    left: 0;
+    right: 0;
     width: 100%;
-    max-width: 1440px;
-    transform: translateX(-50%);
-    padding: 0 119px;
+    max-width: none;
+    transform: none;
+    padding: 0 calc((100% - 1440px) / 2 + 119px);
   }
 
-  /* Шапка на этих широтах ограничена max-width: 1440px и центрируется —
-     правый край контента шапки находится на 50vw + 601px (720 - 119).
-     Панель меню растягиваем до этого края. */
+  /* Контент шапки центрирован в колонке 1440px — его правый край
+     находится на 50vw + 601px (720 - 119). Панель меню растягиваем
+     до этого края. */
   .mobile-menu__panel {
     right: calc(50vw - 601px);
   }
