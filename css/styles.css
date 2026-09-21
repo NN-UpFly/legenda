@@ -388,6 +388,8 @@ body.is-menu-open {
   gap: 4px;
 }
 
+/* Второй вариант отображения: пилюли с надписями Max и Telegram. */
+/*
 .mobile-menu__social {
   display: inline-flex;
   align-items: center;
@@ -408,14 +410,6 @@ body.is-menu-open {
     border-color 0.2s ease;
 }
 
-.mobile-menu__social:first-child {
-  min-width: 117px;
-}
-
-.mobile-menu__social:last-child {
-  min-width: 149px;
-}
-
 .mobile-menu__social:hover {
   background: #f4f8ff;
 }
@@ -428,6 +422,36 @@ body.is-menu-open {
   flex-shrink: 0;
   width: 31px;
   height: 31px;
+  max-width: none;
+}
+*/
+
+/* Актуальный вариант: квадратные кнопки 53×53 без надписей, как в шапке.
+   Синий фон у Max и Telegram уже внутри SVG (icon-max-button.svg /
+   icon-tg-button.svg), у кнопки звонка — красный из её правила */
+.mobile-menu__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 53px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu__social:hover {
+  opacity: 0.75;
+}
+
+.mobile-menu__social:active {
+  opacity: 0.55;
+}
+
+.mobile-menu__social img {
+  display: block;
+  flex-shrink: 0;
+  width: 53px;
+  height: 53px;
   max-width: none;
 }
 
@@ -516,7 +540,7 @@ body.is-menu-open {
   max-width: 100%;
   min-width: 0;
   gap: 9px;
-  margin: 0 0 24px;
+  margin: 0 0 27px;
   padding: 0;
   list-style: none;
 }
@@ -1295,6 +1319,65 @@ body.is-menu-open {
   max-width: none;
 }
 
+/* Кнопки звонка и мессенджеров — триггер модалки «Свяжитесь с нами»:
+   в шапке это ряд из трёх квадратов 53×53, в выпадающем меню кнопка
+   звонка стоит первой в ряду пилюль Max и Telegram.
+   У иконок Max и Telegram (icon-max-button.svg / icon-tg-button.svg)
+   синий фон #8BB5E8 уже внутри SVG, у трубки фон задаёт это правило —
+   используется общий красный проекта, как у .btn--primary. */
+.header__social--phone,
+.mobile-menu__social--phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 53px;
+  height: 53px;
+  padding: 0;
+  border: 0;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background: #e70c31;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.header__socials .header__social--phone img,
+.mobile-menu__socials .mobile-menu__social--phone img {
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  max-width: none;
+}
+
+/* Фон повторяем и в состояниях: у пилюль меню свои hover/active
+   с более высокой специфичностью, чем базовое правило кнопки */
+.header__social--phone:hover,
+.mobile-menu__social--phone:hover {
+  background: #e70c31;
+  opacity: 0.75;
+}
+
+.header__social--phone:active,
+.mobile-menu__social--phone:active {
+  background: #e70c31;
+  opacity: 0.55;
+}
+
+/* Мин. ширины пилюль меню — только для варианта с надписями.
+   В ряду первой идёт кнопка звонка, поэтому пилюли отсчитываются
+   сдвигом, а не :first-child / :last-child */
+/*
+.mobile-menu__socials .mobile-menu__social + .mobile-menu__social {
+  min-width: 117px;
+}
+
+.mobile-menu__socials .mobile-menu__social + .mobile-menu__social + .mobile-menu__social {
+  min-width: 149px;
+}
+*/
+
 .footer__nav {
   display: flex;
   flex-direction: column;
@@ -1950,6 +2033,37 @@ body.is-menu-open {
     top: -33px;
   }
 
+  /* С 640px в шапке показываем кнопки звонка и мессенджеров;
+     подвал меню (телефон и соцсети) с этих же ширин скрыт */
+  .header__right {
+    display: flex;
+    align-items: center;
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Телефон и город в шапке — только с 960px (правило в блоке 960px
+     перебивает это скрытие) */
+  .header__phone-group {
+    display: none;
+  }
+
+  /* Кнопка меню — правее панели соцкнопок, с отступом 25px */
+  .header__menu {
+    order: 3;
+    margin: 0 0 0 25px;
+  }
+
+  .header__socials {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobile-menu__footer {
+    display: none;
+  }
+
   /* ========== Главный экран ========== */
   .hero {
     margin-top: calc(-1 * var(--header-height));
@@ -1988,7 +2102,7 @@ body.is-menu-open {
 
   .hero__features {
     gap: 10px;
-    margin-bottom: 79px;
+    margin-bottom: 99px;
   }
 
   .hero__feature {
@@ -3561,6 +3675,273 @@ body.is-modal-open {
   }
 }
 
+/* ========== Модалка «Свяжитесь с нами» ========== */
+.contact-modal {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s;
+}
+
+.contact-modal.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.contact-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.contact-modal__scroll {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 15px 40px;
+}
+
+.contact-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+  padding: 23px 20px 24px;
+  background: #fff;
+  border-radius: 30px;
+  flex-shrink: 0;
+}
+
+.contact-modal__close {
+  position: absolute;
+  top: 34px;
+  right: 24px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Увеличиваем зону нажатия, не меняя размер крестика */
+.contact-modal__close::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+}
+
+.contact-modal__close-icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.contact-modal__close-icon::before,
+.contact-modal__close-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 35px;
+  height: 2px;
+  border-radius: 2px;
+  background: #282828;
+  transition: background-color 0.2s ease;
+}
+
+.contact-modal__close-icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.contact-modal__close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Цвет крестика при наведении на кнопку закрытия */
+.contact-modal__close:hover .contact-modal__close-icon::before,
+.contact-modal__close:hover .contact-modal__close-icon::after {
+  background: #e5f1ff;
+}
+
+/* Цвет крестика при нажатии на кнопку закрытия */
+.contact-modal__close:active .contact-modal__close-icon::before,
+.contact-modal__close:active .contact-modal__close-icon::after {
+  background: #8bb5e8;
+}
+
+.contact-modal__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #282828;
+  margin: 0 0 25px;
+}
+
+.contact-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-modal__item {
+  display: flex;
+  align-items: flex-end;
+  gap: 21px;
+}
+
+.contact-modal__photo {
+  flex: 0 0 auto;
+  width: 81px;
+  height: 103px;
+  margin: 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.contact-modal__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contact-modal__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.contact-modal__address {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: normal;
+  color: #282828;
+}
+
+.contact-modal__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 146px;
+  max-width: 100%;
+  height: 41px;
+  border: 1px solid #a5c5eb;
+  border-radius: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+  color: #282828;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Наведение и нажатие — по макету (узел 1153:6716): синяя заливка
+   #8bb5e8 и белый текст, рамка #a5c5eb остаётся как в базовом состоянии */
+.contact-modal__phone:hover,
+.contact-modal__phone:focus-visible,
+.contact-modal__phone:active {
+  background: #8bb5e8;
+  color: #fff;
+}
+
+@media (min-width: 480px) {
+  .contact-modal__scroll {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contact-modal__title {
+    line-height: 50px;
+    margin-bottom: 29px;
+  }
+
+  .contact-modal__list {
+    gap: 51px;
+  }
+
+  .contact-modal__photo {
+    width: 112px;
+  }
+
+  .contact-modal__info {
+    gap: 13px;
+  }
+
+  .contact-modal__address {
+    font-size: 18px;
+  }
+
+  .contact-modal__phone {
+    width: 240px;
+    height: 53px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 640px) {
+  .contact-modal__scroll {
+    padding: 30px 24px 40px;
+  }
+
+  .contact-modal__dialog {
+    max-width: 592px;
+    padding: 47px 50px;
+  }
+
+  .contact-modal__title {
+    font-size: 36px;
+    margin-bottom: 29px;
+  }
+
+  .contact-modal__list {
+    gap: 28px;
+  }
+
+  .contact-modal__item {
+    gap: 35px;
+  }
+
+  .contact-modal__photo {
+    width: 187px;
+  }
+}
+
+@media (min-width: 960px) {
+  .contact-modal__dialog {
+    max-width: 700px;
+  }
+}
+
 @media (min-width: 960px) {
   :root {
     --header-height: 131px;
@@ -3596,6 +3977,7 @@ body.is-modal-open {
     position: relative;
     right: auto;
     bottom: auto;
+    order: 0;
     margin-left: 69px;
     flex-shrink: 0;
   }
@@ -3650,6 +4032,7 @@ body.is-modal-open {
     align-items: center;
     gap: 18px;
     margin-left: auto;
+    order: 0;
     flex-shrink: 0;
   }
 
@@ -3691,12 +4074,9 @@ body.is-modal-open {
     flex-shrink: 0;
   }
 
-  .header__socials {
-    display: none;
-  }
-
-  .mobile-menu__extras,
-  .mobile-menu__phone {
+  /* Кнопки звонка и мессенджеров в шапке видны с 640px — блок выше.
+     С 960px в меню остаются только ссылки навигации */
+  .mobile-menu__extras {
     display: none;
   }
 
@@ -3719,10 +4099,6 @@ body.is-modal-open {
 
   .mobile-menu__nav a {
     line-height: 1;
-  }
-
-  .mobile-menu__footer {
-    gap: 0;
   }
 
   .mobile-menu__watermark {
@@ -3945,7 +4321,7 @@ body.is-modal-open {
 
   .hero__features {
     gap: 10px;
-    margin: 0 0 35px;
+    margin: 0 0 79px;
   }
 
   .hero__feature {
@@ -4765,8 +5141,15 @@ body.is-modal-open {
     right: calc(50vw - 601px);
   }
 
+  /* С 1440px блок «Онлайн оценка / Адреса магазинов» прижат к правому
+     краю шапки — рядом с панелью звонка и мессенджеров (одинаково
+     в старом и новом вариантах отображения) */
   .header__actions {
-    margin-left: 134px;
+    margin-left: auto;
+  }
+
+  .header__right {
+    margin-left: 18px;
   }
 
   .header__action {
@@ -4776,12 +5159,6 @@ body.is-modal-open {
 
   .header__right {
     gap: 18px;
-  }
-
-  .header__socials {
-    display: flex;
-    align-items: center;
-    gap: 6px;
   }
 
   .hero {
@@ -5677,4 +6054,110 @@ body.is-modal-open {
     margin-top: 0;
     padding-top: 52px;
   }
+}
+
+/* =============================================================================
+   ТЕСТОВАЯ СТРАНИЦА index-variant.html — второй (старый) вариант отображения.
+   Класс .variant-legacy на <body> включает прежние стили пилюль меню,
+   круглых логотипов шапки и блока телефона/города. Основные страницы
+   этот блок не затрагивает. При отказе от варианта — удалить вместе
+   со страницей index-variant.html.
+   ============================================================================= */
+/* Кнопку выбора города в мобильном меню показываем только до 960px:
+   выше она есть в шапке (header__phone-group в старом варианте) */
+@media (min-width: 960px) {
+  .variant-legacy .mobile-menu__city {
+    display: none;
+  }
+}
+
+/* В старом варианте круглые логотипы в шапке показываются только с 1440px
+   (на основных страницах кнопки видны с 640px) */
+.variant-legacy .header__socials {
+  display: none;
+}
+
+.variant-legacy .header__socials .header__social {
+  width: 37px;
+  height: 37px;
+}
+
+/* Подвал мобильного меню (телефон и соцсети) на старом варианте виден
+   на всех разрешениях — на основных страницах он скрыт с 640px */
+.variant-legacy .mobile-menu__footer {
+  display: flex;
+}
+
+/* Телефон в меню — только до 960px: выше он и так есть в шапке */
+@media (min-width: 960px) {
+  .variant-legacy .mobile-menu__phone {
+    display: none;
+  }
+}
+
+/* Кнопки соцсетей в шапке — с 1440px */
+@media (min-width: 1440px) {
+  .variant-legacy .header__socials {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+/* Кнопки соцсетей в меню — пилюли с надписями (Max, Telegram) */
+.variant-legacy .mobile-menu__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 53px;
+  padding: 0 16px;
+  border: 1px solid #8bb5e8;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: normal;
+  color: #282828;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.variant-legacy .mobile-menu__social:hover {
+  background: #f4f8ff;
+}
+
+.variant-legacy .mobile-menu__social:active {
+  background: #e5f1ff;
+}
+
+.variant-legacy .mobile-menu__social img {
+  flex-shrink: 0;
+  width: 31px;
+  height: 31px;
+  max-width: none;
+}
+
+/* Кнопки соцсетей в меню — пилюли с надписями (Max, Telegram). Кнопку
+   звонка (mobile-menu__social--phone) на старом варианте не показываем:
+   телефон в меню — текстовая ссылка mobile-menu__phone */
+.variant-legacy .mobile-menu__social--phone {
+  display: none;
+}
+
+/* Пилюли с надписями: минимальные ширины 117/149px, как было до перехода
+   на квадратные кнопки (сдвиговые селекторы вместо :first-child) */
+.variant-legacy .mobile-menu__socials .mobile-menu__social + .mobile-menu__social {
+  min-width: 117px;
+}
+
+.variant-legacy
+  .mobile-menu__socials
+  .mobile-menu__social
+  + .mobile-menu__social
+  + .mobile-menu__social {
+  min-width: 149px;
 }

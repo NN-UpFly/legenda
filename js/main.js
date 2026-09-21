@@ -5,15 +5,20 @@ $(function () {
   const $menuBackdrop = $(".mobile-menu__backdrop");
   const $evalModal = $("#eval-modal");
   const $cityModal = $("#city-modal");
+  const $contactModal = $("#contact-modal");
   const $evalOpenTriggers = $("[data-eval-open]");
   const $cityOpenTriggers = $("[data-city-open]");
+  const $contactOpenTriggers = $("[data-contact-open]");
 
   let setEvalModalOpen = () => {};
   let setCityModalOpen = () => {};
+  let setContactModalOpen = () => {};
 
   const updateModalScrollLock = () => {
     const anyOpen =
-      $evalModal.hasClass("is-open") || $cityModal.hasClass("is-open");
+      $evalModal.hasClass("is-open") ||
+      $cityModal.hasClass("is-open") ||
+      $contactModal.hasClass("is-open");
     $("html, body").toggleClass("is-modal-open", anyOpen);
   };
 
@@ -28,6 +33,7 @@ $(function () {
 
       if (open) {
         setCityModalOpen(false, { restoreFocus: false });
+        setContactModalOpen(false, { restoreFocus: false });
         $evalCloseBtn.trigger("focus");
       } else if (restoreFocus && lastEvalTrigger) {
         const menuIsClosed =
@@ -112,6 +118,7 @@ $(function () {
 
       if (open) {
         setEvalModalOpen(false, { restoreFocus: false });
+        setContactModalOpen(false, { restoreFocus: false });
         $cityCloseBtn.trigger("focus");
       } else if (restoreFocus && lastCityTrigger) {
         const menuIsClosed =
@@ -166,6 +173,62 @@ $(function () {
     $(document).on("keydown", (event) => {
       if (event.key === "Escape" && $cityModal.hasClass("is-open")) {
         setCityModalOpen(false);
+      }
+    });
+  }
+
+  if ($contactModal.length && $contactOpenTriggers.length) {
+    let lastContactTrigger = null;
+    const $contactCloseBtn = $contactModal.find(".contact-modal__close");
+
+    setContactModalOpen = (open, { restoreFocus = true } = {}) => {
+      $contactModal.toggleClass("is-open", open);
+      $contactModal.attr("aria-hidden", open ? "false" : "true");
+      $contactModal.prop("inert", !open);
+
+      if (open) {
+        setEvalModalOpen(false, { restoreFocus: false });
+        setCityModalOpen(false, { restoreFocus: false });
+        $contactCloseBtn.trigger("focus");
+      } else if (restoreFocus && lastContactTrigger) {
+        const menuIsClosed =
+          $mobileMenu.length &&
+          $.contains($mobileMenu[0], lastContactTrigger) &&
+          !$mobileMenu.hasClass("is-open");
+        if (menuIsClosed && $menuBtn.length) {
+          $menuBtn.trigger("focus");
+        } else {
+          $(lastContactTrigger).trigger("focus");
+        }
+      }
+
+      updateModalScrollLock();
+    };
+
+    $contactModal.prop("inert", true);
+
+    $contactOpenTriggers.on("click", function (event) {
+      event.preventDefault();
+      lastContactTrigger = this;
+      setContactModalOpen(true);
+    });
+
+    $contactModal
+      .find("[data-contact-close]")
+      .on("click", () => setContactModalOpen(false));
+
+    const $contactScroll = $contactModal.find(".contact-modal__scroll");
+    if ($contactScroll.length) {
+      $contactScroll.on("click", function (event) {
+        if (event.target === this) {
+          setContactModalOpen(false);
+        }
+      });
+    }
+
+    $(document).on("keydown", (event) => {
+      if (event.key === "Escape" && $contactModal.hasClass("is-open")) {
+        setContactModalOpen(false);
       }
     });
   }
@@ -246,7 +309,7 @@ $(function () {
     $menuBackdrop.on("click", () => setMenuOpen(false));
 
     $mobileMenu
-      .find("a, [data-eval-open]")
+      .find("a, [data-eval-open], [data-contact-open]")
       .on("click", () => setMenuOpen(false));
 
     $(document).on("keydown", (event) => {

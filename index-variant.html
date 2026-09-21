@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Инструмент — Легенда</title>
+    <title>Легенда — второй вариант отображения (тестовая копия)</title>
     <link rel="stylesheet" href="modules/wix-madefor-display.css" />
     <link rel="stylesheet" href="modules/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
@@ -12,7 +12,7 @@
       type="text/javascript"
     ></script>
   </head>
-  <body>
+  <body class="variant-legacy">
     <header class="header">
       <a class="header__logo" href="index.html">
         <img
@@ -56,10 +56,7 @@
         </a>
       </div>
       <div class="header__right">
-        <!-- Второй вариант отображения: телефон и выбор города в шапке.
-             По макету скрыт — номер и город переехали в модалку
-             «Свяжитесь с нами» (data-contact-open). -->
-        <!--
+        <!-- Второй вариант отображения: телефон и выбор города в шапке (ВКЛЮЧЁН в index-variant.html). -->
         <div class="header__phone-group">
           <a class="header__phone-link" href="tel:+79013260869"
             >+7 901-326-08-69</a
@@ -76,9 +73,7 @@
             />
           </button>
         </div>
-        -->
-        <!-- Второй вариант отображения: только круглые логотипы мессенджеров. -->
-        <!--
+        <!-- Второй вариант отображения: только круглые логотипы мессенджеров (ВКЛЮЧЁН в index-variant.html). -->
         <div class="header__socials">
           <a href="javascript:void(0)" class="header__social" aria-label="Max">
             <img src="assets/icon-max.svg" width="37" height="37" alt="" />
@@ -91,8 +86,8 @@
             <img src="assets/icon-tg.svg" width="37" height="37" alt="" />
           </a>
         </div>
-        -->
-        <!-- Актуальный вариант: звонок и мессенджеры кнопками 53×53 -->
+        <!-- Актуальный вариант: звонок и мессенджеры кнопками 53×53 (ЗАКОММЕНТИРОВАН в index-variant.html) -->
+        <!--
         <div class="header__socials">
           <button
             type="button"
@@ -124,215 +119,280 @@
             <img src="assets/icon-tg-button.svg" width="53" height="53" alt="" />
           </a>
         </div>
+        -->
       </div>
     </header>
 
     <div class="page">
-      <section class="page-hero">
-        <div class="page-hero__panel">
-          <p class="page-hero__crumbs">
-            <a href="index.html">Главная</a
-            >&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<span>Инструмент</span>
-          </p>
-          <h1 class="page-hero__title">Инструмент</h1>
-          <div class="page-hero__art" aria-hidden="true">
+      <section class="hero">
+        <div class="hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              <span class="hero__title-line">Выкупаем</span>
+              <span class="hero__title-line hero__title-line--accent"
+                >рабочую технику</span
+              >
+              <span class="hero__title-line">Быстро и дорого</span>
+            </h1>
+            <ul class="hero__features">
+              <li class="hero__feature">Без объявлений и переписок</li>
+              <li class="hero__feature">Без торга и ожидания</li>
+              <li class="hero__feature">Деньги сразу после сделки</li>
+            </ul>
+            <button
+              class="btn btn--primary hero__cta"
+              type="button"
+              data-eval-open
+            >
+              Оценить онлайн
+            </button>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img class="hero__poly" src="assets/decor-poly1.svg" alt="" />
+            <img class="hero__poly-small" src="assets/decor-poly5.svg" alt="" />
+            <img class="hero__check" src="assets/decor-vector.svg" alt="" />
             <img
-              src="assets/page-hero-art.svg"
-              width="490"
-              height="445"
+              class="hero__mac"
+              src="assets/hero-mac.png"
+              width="543"
+              height="532"
+              alt=""
+            />
+            <img
+              class="hero__airpods"
+              src="assets/hero-airpods.png"
+              width="294"
+              height="294"
+              alt=""
+            />
+            <img
+              class="hero__phone-img"
+              src="assets/hero-phone.png"
+              width="525"
+              height="281"
+              alt=""
+            />
+            <img
+              class="hero__speaker"
+              src="assets/hero-speaker.png"
+              width="221"
+              height="305"
               alt=""
             />
           </div>
         </div>
       </section>
 
-      <section class="rules rules--category" id="rules">
-        <div class="rules__container">
-          <div class="rules__grid">
-            <div class="rules__media">
-              <img
-                src="assets/category.jpg"
-                alt="Инструмент, который выкупает магазин «Легенда»"
-                loading="lazy"
-              />
+      <section class="categories" id="categories">
+        <h2 class="section-title">Что мы выкупаем</h2>
+        <div class="swiper categories-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide categories-col">
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Инструмент</p>
+                <img class="cat-tile__img" src="assets/tools.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Телевизоры</p>
+                <img class="cat-tile__img" src="assets/tv.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Умные часы</p>
+                <img class="cat-tile__img" src="assets/smartwatch.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Умные колонки</p>
+                <img class="cat-tile__img" src="assets/speaker.png" alt="" />
+              </a>
             </div>
-            <p class="rules__lead">
-              Быстро и выгодно выкупаем современный и исправный инструмент у
-              частных лиц. Проведем бесплатную диагностику, предложим честную
-              цену и выплатим деньги сразу после заключения сделки.
-            </p>
-          </div>
-          <ul class="rules__advantages">
-            <li class="rules__advantage">
-              <svg
-                class="rules__advantage-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 12 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
-                  fill="#8BB5E8"
+            <div class="swiper-slide categories-col">
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Ноутбуки</p>
+                <img class="cat-tile__img" src="assets/notebook.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Айфоны</p>
+                <img class="cat-tile__img" src="assets/iphones.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Антикварные часы</p>
+                <img
+                  class="cat-tile__img"
+                  src="assets/antique-watch.png"
+                  alt=""
                 />
-              </svg>
-              <span class="rules__advantage-text">
-                Честная и прозрачная оценка по текущему рынку
-              </span>
-            </li>
-            <li class="rules__advantage">
-              <svg
-                class="rules__advantage-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 12 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
-                  fill="#8BB5E8"
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Музыкальные колонки</p>
+                <img
+                  class="cat-tile__img"
+                  src="assets/music-speakers.png"
+                  alt=""
                 />
-              </svg>
-              <span class="rules__advantage-text"
-                >Быстрая выплата на месте</span
-              >
-            </li>
-            <li class="rules__advantage">
-              <svg
-                class="rules__advantage-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 12 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
-                  fill="#8BB5E8"
-                />
-              </svg>
-              <span class="rules__advantage-text">
-                Официальное оформление и безопасность сделки
-              </span>
-            </li>
-            <li class="rules__advantage">
-              <svg
-                class="rules__advantage-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 12 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0.292898 8.7071L5.2929 13.7071C5.6834 14.0976 6.31659 14.0976 6.70712 13.7071L11.7071 8.7071C12.0976 8.31656 12.0976 7.68341 11.7071 7.29288C11.3166 6.90234 10.6834 6.90234 10.2929 7.29288L6.99999 10.5858V1C6.99999 0.447719 6.55227 0 5.99999 0C5.44771 0 4.99999 0.447719 4.99999 1V10.5858L1.70709 7.29288C1.51184 7.09763 1.2559 7 0.999992 7C0.744086 7 0.488148 7.09763 0.292898 7.29288C-0.0976328 7.68341 -0.0976328 8.31656 0.292898 8.7071Z"
-                  fill="#8BB5E8"
-                />
-              </svg>
-              <span class="rules__advantage-text">
-                Возможность обмена на товары из ассортимента наших магазинов с
-                доплатой или доплатой с нашей стороны — по ситуации
-              </span>
-            </li>
-          </ul>
-          <div class="rules__cats">
-            <h2 class="rules__title">Какие инструменты принимаем</h2>
-            <p class="rules__intro">
-              Принимаем только рабочий, актуальный по характеристикам и
-              востребованный на рынке инструмент. В числе категорий:
-            </p>
-            <ul class="rules__list">
-              <li>
-                Электроинструмент: дрели и шуруповерты (сетевые и
-                аккумуляторные), перфораторы, углошлифовальные машины
-                (болгарки), лобзики, сабельные, циркулярные и торцовочные пилы,
-                шлифмашины (ленточные, эксцентриковые, вибрационные), фрезеры,
-                рубанки, строительные фены, миксеры.
-              </li>
-              <li>
-                Садовая и бензотехника: бензопилы, триммеры/мотокосы,
-                воздуходувки, кусторезы, газонокосилки (электрические и
-                аккумуляторные), высоторезы.
-              </li>
-              <li>
-                Оборудование для работ: сварочные инверторы, компрессоры,
-                краскопульты, пылесосы строительные, генераторы малого класса
-                (по согласованию).
-              </li>
-              <li>
-                Пневмоинструмент: гайковерты, дрели, шуруповерты, степлеры,
-                шлифмашины.
-              </li>
-              <li>
-                Измерительный инструмент и техника: лазерные уровни, нивелиры,
-                дальномеры, мультиметры, токоизмерительные клещи, пирометры,
-                детекторы проводки, толщиномеры.
-              </li>
-              <li>
-                Оснастка и аксессуары: аккумуляторы и зарядные устройства,
-                чемоданы/кейс, направляющие шины, параллельные упоры, диски,
-                биты, расходники — преимущественно как часть комплекта к
-                инструменту.
-              </li>
-            </ul>
-          </div>
-          <div class="rules__reject">
-            <h2 class="rules__title">Что не принимаем</h2>
-            <ul class="rules__list">
-              <li>
-                Неисправный инструмент, с критическими дефектами безопасности
-                (трещины корпуса, поврежденный кабель, биение вала, запах гари),
-                с отсутствующими ключевыми узлами.
-              </li>
-              <li>
-                Сильно устаревшие модели, морально неактуальные решения и редкие
-                нестандартные форматы, на которые нет спроса.
-              </li>
-              <li>
-                Подделки, инструмент с перебитыми/удаленными серийными номерами,
-                а также предметы сомнительного происхождения.
-              </li>
-              <li>
-                Для аккумуляторного инструмента: комплекты без рабочего АКБ и
-                зарядного устройства, если иное не согласовано заранее (возможен
-                выкуп «тушек» популярных платформ по договоренности).
-              </li>
-            </ul>
-          </div>
-          <div class="rules__conditions">
-            <h2 class="rules__title">Правила и условия выкупа</h2>
-            <ul class="rules__list">
-              <li>
-                Инструмент должен быть полностью рабочим и безопасным. Допустимы
-                незначительные следы аккуратной эксплуатации, не влияющие на
-                функционал.
-              </li>
-              <li>
-                Комплектация: приветствуется наличие кейса, руководства,
-                чеков/гарантийных талонов (если сохранились), оснастки. Полная
-                комплектация положительно влияет на цену.
-              </li>
-              <li>
-                Необходим документ, удостоверяющий личность (паспорт). Сделка
-                оформляется официально договором купли-продажи/приема.
-              </li>
-              <li>
-                Диагностика и оценка бесплатные. Проверяем по серийным номерам и
-                открытым базам на предмет утери/розыска.
-              </li>
-              <li>
-                Выплата производится сразу после подписания документов наличными
-                или переводом — как удобно вам.
-              </li>
-            </ul>
+              </a>
+            </div>
+            <div class="swiper-slide categories-col">
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Компьютеры</p>
+                <img class="cat-tile__img" src="assets/pc.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Телефоны</p>
+                <img class="cat-tile__img" src="assets/phones.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Игровые приставки</p>
+                <div class="cat-tile__stack">
+                  <img class="cat-tile__img" src="assets/console.png" alt="" />
+                  <img
+                    class="cat-tile__img"
+                    src="assets/console-ctrl.png"
+                    alt=""
+                  />
+                </div>
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Наушники</p>
+                <img class="cat-tile__img" src="assets/airpods.png" alt="" />
+              </a>
+            </div>
+            <div class="swiper-slide categories-col">
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Макбуки</p>
+                <img class="cat-tile__img" src="assets/macbook.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Фотоаппараты</p>
+                <img class="cat-tile__img" src="assets/camera.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Планшеты</p>
+                <img class="cat-tile__img" src="assets/tablet.png" alt="" />
+              </a>
+              <a class="cat-tile" href="categories.html">
+                <p class="cat-tile__label">Видеокарты</p>
+                <img class="cat-tile__img" src="assets/gpu.png" alt="" />
+              </a>
+            </div>
           </div>
         </div>
+      </section>
+
+      <section class="approach" id="approach">
+        <img
+          class="approach__watermark"
+          src="assets/bottom-watermark.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="section-title section-title--multiline">
+          Ответственный подход к каждому клиенту
+        </h2>
+        <div class="swiper approach-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="approach-card">
+                <h3 class="approach-card__title">Бесплатный выезд к вам</h3>
+                <p class="approach-card__text">
+                  Не нужно никуда ехать — приедем домой или в офис в удобное
+                  время.
+                </p>
+                <div class="approach-card__media">
+                  <img src="assets/approach-drive.png" alt="" />
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="approach-card">
+                <h3 class="approach-card__title">Безопасность данных</h3>
+                <p class="approach-card__text">
+                  При вас удаляем всю личную информацию с устройств.
+                </p>
+                <div class="approach-card__media">
+                  <img src="assets/approach-phone.png" alt="" />
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="approach-card">
+                <h3 class="approach-card__title">Простая процедура</h3>
+                <p class="approach-card__text">
+                  Без лишних вопросов и стресса — быстро оцениваем и оформляем
+                  выкуп.
+                </p>
+                <div class="approach-card__media">
+                  <img src="assets/approach-handshake.png" alt="" />
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="approach-card">
+                <h3 class="approach-card__title">Оплата сразу</h3>
+                <p class="approach-card__text">
+                  После согласования сделки выплачиваем деньги в тот же день.
+                </p>
+                <div class="approach-card__media">
+                  <img src="assets/approach-pay.png" alt="" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <h2 class="section-title section-title--multiline">
+          Как проходит <br />
+          процесс выкупа?
+        </h2>
+        <ol class="process__list">
+          <li class="process-step">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>1</span>
+            </div>
+            <h3 class="process-step__title">Заявка</h3>
+            <p class="process-step__text">
+              Оставляете заявку на сайте или отправляете фото в мессенджеры.
+              Менеджер связывается с вами, уточняет детали и отвечает на
+              вопросы.
+            </p>
+          </li>
+          <li class="process-step process-step--tall">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>2</span>
+            </div>
+            <h3 class="process-step__title">Онлайн оценка</h3>
+            <p class="process-step__text">
+              По фото и описанию предварительно оцениваем стоимость или
+              созваниваемся с вами по видео-связи. Озвучиваем ориентир по цене и
+              согласовываем дальнейшие шаги.
+            </p>
+          </li>
+          <li class="process-step">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>3</span>
+            </div>
+            <h3 class="process-step__title">Выезд оценщика</h3>
+            <p class="process-step__text">
+              Специалист бесплатно приезжает к вам в удобное время. Проводит
+              осмотр на месте и подтверждает итоговую стоимость.
+            </p>
+          </li>
+          <li class="process-step process-step--short">
+            <div class="process-step__num" aria-hidden="true">
+              <img src="assets/step-poly.svg" alt="" />
+              <span>4</span>
+            </div>
+            <h3 class="process-step__title">Выкуп</h3>
+            <p class="process-step__text">
+              Оформляем сделку на месте без лишних формальностей. Сразу
+              выплачиваем деньги удобным для вас способом.
+            </p>
+          </li>
+        </ol>
       </section>
 
       <section class="lead" id="lead">
@@ -1714,10 +1774,6 @@
         />
         <div class="mobile-menu__content">
           <div class="mobile-menu__extras">
-            <!-- Выбор города скрыт по макету: город переехал в модалку
-                 «Свяжитесь с нами». Раскомментировать вместе с
-                 header__phone-group при откате варианта. -->
-            <!--
             <button type="button" class="mobile-menu__city" data-city-open>
               Санкт-Петербург
               <img
@@ -1728,7 +1784,6 @@
                 aria-hidden="true"
               />
             </button>
-            -->
             <button type="button" class="mobile-menu__eval" data-eval-open>
               <img
                 src="assets/icon-eval.svg"
@@ -1750,12 +1805,13 @@
             <!-- Второй вариант отображения: телефон в подвале меню.
                  По макету скрыт — номер переехал в модалку
                  «Свяжитесь с нами» (кнопка звонка рядом с соцсетями). -->
-            <!--
             <a class="mobile-menu__phone" href="tel:+79013260869"
               >+7 901-326-08-69</a
             >
-            -->
             <div class="mobile-menu__socials">
+              <!-- Кнопка звонка-триггера в старом варианте нет: телефон в
+                   меню — текстовая ссылка mobile-menu__phone выше -->
+              <!--
               <button
                 type="button"
                 class="mobile-menu__social mobile-menu__social--phone"
@@ -1770,8 +1826,8 @@
                   aria-hidden="true"
                 />
               </button>
+              -->
               <!-- Второй вариант отображения: пилюли с надписями Max и Telegram. -->
-              <!--
               <a
                 href="javascript:void(0)"
                 class="mobile-menu__social"
@@ -1788,8 +1844,8 @@
                 <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
                 <span>Telegram</span>
               </a>
-              -->
-              <!-- Актуальный вариант: квадратные кнопки 53×53, как в шапке -->
+              <!-- Актуальный вариант: квадратные кнопки 53×53, как в шапке (ЗАКОММЕНТИРОВАН в index-variant.html) -->
+              <!--
               <a
                 href="javascript:void(0)"
                 class="mobile-menu__social"
@@ -1814,6 +1870,7 @@
                   alt=""
                 />
               </a>
+              -->
             </div>
           </div>
         </div>
