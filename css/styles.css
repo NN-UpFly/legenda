@@ -3235,7 +3235,7 @@ body.is-modal-open {
   width: 9px;
   height: 5px;
   margin-top: -2px;
-  background: url("../assets/modal-select.svg") center / contain no-repeat;
+  background: url("/assets/modal-select.svg") center / contain no-repeat;
   pointer-events: none;
 }
 
