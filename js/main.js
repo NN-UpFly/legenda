@@ -14,6 +14,124 @@ $(function () {
   let setCityModalOpen = () => {};
   let setContactModalOpen = () => {};
 
+  const $faqItems = $(".faq-item");
+  const faqItemControllers = [];
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
+  const faqAnimationDuration = 300;
+
+  $faqItems.each(function () {
+    const details = this;
+    const $details = $(details);
+    const $summary = $details.find(".faq-item__summary");
+    const $answer = $details.find(".faq-item__answer");
+
+    if (!$summary.length || !$answer.length) {
+      return;
+    }
+
+    $answer.wrap('<div class="faq-item__answer-wrapper"></div>');
+
+    const $answerWrapper = $answer.parent();
+    const state = {
+      isOpen: details.open,
+      isAnimating: false,
+      animationId: 0,
+    };
+
+    const setFaqItemOpen = (shouldOpen) => {
+      const animationId = ++state.animationId;
+      const isOpeningClosedItem = shouldOpen && !details.open;
+      const startHeight = isOpeningClosedItem
+        ? 0
+        : $answerWrapper.outerHeight();
+      const startOpacity = isOpeningClosedItem
+        ? 0
+        : parseFloat($answerWrapper.css("opacity")) || 0;
+
+      $answerWrapper.stop(true, false);
+      state.isAnimating = false;
+      state.isOpen = shouldOpen;
+
+      if (shouldOpen) {
+        $details.removeClass("is-closing");
+        if (!details.open) {
+          details.open = true;
+        }
+      } else {
+        $details.addClass("is-closing");
+      }
+
+      if (prefersReducedMotion.matches) {
+        details.open = shouldOpen;
+        $details.removeClass("is-closing");
+        $answerWrapper.css({ height: "", opacity: "" });
+        return;
+      }
+
+      $answerWrapper.css({
+        height: startHeight,
+        opacity: startOpacity,
+      });
+
+      const endHeight = shouldOpen ? $answer.outerHeight() : 0;
+
+      state.isAnimating = true;
+      $answerWrapper.animate(
+        {
+          height: endHeight,
+          opacity: shouldOpen ? 1 : 0,
+        },
+        {
+          duration: faqAnimationDuration,
+          easing: "swing",
+          complete: () => {
+            if (animationId !== state.animationId) {
+              return;
+            }
+
+            state.isAnimating = false;
+
+            if (!shouldOpen) {
+              details.open = false;
+            }
+
+            $details.removeClass("is-closing");
+            $answerWrapper.css({ height: "", opacity: "" });
+          },
+        },
+      );
+    };
+
+    faqItemControllers.push({ details, state, setFaqItemOpen });
+
+    $summary.on("click", function (event) {
+      event.preventDefault();
+
+      const shouldOpen = !state.isOpen;
+      if (shouldOpen) {
+        faqItemControllers.forEach((controller) => {
+          if (
+            controller.details !== details &&
+            controller.state.isOpen
+          ) {
+            controller.setFaqItemOpen(false);
+          }
+        });
+      }
+
+      setFaqItemOpen(shouldOpen);
+    });
+
+    // Синхронизируем состояние, если details был открыт или закрыт из кода.
+    $details.on("toggle", function () {
+      if (!state.isAnimating) {
+        state.isOpen = details.open;
+      }
+    });
+  });
+
   const updateModalScrollLock = () => {
     const anyOpen =
       $evalModal.hasClass("is-open") ||
@@ -333,11 +451,6 @@ $(function () {
     updateHeaderScroll();
     $(window).on("scroll", updateHeaderScroll);
   }
-
-  $(".faq-item").on("toggle", function () {
-    if (!this.open) return;
-    $(".faq-item").not(this).prop("open", false);
-  });
 
   const categoriesSwiper = new Swiper(".categories-swiper", {
     slidesPerView: 2,

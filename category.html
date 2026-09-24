@@ -33,6 +33,19 @@
         <span></span>
         <span></span>
       </button>
+      <!-- Выбор города: по макету новой версии — отдельная кнопка
+           сразу после бургера, видна на всех разрешениях. -->
+      <button type="button" class="header__city" data-city-open>
+        Санкт-Петербург
+        <img
+          src="assets/icon-chevron.svg"
+          width="8"
+          height="5"
+          alt=""
+          class="header__city-icon"
+          aria-hidden="true"
+        />
+      </button>
       <div class="header__actions">
         <button type="button" class="header__action" data-eval-open>
           <img
@@ -56,9 +69,9 @@
         </a>
       </div>
       <div class="header__right">
-        <!-- Второй вариант отображения: телефон и выбор города в шапке.
-             По макету скрыт — номер и город переехали в модалку
-             «Свяжитесь с нами» (data-contact-open). -->
+        <!-- Второй вариант отображения: телефон в шапке по-прежнему скрыт
+             (переехал в модалку «Свяжитесь с нами», data-contact-open).
+             Выбор города вернулся отдельной кнопкой header__city. -->
         <!--
         <div class="header__phone-group">
           <a class="header__phone-link" href="tel:+79013260869"
@@ -1659,6 +1672,8 @@
           />
         </a>
         <div class="footer__contacts">
+          <!-- Второй вариант отображения: телефон и круглые логотипы. -->
+          <!--
           <a class="footer__phone" href="tel:+79013260869">+7 901-326-08-69</a>
           <div class="footer__socials">
             <a
@@ -1674,6 +1689,48 @@
               aria-label="Telegram"
             >
               <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
+            </a>
+          </div>
+          -->
+          <!-- Актуальный вариант: кнопки как в шапке (звонок + мессенджеры) -->
+          <div class="footer__socials">
+            <button
+              type="button"
+              class="footer__social footer__social--phone"
+              aria-label="Телефоны магазинов"
+              data-contact-open
+            >
+              <img
+                src="assets/icon-phone.svg"
+                width="21"
+                height="21"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Max"
+            >
+              <img
+                src="assets/icon-max-button.svg"
+                width="53"
+                height="53"
+                alt=""
+              />
+            </a>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Telegram"
+            >
+              <img
+                src="assets/icon-tg-button.svg"
+                width="53"
+                height="53"
+                alt=""
+              />
             </a>
           </div>
         </div>
@@ -1714,9 +1771,8 @@
         />
         <div class="mobile-menu__content">
           <div class="mobile-menu__extras">
-            <!-- Выбор города скрыт по макету: город переехал в модалку
-                 «Свяжитесь с нами». Раскомментировать вместе с
-                 header__phone-group при откате варианта. -->
+            <!-- Выбор города в мобильном меню не показываем: кнопка
+                 вернулась в шапку (header__city, на всех ширинах). -->
             <!--
             <button type="button" class="mobile-menu__city" data-city-open>
               Санкт-Петербург
