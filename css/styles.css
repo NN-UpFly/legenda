@@ -505,7 +505,6 @@ body.is-menu-open {
   background-color: #fff;
   background-image: linear-gradient(142.78deg, #ffffff 18.92%, #cdddfb 76.93%);
   background-size: 204.14% 100%;
-  background-position: left center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -525,31 +524,24 @@ body.is-menu-open {
   box-sizing: border-box;
 }
 
-.hero__title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+/* Заголовок главного экрана — сплошной h1 без класса: строки разделяются
+   <br>, акцентная строка — единственный span внутри h1 (селекторы идут от
+   внешнего контейнера .hero__content, см. одноимённые правила в медиа) */
+.hero__content h1 {
+  display: block;
   width: 100%;
   max-width: 100%;
   min-width: 0;
   margin-bottom: 24px;
   font-weight: 700;
+  font-size: 48px;
+  line-height: 1.15;
   text-align: left;
   text-transform: uppercase;
   color: #282828;
 }
 
-.hero__title-line {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  font-size: 48px;
-  line-height: 1.15;
-  color: #282828;
-}
-
-.hero__title-line--accent {
+.hero__content h1 span {
   color: #8bb5e8;
 }
 
@@ -1855,20 +1847,11 @@ body:not(.variant-legacy) .footer__policy {
     padding: 31px 20px 0;
   }
 
-  .hero__title {
+  .hero__content h1 {
     letter-spacing: -0.02em;
-  }
-
-  .hero__title-line,
-  .hero__title-line--accent,
-  .hero__title-line:first-child {
     white-space: nowrap;
     width: auto;
     max-width: 100%;
-  }
-
-  .hero__title-line,
-  .hero__title-line--accent {
     font-size: 23px;
     line-height: 27px; /* 23px + 4px расстояние между строками */
   }
@@ -1881,8 +1864,7 @@ body:not(.variant-legacy) .footer__policy {
 }
 
 @container hero (max-width: 360px) {
-  .hero__title-line,
-  .hero__title-line--accent {
+  .hero__content h1 {
     font-size: min(23px, 13cqi);
   }
 }
@@ -1901,12 +1883,8 @@ body:not(.variant-legacy) .footer__policy {
     padding: 31px 22px 0;
   }
 
-  .hero__title {
+  .hero__content h1 {
     letter-spacing: -0.02em;
-  }
-
-  .hero__title-line,
-  .hero__title-line--accent {
     font-size: 28px;
     line-height: 1.15;
   }
@@ -2061,7 +2039,6 @@ body:not(.variant-legacy) .footer__policy {
     border-radius: 30px;
     display: block;
     background-size: 100% 100%;
-    background-position: left center;
   }
 
   .hero__content {
@@ -2074,13 +2051,8 @@ body:not(.variant-legacy) .footer__policy {
     width: auto;
   }
 
-  .hero__title {
+  .hero__content h1 {
     margin-bottom: 25px;
-  }
-
-  .hero__title-line,
-  .hero__title-line--accent,
-  .hero__title-line:first-child {
     font-size: 36px;
     line-height: 1.15;
     white-space: nowrap;
@@ -4245,7 +4217,6 @@ body.is-modal-open {
     max-width: none;
     height: 525px;
     background-size: 149.9% 100%;
-    background-position: -24.6% center;
   }
 
   .hero__content {
@@ -4254,13 +4225,8 @@ body.is-modal-open {
     max-width: none;
   }
 
-  .hero__title {
+  .hero__content h1 {
     margin-bottom: 34px;
-  }
-
-  .hero__title-line,
-  .hero__title-line--accent,
-  .hero__title-line:first-child {
     font-size: 36px;
     line-height: 1;
     white-space: nowrap;
@@ -4598,7 +4564,6 @@ body.is-modal-open {
     max-width: none;
     border-radius: 30px;
     background-size: 115.2% 100%;
-    background-position: -7.6% center;
   }
 
   .hero__content {
@@ -4607,9 +4572,7 @@ body.is-modal-open {
     max-width: none;
   }
 
-  .hero__title-line,
-  .hero__title-line--accent,
-  .hero__title-line:first-child {
+  .hero__content h1 {
     font-size: 42px;
     line-height: 1;
     white-space: nowrap;
@@ -5033,7 +4996,6 @@ body.is-modal-open {
 
   .hero__container {
     background-size: 100% 100%;
-    background-position: left center;
   }
 
   .hero__content {
@@ -5042,9 +5004,7 @@ body.is-modal-open {
     max-width: none;
   }
 
-  .hero__title-line,
-  .hero__title-line--accent,
-  .hero__title-line:first-child {
+  .hero__content h1 {
     font-size: 42px;
     line-height: 1;
     white-space: nowrap;
@@ -5282,7 +5242,7 @@ body.is-modal-open {
   color: rgba(40, 40, 40, 0.8);
 }
 
-.page-hero__title {
+.page-hero__panel h1 {
   position: absolute;
   z-index: 2;
   top: 63px;
@@ -5315,7 +5275,7 @@ body.is-modal-open {
   }
 
   .page-hero__crumbs,
-  .page-hero__title {
+  .page-hero__panel h1 {
     left: 28px;
   }
 
@@ -5334,7 +5294,7 @@ body.is-modal-open {
     left: 40px;
   }
 
-  .page-hero__title {
+  .page-hero__panel h1 {
     top: 80px;
     left: 40px;
     max-width: none;
@@ -5476,19 +5436,11 @@ body.is-modal-open {
   color: #282828;
 }
 
-/* По макету список ведёт себя как сплошной текст: промежуток между
-   пунктами равен межстрочному интервалу (margin-bottom не задаётся). */
-.rules__list {
+/* Контентная часть (.content__container) идёт сразу после карточек
+   преимуществ: на мобильных и планшетах отступ 44px (типографика
+   внутри обёртки задаётся по тегам, см. одноимённый раздел ниже). */
+.rules .content__container {
   margin-top: 44px;
-  list-style: disc;
-  padding-left: 24px;
-}
-
-.rules__list li {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.4;
-  color: #282828;
 }
 
 @media (min-width: 480px) and (max-width: 639px) {
@@ -5563,7 +5515,9 @@ body.is-modal-open {
     align-self: flex-end;
   }
 
-  .rules__list {
+  /* Контентная часть — на всю ширину контейнера под двумя колонками.
+     По макету отступ от низа фото 44px: 20px margin + 24px row-gap. */
+  .rules .content__container {
     grid-column: 1 / -1;
     grid-row: 3;
     margin-top: 20px;
@@ -5575,28 +5529,29 @@ body.is-modal-open {
     height: 362px;
   }
 
-  /* По макету на 1440 отступ от низа фото до списка больше (63px),
-     чем на 1200 (44px). */
-  .rules__list {
+  /* По макету на 1440 отступ от низа фото до контентной части больше,
+     чем на 1200: 39px margin + 24px row-gap = 63px (на 1200 — 44px). */
+  .rules .content__container {
     margin-top: 39px;
   }
 }
 /* ================================================== */
-/* ========== Страница категории «Инструмент» ======= */
+/* ========== Контентная часть (.content__container) = */
 /* ================================================== */
-/* Новый блок на category.html вместо «Правил выкупа».
-   Верхняя часть переиспользует сетку .rules__grid — фото,
-   лид-текст и карточки преимуществ. Ниже идут разделы с
-   заголовком и списками. Все стили ограничены модификатором
-   .rules--category и не затрагивают страницу rules.html. */
-.rules--category .rules__title {
+/* Обёртка для текстового контента: внутри неё нет классов, только теги
+   (h2, p, ul, li), поэтому типографика и списки задаются по тегам.
+   Используется в .rules__container на страницах «Правила выкупа» и
+   «Инструмент». Отступ до обёртки задаётся по макету страницы — см.
+   .rules .content__container и .rules--category .content__container. */
+.content__container h2 {
   font-weight: 700;
   font-size: 22px;
   line-height: 1.2;
   color: #282828;
 }
 
-.rules--category .rules__intro {
+.content__container p,
+.content__container ul {
   margin-top: 24px;
   font-weight: 400;
   font-size: 16px;
@@ -5604,15 +5559,40 @@ body.is-modal-open {
   color: #282828;
 }
 
-.rules--category .rules__list {
-  margin-top: 24px;
+/* По макету список ведёт себя как сплошной текст: промежуток между
+   пунктами равен межстрочному интервалу (margin-bottom не задаётся). */
+.content__container ul {
+  list-style: disc;
+  padding-left: 24px;
 }
 
-.rules--category .rules__cats,
-.rules--category .rules__reject,
-.rules--category .rules__conditions {
+/* Первый элемент прижат к верхнему краю обёртки: отступ до контентной
+   части целиком задаёт сама .content__container по макету страницы. */
+.content__container > :first-child {
+  margin-top: 0;
+}
+
+/* Разделы контента начинаются с заголовка: между разделами 48px,
+   внутри раздела заголовок и текст/список разделяют 24px. */
+.content__container > h2:not(:first-child) {
   margin-top: 48px;
 }
+
+@media (min-width: 640px) {
+  .content__container h2 {
+    font-size: 36px;
+  }
+}
+
+/* ================================================== */
+/* ========== Страница категории «Инструмент» ======= */
+/* ================================================== */
+/* Новый блок на category.html вместо «Правил выкупа».
+   Верхняя часть переиспользует сетку .rules__grid — фото,
+   лид-текст и карточки преимуществ. Ниже идёт контентная часть
+   .content__container с разделами «принимаем», «не принимаем»,
+   «правила и условия». Все стили ограничены модификатором
+   .rules--category и не затрагивают страницу rules.html. */
 
 /* Фото есть на всех разрешениях: на мобильных и планшетах оно занимает
    всю ширину контейнера, с 1200px — левую колонку двухколоночной сетки.
@@ -5629,15 +5609,16 @@ body.is-modal-open {
   }
 }
 
-@media (min-width: 640px) {
-  .rules--category .rules__title {
-    font-size: 36px;
-  }
+/* Отступ от карточек преимуществ до контентной части: 48px на мобильных
+   и планшетах, 44px на 1200, 60px от 1440. row-gap контейнера на этой
+   странице равен 0, поэтому отступ целиком задаёт margin обёртки. */
+.rules--category .content__container {
+  margin-top: 48px;
 }
 
 @media (min-width: 1200px) {
   /* С 1200px верхняя часть — две колонки (фото 531px слева, лид
-     и карточки справа), а разделы ниже — на всю ширину контейнера. */
+     и карточки справа), а контентная часть — на всю ширину контейнера. */
   .rules--category .rules__container {
     display: grid;
     grid-template-columns: 531px minmax(0, 1fr);
@@ -5673,20 +5654,10 @@ body.is-modal-open {
     align-self: flex-end;
   }
 
-  .rules--category .rules__cats {
+  .rules--category .content__container {
     grid-column: 1 / -1;
     grid-row: 3;
     margin-top: 44px;
-  }
-
-  .rules--category .rules__reject {
-    grid-column: 1 / -1;
-    grid-row: 4;
-  }
-
-  .rules--category .rules__conditions {
-    grid-column: 1 / -1;
-    grid-row: 5;
   }
 }
 
@@ -5695,7 +5666,7 @@ body.is-modal-open {
     height: 362px;
   }
 
-  .rules--category .rules__cats {
+  .rules--category .content__container {
     margin-top: 60px;
   }
 }

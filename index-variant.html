@@ -127,12 +127,10 @@
       <section class="hero">
         <div class="hero__container">
           <div class="hero__content">
-            <h1 class="hero__title">
-              <span class="hero__title-line">Выкупаем</span>
-              <span class="hero__title-line hero__title-line--accent"
-                >рабочую технику</span
-              >
-              <span class="hero__title-line">Быстро и дорого</span>
+            <h1>
+              Выкупаем<br />
+              <span>рабочую технику</span><br />
+              Быстро и дорого
             </h1>
             <ul class="hero__features">
               <li class="hero__feature">Без объявлений и переписок</li>
@@ -148,13 +146,19 @@
             </button>
           </div>
           <div class="hero__visual" aria-hidden="true">
-            <img
-              class="hero__img"
-              src="assets/hero-img.png"
-              width="1199"
-              height="525"
-              alt=""
-            />
+            <picture>
+              <source
+                media="(max-width: 639px)"
+                srcset="assets/hero-img-sm.png"
+              />
+              <img
+                class="hero__img"
+                src="assets/hero-img-lg.png"
+                width="1199"
+                height="525"
+                alt=""
+              />
+            </picture>
           </div>
         </div>
       </section>
