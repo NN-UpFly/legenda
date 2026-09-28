@@ -283,8 +283,12 @@ $(function () {
       });
     }
 
-    $cityModal.find(".city-modal__option").on("click", (event) => {
-      event.preventDefault();
+    $cityModal.find(".city-modal__option").on("click", function (event) {
+      const href = $(this).attr("href") || "";
+      // заглушки из вёрстки не переходят, настоящие ссылки — переходят
+      if (!href || href.indexOf("javascript:") === 0) {
+        event.preventDefault();
+      }
       setCityModalOpen(false);
     });
 
