@@ -225,7 +225,7 @@ $(function () {
           '<li class="eval-modal__preview">' +
             '<img class="eval-modal__preview-img" src="" alt="" />' +
             '<button class="eval-modal__preview-remove" type="button" title="Удалить фото" aria-label="Удалить фото">' +
-            '<img class="eval-modal__preview-remove-icon" src="assets/modal-preview-remove.svg" width="11" height="11" alt="" />' +
+            '<img class="eval-modal__preview-remove-icon" src="/assets/modal-preview-remove.svg" width="11" height="11" alt="" />' +
             "</button>" +
             "</li>",
         );
