@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница не найдена — Легенда</title>
+    <link rel="stylesheet" href="modules/wix-madefor-display.css" />
+    <link rel="stylesheet" href="modules/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="header__logo" href="index.html">
+        <img
+          src="assets/logo-header.svg"
+          width="243"
+          height="54"
+          alt="Легенда — комиссионный магазин"
+        />
+      </a>
+      <button
+        class="header__menu"
+        type="button"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- Выбор города: по макету новой версии — отдельная кнопка
+           сразу после бургера, видна на всех разрешениях. -->
+      <button type="button" class="header__city" data-city-open>
+        Санкт-Петербург
+        <img
+          src="assets/icon-chevron.svg"
+          width="8"
+          height="5"
+          alt=""
+          class="header__city-icon"
+          aria-hidden="true"
+        />
+      </button>
+      <div class="header__actions">
+        <button type="button" class="header__action" data-eval-open>
+          <img
+            src="assets/icon-eval.svg"
+            width="20"
+            height="15"
+            alt=""
+            aria-hidden="true"
+          />
+          Онлайн оценка
+        </button>
+        <a class="header__action header__action--stores" href="#contacts">
+          <img
+            src="assets/icon-stores.svg"
+            width="11"
+            height="15"
+            alt=""
+            aria-hidden="true"
+          />
+          Адреса магазинов
+        </a>
+      </div>
+      <div class="header__right">
+        <!-- Второй вариант отображения: телефон в шапке по-прежнему скрыт
+             (переехал в модалку «Свяжитесь с нами», data-contact-open).
+             Выбор города вернулся отдельной кнопкой header__city. -->
+        <!--
+        <div class="header__phone-group">
+          <a class="header__phone-link" href="tel:+79013260869"
+            >+7 901-326-08-69</a
+          >
+          <button type="button" class="header__city" data-city-open>
+            Санкт-Петербург
+            <img
+              src="assets/icon-chevron.svg"
+              width="8"
+              height="5"
+              alt=""
+              class="header__city-icon"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        -->
+        <!-- Второй вариант отображения: только круглые логотипы мессенджеров. -->
+        <!--
+        <div class="header__socials">
+          <a href="javascript:void(0)" class="header__social" aria-label="Max">
+            <img src="assets/icon-max.svg" width="37" height="37" alt="" />
+          </a>
+          <a
+            href="javascript:void(0)"
+            class="header__social"
+            aria-label="Telegram"
+          >
+            <img src="assets/icon-tg.svg" width="37" height="37" alt="" />
+          </a>
+        </div>
+        -->
+        <!-- Актуальный вариант: звонок и мессенджеры кнопками 53×53 -->
+        <div class="header__socials">
+          <button
+            type="button"
+            class="header__social header__social--phone"
+            aria-label="Телефоны магазинов"
+            data-contact-open
+          >
+            <img
+              src="assets/icon-phone.svg"
+              width="21"
+              height="21"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+          <a href="javascript:void(0)" class="header__social" aria-label="Max">
+            <img
+              src="assets/icon-max-button.svg"
+              width="53"
+              height="53"
+              alt=""
+            />
+          </a>
+          <a
+            href="javascript:void(0)"
+            class="header__social"
+            aria-label="Telegram"
+          >
+            <img src="assets/icon-tg-button.svg" width="53" height="53" alt="" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="page">
+      <!-- Ошибка 404: «4 + логотип + 4». Цифры набраны шрифтом сайта,
+           средний знак — фирменный знак из assets/logo-header.svg.
+           Арт собран в SVG, чтобы масштабироваться целиком. -->
+      <section class="error-page">
+        <svg
+          class="error-page__art"
+          viewBox="0 0 532 186"
+          role="img"
+          aria-label="Ошибка 404 — страница не найдена"
+        >
+          <g fill="#8bb5e8">
+            <text class="error-page__digit" x="-9.6" y="186">4</text>
+            <svg
+              class="error-page__mark"
+              x="163"
+              y="0"
+              width="205"
+              height="186"
+              viewBox="0 0 59.58 54.44"
+              preserveAspectRatio="none"
+            >
+              <path d="M26.5172 21.2191C27.6643 18.6729 28.8099 16.1252 29.9542 13.5762L33.2946 21.2843L41.7087 20.3788L36.6014 27.1016L41.467 33.8245L33.2967 32.9736C32.1286 35.5703 30.9613 38.1663 29.7945 40.7616L26.4857 32.9568L18.248 33.8665C19.8868 31.6017 21.5248 29.3377 23.1621 27.0743L18.2733 20.4586L26.5172 21.2191Z"/>
+              <path d="M16.1289 17.052H23.9463L29.3078 7.70718H50.0876L47.5539 3.53275C47.5539 3.53275 45.9174 0.963369 42.1589 0.0957031H25.772L16.1289 17.052Z"/>
+              <path d="M14.2132 33.9986L18.1461 27.238L12.8098 17.7273L22.9445 0L18.3351 0.035715C18.3351 0.035715 15.291 0.159667 12.6501 2.97695C11.356 5.09885 10.0583 7.26977 8.75716 9.48973C7.25713 12.0682 5.80684 14.6137 4.40625 17.1264L14.2132 33.9986Z"/>
+              <path d="M28.5833 44.3437L24.0538 37.3351L13.2867 37.3477L3.05119 19.4902C2.34389 20.6233 1.63729 21.7557 0.9314 22.8874C0.573157 23.6612 0.314099 24.4772 0.160375 25.316C-0.145013 27.0473 -0.0128551 28.8274 0.544836 30.4946C1.69052 32.5437 2.90343 34.6341 4.18357 36.7658C5.75923 39.3765 7.33632 41.8716 8.91479 44.2512L28.5833 44.3437Z"/>
+              <path d="M43.5831 37.131L35.7636 37.2129L30.2488 46.6963L9.85547 46.7593L12.3072 50.9821C12.3072 50.9821 13.9711 53.5326 17.738 54.3604L33.8454 54.3393L43.5831 37.131Z"/>
+              <path d="M45.5631 20.2967L41.4853 27.2023L46.9119 36.5554C43.4987 42.5009 40.0833 48.4458 36.6659 54.3898C37.9958 54.4897 39.3322 54.4652 40.6576 54.3163C41.4947 54.247 42.3233 54.0985 43.1324 53.873C44.7115 53.3802 46.1452 52.5064 47.3069 51.3288C48.0737 50.0011 49.0107 48.3876 49.7796 47.0578C51.6606 43.8126 53.5444 40.5688 55.431 37.3265L45.5631 20.2967Z"/>
+              <path d="M31.2734 10.084L35.7126 17.1451L46.488 17.0842L56.7319 34.7799C57.4841 33.6384 58.2355 32.4963 58.9862 31.3533C59.336 30.574 59.5866 29.7539 59.732 28.9122C60.0188 27.1775 59.8671 25.3987 59.2908 23.7376C58.2404 21.7187 57.0639 19.622 55.7697 17.4707C54.1962 14.8551 52.6184 12.4286 51.0469 10.2122L31.2734 10.084Z"/>
+            </svg>
+            <text class="error-page__digit" x="373.4" y="186">4</text>
+          </g>
+        </svg>
+        <p class="error-page__text">
+          К сожалению, данная страница<br class="br-sm" />отсутствует или удалена.<br />Вы можете
+          перейти на Главную
+        </p>
+        <a class="error-page__button" href="index.html">На главную</a>
+      </section>
+
+      <footer class="footer">
+        <a class="footer__logo" href="index.html">
+          <img
+            src="assets/logo-footer.svg"
+            width="227"
+            height="53"
+            alt="Легенда"
+          />
+        </a>
+        <div class="footer__contacts">
+          <!-- Второй вариант отображения: телефон и круглые логотипы. -->
+          <!--
+          <a class="footer__phone" href="tel:+79013260869">+7 901-326-08-69</a>
+          <div class="footer__socials">
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Max"
+            >
+              <img src="assets/icon-max.svg" width="31" height="31" alt="" />
+            </a>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Telegram"
+            >
+              <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
+            </a>
+          </div>
+          -->
+          <!-- Актуальный вариант: кнопки как в шапке (звонок + мессенджеры) -->
+          <div class="footer__socials">
+            <button
+              type="button"
+              class="footer__social footer__social--phone"
+              aria-label="Телефоны магазинов"
+              data-contact-open
+            >
+              <img
+                src="assets/icon-phone.svg"
+                width="21"
+                height="21"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Max"
+            >
+              <img
+                src="assets/icon-max-button.svg"
+                width="53"
+                height="53"
+                alt=""
+              />
+            </a>
+            <a
+              class="footer__social"
+              href="javascript:void(0)"
+              aria-label="Telegram"
+            >
+              <img
+                src="assets/icon-tg-button.svg"
+                width="53"
+                height="53"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          <a href="#categories">Что выкупаем</a>
+          <a href="rules.html">Правила выкупа</a>
+          <a href="#contacts">Адреса магазинов</a>
+        </nav>
+        <div class="footer__line"></div>
+        <a class="footer__policy" href="privacy.html"
+          >Политика конфиденциальности</a
+        >
+      </footer>
+    </div>
+
+
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Меню"
+      aria-hidden="true"
+    >
+      <button
+        class="mobile-menu__backdrop"
+        type="button"
+        aria-label="Закрыть меню"
+        tabindex="-1"
+      ></button>
+      <div class="mobile-menu__panel">
+        <img
+          class="mobile-menu__watermark"
+          src="assets/menu-watermark.svg"
+          width="519"
+          height="465"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="mobile-menu__content">
+          <div class="mobile-menu__extras">
+            <!-- Выбор города в мобильном меню не показываем: кнопка
+                 вернулась в шапку (header__city, на всех ширинах). -->
+            <!--
+            <button type="button" class="mobile-menu__city" data-city-open>
+              Санкт-Петербург
+              <img
+                src="assets/icon-chevron.svg"
+                width="8"
+                height="5"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            -->
+            <button type="button" class="mobile-menu__eval" data-eval-open>
+              <img
+                src="assets/icon-eval.svg"
+                width="20"
+                height="15"
+                alt=""
+                aria-hidden="true"
+              />
+              Онлайн оценка
+            </button>
+          </div>
+          <nav class="mobile-menu__nav">
+            <a href="#contacts">Адреса магазинов</a>
+            <a href="#categories">Что выкупаем</a>
+            <a href="rules.html">Правила выкупа</a>
+            <a href="#approach">О нас</a>
+          </nav>
+          <div class="mobile-menu__footer">
+            <!-- Второй вариант отображения: телефон в подвале меню.
+                 По макету скрыт — номер переехал в модалку
+                 «Свяжитесь с нами» (кнопка звонка рядом с соцсетями). -->
+            <!--
+            <a class="mobile-menu__phone" href="tel:+79013260869"
+              >+7 901-326-08-69</a
+            >
+            -->
+            <div class="mobile-menu__socials">
+              <button
+                type="button"
+                class="mobile-menu__social mobile-menu__social--phone"
+                aria-label="Телефоны магазинов"
+                data-contact-open
+              >
+                <img
+                  src="assets/icon-phone.svg"
+                  width="21"
+                  height="21"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <!-- Второй вариант отображения: пилюли с надписями Max и Telegram. -->
+              <!--
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Max"
+              >
+                <img src="assets/icon-max.svg" width="31" height="31" alt="" />
+                <span>Max</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Telegram"
+              >
+                <img src="assets/icon-tg.svg" width="31" height="31" alt="" />
+                <span>Telegram</span>
+              </a>
+              -->
+              <!-- Актуальный вариант: квадратные кнопки 53×53, как в шапке -->
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Max"
+              >
+                <img
+                  src="assets/icon-max-button.svg"
+                  width="53"
+                  height="53"
+                  alt=""
+                />
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="mobile-menu__social"
+                aria-label="Telegram"
+              >
+                <img
+                  src="assets/icon-tg-button.svg"
+                  width="53"
+                  height="53"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="city-modal"
+      id="city-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="city-modal-title"
+      aria-hidden="true"
+    >
+      <div class="city-modal__backdrop" data-city-close></div>
+      <div class="city-modal__scroll">
+        <div class="city-modal__dialog" role="document">
+          <img
+            class="city-modal__watermark"
+            src="assets/menu-watermark.svg"
+            width="519"
+            height="465"
+            alt=""
+            aria-hidden="true"
+          />
+          <button
+            class="city-modal__close"
+            type="button"
+            aria-label="Закрыть"
+            data-city-close
+          >
+            <span class="city-modal__close-icon" aria-hidden="true"></span>
+          </button>
+          <h2 class="city-modal__title" id="city-modal-title">Выбор города</h2>
+          <nav class="city-modal__list" aria-label="Города">
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="moskva"
+              >Москва</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="sankt-peterburg"
+              >Санкт-Петербург</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="sochi"
+              >Сочи</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="lazarevskoye"
+              >Лазаревское</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="novorossiysk"
+              >Новороссийск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="anapa"
+              >Анапа</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="nevinnomyssk"
+              >Невинномысск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="pyatigorsk"
+              >Пятигорск</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="adler"
+              >Адлер</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="stavropol"
+              >Ставрополь</a
+            >
+            <a
+              class="city-modal__option"
+              href="javascript:void(0)"
+              data-city="gelendzhik"
+              >Геленджик</a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="eval-modal"
+      id="eval-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="eval-modal-title"
+      aria-hidden="true"
+    >
+      <div class="eval-modal__backdrop" data-eval-close></div>
+      <div class="eval-modal__scroll">
+        <div class="eval-modal__dialog" role="document">
+          <button
+            class="eval-modal__close"
+            type="button"
+            aria-label="Закрыть"
+            data-eval-close
+          >
+            <span class="eval-modal__close-icon" aria-hidden="true"></span>
+          </button>
+          <h2 class="eval-modal__title" id="eval-modal-title">
+            <span class="eval-modal__title-line">Онлайн оценка</span>
+            <span class="eval-modal__title-line">техники</span>
+          </h2>
+          <p class="eval-modal__subtitle">
+            Оставьте заявку на оценку, мы свяжемся с вами в ближайшее время
+          </p>
+          <form class="eval-modal__form" action="#" method="post">
+            <div class="eval-modal__fields">
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-name"
+                  >Ваше имя</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-name"
+                  name="name"
+                  type="text"
+                  placeholder="Введите имя"
+                  autocomplete="name"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-phone"
+                  >Телефон</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+7 (___)___-__-__"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-city"
+                  >Ваш город</label
+                >
+                <div class="eval-modal__select-wrap">
+                  <select
+                    class="eval-modal__input eval-modal__select"
+                    id="eval-city"
+                    name="city"
+                    required
+                  >
+                    <option value="" selected disabled>Выберите город</option>
+                    <option value="sankt-peterburg">Санкт-Петербург</option>
+                    <option value="sochi">Сочи</option>
+                    <option value="anapa">Анапа</option>
+                    <option value="gelendzhik">Геленджик</option>
+                    <option value="novorossiysk">Новороссийск</option>
+                  </select>
+                </div>
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-product"
+                  >Наименование товара</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-product"
+                  name="product"
+                  type="text"
+                  placeholder="Бренд, марка, модель"
+                />
+              </div>
+              <div class="eval-modal__field eval-modal__field--full">
+                <label class="eval-modal__label" for="eval-description"
+                  >Описание товара</label
+                >
+                <textarea
+                  class="eval-modal__input eval-modal__textarea"
+                  id="eval-description"
+                  name="description"
+                  placeholder="Состояние, комплектность, характеристики"
+                ></textarea>
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-price"
+                  >Желаемая стоимость</label
+                >
+                <input
+                  class="eval-modal__input"
+                  id="eval-price"
+                  name="price"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="Введите сумму"
+                />
+              </div>
+              <div class="eval-modal__field">
+                <label class="eval-modal__label" for="eval-photos"
+                  >Фотографии (максимально 3 фото)</label
+                >
+                <div class="eval-modal__upload">
+                  <label class="eval-modal__upload-label">
+                    <input
+                      class="visually-hidden"
+                      id="eval-photos"
+                      name="photos"
+                      type="file"
+                      accept="image/*"
+                      multiple
+                    />
+                    <span class="eval-modal__upload-text"
+                      >Загрузите или перетащите фото</span
+                    >
+                    <span class="eval-modal__upload-icon" aria-hidden="true">
+                      <img
+                        class="eval-modal__upload-icon-bg"
+                        src="assets/modal-camera-bg.svg"
+                        width="33"
+                        height="33"
+                        alt=""
+                      />
+                      <img
+                        class="eval-modal__upload-icon-cam"
+                        src="assets/modal-camera.svg"
+                        width="17"
+                        height="15"
+                        alt=""
+                      />
+                    </span>
+                  </label>
+                  <ul
+                    class="eval-modal__previews"
+                    data-eval-previews
+                    hidden
+                  ></ul>
+                </div>
+              </div>
+            </div>
+            <p class="eval-modal__legal">
+              Нажимая на кнопку, вы соглашаетесь с
+              <a href="javascript:void(0)">политикой конфиденциальности</a>
+            </p>
+            <button class="btn btn--primary eval-modal__submit" type="submit">
+              Оставить заявку
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="contact-modal"
+      id="contact-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+      aria-hidden="true"
+    >
+      <div class="contact-modal__backdrop" data-contact-close></div>
+      <div class="contact-modal__scroll">
+        <div class="contact-modal__dialog" role="document">
+          <button
+            class="contact-modal__close"
+            type="button"
+            aria-label="Закрыть"
+            data-contact-close
+          >
+            <span class="contact-modal__close-icon" aria-hidden="true"></span>
+          </button>
+          <h2 class="contact-modal__title" id="contact-modal-title">
+            Свяжитесь с нами
+          </h2>
+          <ul class="contact-modal__list">
+            <li class="contact-modal__item">
+              <figure class="contact-modal__photo">
+                <img src="assets/store-1.png" alt="Магазин Легенда" />
+              </figure>
+              <div class="contact-modal__info">
+                <h3 class="contact-modal__address">г. Сочи, ул. Донская, 58</h3>
+                <a class="contact-modal__phone" href="tel:+79998868687"
+                  >+7-999-886-86-87</a
+                >
+              </div>
+            </li>
+            <li class="contact-modal__item">
+              <figure class="contact-modal__photo">
+                <img src="assets/store-2.png" alt="Магазин Легенда" />
+              </figure>
+              <div class="contact-modal__info">
+                <h3 class="contact-modal__address">
+                  г. Сочи, ул. Московская, д. 18, стр. 1А
+                </h3>
+                <a class="contact-modal__phone" href="tel:+79998868687"
+                  >+7-999-886-86-87</a
+                >
+              </div>
+            </li>
+            <li class="contact-modal__item">
+              <figure class="contact-modal__photo">
+                <img src="assets/store-1.png" alt="Магазин Легенда" />
+              </figure>
+              <div class="contact-modal__info">
+                <h3 class="contact-modal__address">
+                  Р-н Адлер, ул. Демократическая, д. 75/1
+                </h3>
+                <a class="contact-modal__phone" href="tel:+79998868687"
+                  >+7-999-886-86-87</a
+                >
+              </div>
+            </li>
+            <li class="contact-modal__item">
+              <figure class="contact-modal__photo">
+                <img src="assets/store-2.png" alt="Магазин Легенда" />
+              </figure>
+              <div class="contact-modal__info">
+                <h3 class="contact-modal__address">
+                  Р-н Адлер, ул. Демократическая, д. 75/1
+                </h3>
+                <a class="contact-modal__phone" href="tel:+79998868687"
+                  >+7-999-886-86-87</a
+                >
+              </div>
+            </li>
+            <li class="contact-modal__item">
+              <figure class="contact-modal__photo">
+                <img src="assets/store-1.png" alt="Магазин Легенда" />
+              </figure>
+              <div class="contact-modal__info">
+                <h3 class="contact-modal__address">
+                  г. Сочи, ул. Московская, д. 18, стр. 1А
+                </h3>
+                <a class="contact-modal__phone" href="tel:+79998868687"
+                  >+7-999-886-86-87</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="modules/jquery.min.js"></script>
+    <script src="modules/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

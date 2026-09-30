@@ -3158,19 +3158,31 @@ body.is-modal-open {
   resize: none;
 }
 
+/* Поле загрузки фото: строка с надписью и иконкой, ниже — ряд превью */
 .eval-modal__upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  min-height: 73px;
+  padding: 12px 20px 12px 24px;
+  background: #f4f5f7;
+  border-radius: 15px;
+}
+
+.eval-modal__upload-label {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 73px;
-  padding: 12px 56px 12px 24px;
-  background: #f4f5f7;
-  border-radius: 15px;
+  padding-right: 41px;
   cursor: pointer;
 }
 
 .eval-modal__upload-text {
+  flex: 1 1 auto;
+  min-width: 0;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
@@ -3179,7 +3191,7 @@ body.is-modal-open {
 
 .eval-modal__upload-icon {
   position: absolute;
-  right: 18px;
+  right: 0;
   top: 50%;
   width: 33px;
   height: 33px;
@@ -3204,6 +3216,78 @@ body.is-modal-open {
   left: 50%;
   top: 50%;
   margin: -7.5px 0 0 -8.5px;
+}
+
+.eval-modal__previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Пустой список превью не занимает место */
+.eval-modal__previews[hidden] {
+  display: none;
+}
+
+.eval-modal__preview {
+  position: relative;
+  flex: 0 0 auto;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.eval-modal__preview-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eval-modal__preview-remove {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.eval-modal__preview-remove-icon {
+  display: block;
+  width: 11px;
+  height: 11px;
+}
+
+/* Кнопка удаления появляется при наведении или фокусе на превью */
+.eval-modal__preview:hover .eval-modal__preview-remove,
+.eval-modal__preview-remove:focus-visible {
+  opacity: 1;
+}
+
+/* На тач-устройствах кнопка удаления видна всегда */
+@media (hover: none) {
+  .eval-modal__preview-remove {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eval-modal__preview-remove {
+    transition: none;
+  }
 }
 
 .eval-modal__legal {
@@ -3541,19 +3625,12 @@ body.is-modal-open {
 
   .eval-modal__upload {
     min-height: 53px;
-    height: 53px;
-    padding-top: 0;
-    padding-bottom: 0;
   }
 
   .eval-modal__upload-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .eval-modal__upload-icon {
-    right: 14px;
   }
 
   .eval-modal__legal {
@@ -5991,5 +6068,156 @@ body.is-modal-open {
 @media (min-width: 1200px) and (max-width: 1439px) {
   body:not(.variant-legacy) .header__action--stores {
     display: none;
+  }
+}
+
+/* =============================================================================
+   Страница 404 (404.html): панель с градиентом, крупный арт «4 + знак + 4»,
+   сообщение и кнопка «На главную». Шапка, подвал, меню и модальные окна —
+   общие блоки сайта, поэтому здесь только содержимое страницы.
+   ============================================================================= */
+.error-page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 78px сверху — расстояние от шапки до арта по макету 320/480 */
+  padding: 78px 15px 185px;
+  /* Градиент панели: белый сверху к светло-голубому внизу, с уклоном вправо */
+  background: linear-gradient(
+    170deg,
+    #ffffff 0%,
+    #fdfeff 20%,
+    #f0f5fe 51%,
+    #e2ebfc 82%,
+    #dbe6fc 100%
+  );
+  /* Нижние углы скруглены и перекрывают подвал ровно на высоту радиуса */
+  border-radius: 0 0 50px 50px;
+  margin-bottom: -50px;
+  text-align: center;
+}
+
+.error-page__art {
+  display: block;
+  flex-shrink: 0;
+  width: 272px;
+  height: 95.1px;
+}
+
+/* Цифры «404» набраны шрифтом сайта; размер подобран так, чтобы высота
+   цифр совпала с макетом (средний знак — фирменный знак из logo-header.svg) */
+.error-page__digit {
+  font-family: "Wix Madefor Display", sans-serif;
+  font-weight: 700;
+  font-size: 250.35px;
+}
+
+.error-page__text {
+  max-width: 258px;
+  margin-top: 42px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #434343;
+}
+
+.error-page__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 218px;
+  height: 53px;
+  margin-top: 49px;
+  padding: 0 24px;
+  border-radius: 15px;
+  background: #fff;
+  color: #282828;
+  font-weight: 500;
+  font-size: 20px;
+  /* Тонкая рамка, чтобы белая кнопка не сливалась со светлой панелью */
+  box-shadow: inset 0 0 0 1px rgba(65, 71, 99, 0.14);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.error-page__button:hover {
+  background: #f4f5f7;
+}
+
+.error-page__button:active {
+  background: #e9ebef;
+}
+
+/* Подвал на странице 404: панель перекрывает его нижнюю половину скруглёнными
+   углами на 50px, поэтому компенсируем отступ сверху, чтобы содержимое
+   подвала не уходило под панель (как .bottom-band + .footer на главной) */
+.error-page + .footer {
+  padding-top: 96px;
+}
+
+
+
+/* 480–639px: арт крупнее, сообщение 18px в три строки (высота бокса 84px),
+   сверху к панели — белый зазор 17px, как на макете 480 */
+@media (min-width: 480px) and (max-width: 639px) {
+  .error-page {
+    margin-top: 17px;
+    padding-bottom: 156px;
+  }
+
+  .error-page__art {
+    width: 374.7px;
+    height: 131px;
+  }
+
+  .error-page__text {
+    max-width: 353px;
+    margin-top: 45px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .error-page__button {
+    margin-top: 27px;
+  }
+}
+
+/* 640px и выше: арт максимального размера, сообщение в две строки.
+   Перенос после «удалена.» жёсткий (бокс 552px = 551px строки по макету),
+   первый <br> на этих ширинах выключен — строка «страница отсутствует…»
+   должна оставаться одной строкой. */
+@media (min-width: 640px) {
+  .error-page {
+    padding: 129px 24px 168px;
+  }
+
+  .error-page__art {
+    width: 531px;
+    height: 185.6px;
+  }
+
+  .error-page__text {
+    max-width: 552px;
+    margin-top: 45px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .error-page__text .br-sm {
+    display: none;
+  }
+
+  .error-page__button {
+    margin-top: 55px;
+  }
+}
+
+/* 960px и выше: увеличиваем только верхний отступ панели (высота шапки +23px) */
+@media (min-width: 960px) {
+  .error-page {
+    padding-top: 154px;
   }
 }

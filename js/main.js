@@ -197,25 +197,101 @@ $(function () {
 
     const $evalForm = $evalModal.find(".eval-modal__form");
     const $evalPhotos = $evalModal.find("#eval-photos");
-    const $evalUploadText = $evalModal.find(".eval-modal__upload-text");
-    const evalUploadDefault =
-      $evalUploadText.text().trim() || "Загрузите или перетащите фото";
+    const $evalPreviews = $evalModal.find("[data-eval-previews]");
+    const evalPhotosMax = 3;
+    const evalPreviewFiles = [];
+    const evalPhotosTransfer = new DataTransfer();
 
-    if ($evalPhotos.length && $evalUploadText.length) {
-      $evalPhotos.on("change", function () {
-        const input = this;
-        const files = [...(input.files || [])].slice(0, 3);
-        if (input.files && input.files.length > 3) {
-          const dt = new DataTransfer();
-          files.forEach((file) => dt.items.add(file));
-          input.files = dt.files;
-        }
-        $evalUploadText.text(
-          files.length
-            ? files.map((file) => file.name).join(", ")
-            : evalUploadDefault,
-        );
+    const isSameEvalFile = (a, b) =>
+      a.name === b.name &&
+      a.size === b.size &&
+      a.lastModified === b.lastModified;
+
+    // Переносим текущий список файлов в нативный input
+    const syncEvalPhotosInput = () => {
+      evalPhotosTransfer.items.clear();
+      evalPreviewFiles.forEach((item) => {
+        evalPhotosTransfer.items.add(item.file);
       });
+      $evalPhotos[0].files = evalPhotosTransfer.files;
+    };
+
+    // Перерисовываем превью загруженных фотографий
+    const renderEvalPreviews = () => {
+      $evalPreviews.empty();
+
+      evalPreviewFiles.forEach((item, index) => {
+        const $preview = $(
+          '<li class="eval-modal__preview">' +
+            '<img class="eval-modal__preview-img" src="" alt="" />' +
+            '<button class="eval-modal__preview-remove" type="button" title="Удалить фото" aria-label="Удалить фото">' +
+            '<img class="eval-modal__preview-remove-icon" src="assets/modal-preview-remove.svg" width="11" height="11" alt="" />' +
+            "</button>" +
+            "</li>",
+        );
+
+        $preview.find(".eval-modal__preview-img").attr({
+          src: item.url,
+          alt: item.file.name,
+        });
+        $preview
+          .find(".eval-modal__preview-remove")
+          .attr("data-eval-preview-index", index);
+
+        $evalPreviews.append($preview);
+      });
+
+      $evalPreviews.prop("hidden", !evalPreviewFiles.length);
+    };
+
+    // Добавляем новые фото, соблюдая лимит и пропуская дубли
+    const addEvalPreviewFiles = (files) => {
+      files.forEach((file) => {
+        if (evalPreviewFiles.length >= evalPhotosMax) {
+          return;
+        }
+
+        if (!file.type.startsWith("image/")) {
+          return;
+        }
+
+        if (evalPreviewFiles.some((item) => isSameEvalFile(item.file, file))) {
+          return;
+        }
+
+        evalPreviewFiles.push({
+          file,
+          url: URL.createObjectURL(file),
+        });
+      });
+    };
+
+    if ($evalPhotos.length && $evalPreviews.length) {
+      $evalPhotos.on("change", function () {
+        addEvalPreviewFiles([...(this.files || [])]);
+        syncEvalPhotosInput();
+        renderEvalPreviews();
+      });
+
+      // Удаление превью по клику на крестик
+      $evalPreviews.on(
+        "click",
+        ".eval-modal__preview-remove",
+        function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const index = parseInt($(this).attr("data-eval-preview-index"), 10);
+          const removed = evalPreviewFiles.splice(index, 1)[0];
+
+          if (removed) {
+            URL.revokeObjectURL(removed.url);
+          }
+
+          syncEvalPhotosInput();
+          renderEvalPreviews();
+        },
+      );
     }
 
     if ($evalForm.length) {

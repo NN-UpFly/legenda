@@ -2006,35 +2006,42 @@
                 <label class="eval-modal__label" for="eval-photos"
                   >Фотографии (максимально 3 фото)</label
                 >
-                <label class="eval-modal__upload">
-                  <input
-                    class="visually-hidden"
-                    id="eval-photos"
-                    name="photos"
-                    type="file"
-                    accept="image/*"
-                    multiple
-                  />
-                  <span class="eval-modal__upload-text"
-                    >Загрузите или перетащите фото</span
-                  >
-                  <span class="eval-modal__upload-icon" aria-hidden="true">
-                    <img
-                      class="eval-modal__upload-icon-bg"
-                      src="assets/modal-camera-bg.svg"
-                      width="33"
-                      height="33"
-                      alt=""
+                <div class="eval-modal__upload">
+                  <label class="eval-modal__upload-label">
+                    <input
+                      class="visually-hidden"
+                      id="eval-photos"
+                      name="photos"
+                      type="file"
+                      accept="image/*"
+                      multiple
                     />
-                    <img
-                      class="eval-modal__upload-icon-cam"
-                      src="assets/modal-camera.svg"
-                      width="17"
-                      height="15"
-                      alt=""
-                    />
-                  </span>
-                </label>
+                    <span class="eval-modal__upload-text"
+                      >Загрузите или перетащите фото</span
+                    >
+                    <span class="eval-modal__upload-icon" aria-hidden="true">
+                      <img
+                        class="eval-modal__upload-icon-bg"
+                        src="assets/modal-camera-bg.svg"
+                        width="33"
+                        height="33"
+                        alt=""
+                      />
+                      <img
+                        class="eval-modal__upload-icon-cam"
+                        src="assets/modal-camera.svg"
+                        width="17"
+                        height="15"
+                        alt=""
+                      />
+                    </span>
+                  </label>
+                  <ul
+                    class="eval-modal__previews"
+                    data-eval-previews
+                    hidden
+                  ></ul>
+                </div>
               </div>
             </div>
             <p class="eval-modal__legal">
