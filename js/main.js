@@ -532,8 +532,11 @@ $(function () {
     $(window).on("scroll", updateHeaderScroll);
   }
 
+  /* slidesPerView: "auto" — ширина слайда берётся из CSS (.categories-col),
+     поэтому карусель держит ширину плитки из макета: 135px ниже 640
+     и 266px в 640–959, а следующая плитка выглядывает из-за края. */
   const categoriesSwiper = new Swiper(".categories-swiper", {
-    slidesPerView: 2,
+    slidesPerView: "auto",
     spaceBetween: 11,
     breakpoints: {
       640: {
