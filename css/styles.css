@@ -1220,8 +1220,11 @@ body.is-menu-open {
   border-color: #8bb5e8;
 }
 
+/* Наведение на выбранный (активный) таб: затемняем синюю заливку,
+   чтобы ховер был заметен так же, как у неактивных табов */
 .stores__tab.is-active:hover {
-  background: #8bb5e8;
+  background: #3d71ba;
+  border-color: #3d71ba;
   color: #fff;
 }
 
