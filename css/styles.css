@@ -616,7 +616,7 @@ body.is-menu-open {
 
 /* ========== Категории ========== */
 .categories {
-  padding: 0 0 37px;
+  padding: 0 0 53px;
   background: #fff;
 }
 
@@ -714,6 +714,7 @@ body.is-menu-open {
   overflow: hidden;
   background: #f4f5f7;
   padding: 60px 0;
+  border-radius: 20px;
 }
 
 .approach__watermark {
@@ -812,7 +813,7 @@ body.is-menu-open {
 /* ========== Процесс ========== */
 .process {
   background: #fff;
-  padding: 29px 15px 50px;
+  padding: 67px 15px 34px;
 }
 
 .process .section-title {
@@ -889,7 +890,10 @@ body.is-menu-open {
 /* ========== Заявка ========== */
 .lead {
   position: relative;
-  margin: 0 15px;
+  /* margin-bottom — белый зазор между карточкой и серой подложкой
+     «Отзывы» по макету 320 (3168 → 3202 = 34px); он же был приписан
+     к padding-bottom, из-за чего карточка прилипала к подложке. */
+  margin: 0 15px 34px;
   padding: 17px 15px 33px;
   border-radius: 30px;
   background: linear-gradient(139deg, #fff -18.92%, #cdddfb 76.93%);
@@ -967,7 +971,9 @@ body.is-menu-open {
 .bottom-band {
   position: relative;
   background: #f4f5f7;
-  padding-top: 47px;
+  /* Верхние углы скруглены, как у шапки: 30px до 960px и 50px на 960px+ */
+  border-radius: 30px 30px 0 0;
+  padding-top: 40px;
 }
 
 .bottom-band__watermark {
@@ -977,6 +983,8 @@ body.is-menu-open {
 .reviews {
   background: transparent;
   padding: 0;
+  /* Просвет до блока «Частые вопросы» (в макете — 90px для 320px) */
+  margin-bottom: 30px;
 }
 
 .reviews .section-title {
@@ -1048,13 +1056,12 @@ body.is-menu-open {
 }
 
 /* ========== Частые вопросы ========== */
-/* Верхний отступ 23px + 37px нижнего паддинга .reviews-swiper = 60px
-   перед заголовком «Частые вопросы». Так он больше, чем 46px после
-   заголовка (.faq .section-title), и совпадает с отступом снизу блока —
-   как выровнены между собой блоки и на десктопе (103px). */
+/* Верхний отступ 23px + 37px нижнего паддинга .reviews-swiper + 30px
+   margin-bottom .reviews = 90px перед заголовком «Частые вопросы» —
+   как в макете для 320px. */
 .faq {
   background: transparent;
-  padding: 23px 15px 60px;
+  padding: 23px 15px 40px;
 }
 
 .faq .section-title {
@@ -1177,7 +1184,9 @@ body.is-menu-open {
 /* ========== Магазины ========== */
 .stores {
   background: transparent;
-  padding: 0 0 40px;
+  padding: 0 0 54px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .stores .section-title {
@@ -1838,9 +1847,37 @@ body:not(.variant-legacy) .footer__policy {
     padding: 0 20px;
   }
 
+  /* ========== Расстояния между секциями (макет 480) ========== */
+  .process {
+    padding: 57px 15px 35px;
+  }
+
   .lead {
     margin-left: 20px;
     margin-right: 20px;
+    /* 25px белого зазора до серой подложки по макету 480 (3114 → 3139) */
+    margin-bottom: 25px;
+    padding-bottom: 33px;
+  }
+
+  .bottom-band {
+    padding-top: 50px;
+  }
+
+  .reviews {
+    margin-bottom: 0;
+  }
+
+  .faq {
+    padding-bottom: 60px;
+  }
+
+  .stores {
+    padding-bottom: 43px;
+  }
+
+  .contacts {
+    padding-top: 62px;
   }
 
   .contacts__container {
@@ -1870,6 +1907,11 @@ body:not(.variant-legacy) .footer__policy {
   .contacts-detail__messenger[data-contacts-detail-max],
   .contacts-detail__messenger[data-contacts-detail-telegram] {
     width: 100%;
+  }
+
+  /* Серая полоса секции по макету: 624px (заголовок на 38px от верха) */
+  .approach {
+    padding: 38px 0 49px;
   }
 
   .hero {
@@ -1950,7 +1992,7 @@ body:not(.variant-legacy) .footer__policy {
 /* ========================================== */
 @media (min-width: 640px) {
   .contacts {
-    padding: 50px 0 0;
+    padding: 68px 0 0;
   }
 
   .contacts .section-title {
@@ -2109,7 +2151,7 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Категории ========== */
   .categories {
-    padding: 0 0 79px;
+    padding: 0 0 66px;
   }
 
   .categories .section-title {
@@ -2157,6 +2199,7 @@ body:not(.variant-legacy) .footer__policy {
   /* ========== Подход ========== */
   .approach {
     padding: 60px 0;
+    border-radius: 50px;
   }
 
   .approach__watermark {
@@ -2204,7 +2247,7 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Процесс ========== */
   .process {
-    padding: 40px 24px 50px;
+    padding: 61px 24px 79px;
   }
 
   .process .section-title {
@@ -2257,7 +2300,8 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Заявка ========== */
   .lead {
-    margin: 0 24px;
+    /* 32px белого зазора до серой подложки по макету 640 (3571 → 3603) */
+    margin: 0 24px 32px;
     padding: 28px 26px 39px;
   }
 
@@ -2296,7 +2340,7 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Отзывы ========== */
   .bottom-band {
-    padding-top: 40px;
+    padding-top: 60px;
   }
 
   .reviews-swiper {
@@ -2321,7 +2365,7 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Частые вопросы ========== */
   .faq {
-    padding: 23px 24px 60px;
+    padding: 23px 24px 83px;
   }
 
   .faq .section-title {
@@ -2336,7 +2380,7 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Магазины ========== */
   .stores {
-    padding: 0 0 40px;
+    padding: 0 0 68px;
   }
 
   .stores .section-title {
@@ -2535,7 +2579,7 @@ body:not(.variant-legacy) .footer__policy {
   }
 
   .reviews {
-    margin: 0 auto 83px;
+    margin: 0 auto 100px;
   }
 
   .reviews__header {
@@ -2682,9 +2726,8 @@ body:not(.variant-legacy) .footer__policy {
 
   /* ========== Частые вопросы ========== */
   .faq {
-    /* 103px — тот же просвет, что и перед «Частые вопросы»
-       (83px margin-bottom .reviews + 20px нижнего паддинга .reviews-swiper) */
-    margin: 0 auto 103px;
+    /* 119px — просвет от последнего вопроса до заголовка «Наши магазины» */
+    margin: 0 auto 119px;
     padding: 0 80px;
   }
 
@@ -2764,7 +2807,7 @@ body:not(.variant-legacy) .footer__policy {
   /* ========== Магазины ========== */
   .stores {
     margin: 0 auto;
-    padding: 0 80px 42px;
+    padding: 0 80px 76px;
     overflow: visible;
   }
 
@@ -4150,9 +4193,9 @@ body.is-modal-open {
   .contacts {
     background-color: #414763;
     background-image: linear-gradient(to bottom, #425576, #414763);
-    /* Верхний отступ как у серой полосы (.bottom-band, 60px): в сумме
-       с 42px под фото магазинов — 102px до заголовка, как перед «Частые вопросы» */
-    padding: 60px 0 50px;
+    /* 87px сверху: в сумме с 76px под фото магазинов — 163px
+       от фото до заголовка, как в макете (960px) */
+    padding: 87px 0 50px;
   }
 
   .contacts__container {
@@ -4588,10 +4631,6 @@ body.is-modal-open {
     max-width: 497px;
   }
 
-  .approach {
-    padding: 60px 0 0;
-  }
-
   .approach__watermark {
     display: block;
     position: absolute;
@@ -4644,8 +4683,13 @@ body.is-modal-open {
     gap: 12px;
   }
 
+  .stores {
+    /* 99px под фото магазинов — до низа серой полосы (макет 1200) */
+    padding-bottom: 99px;
+  }
+
   .contacts {
-    padding: 60px 0 50px;
+    padding: 80px 0 50px;
   }
 
   .contacts__container {
@@ -4731,7 +4775,8 @@ body.is-modal-open {
   }
 
   .approach {
-    padding: 60px 0;
+    /* 83px снизу — как в макете: серая полоса ниже карточек на 83px */
+    padding: 60px 0 83px;
   }
 
   .approach .section-title {
@@ -4767,14 +4812,14 @@ body.is-modal-open {
   }
 
   .process {
-    padding: 106px 80px 22px;
+    padding: 83px 80px 4px;
     max-width: 1202px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .process .section-title {
-    margin-bottom: 28px;
+    margin-bottom: 46px;
     padding: 0;
     max-width: none;
   }
@@ -5130,9 +5175,8 @@ body.is-modal-open {
   }
 
   .contacts {
-    /* Сверху 60px, как у .bottom-band: от фото магазинов (67px) — 127px,
-       как перед «Отзывы» (68px margin-bottom .lead + 60px полосы) */
-    padding: 60px 0 58px;
+    /* Сверху 100px: от фото магазинов (104px) — 204px, как в макете (1440) */
+    padding: 100px 0 58px;
   }
 
   .contacts__container {
@@ -5211,14 +5255,14 @@ body.is-modal-open {
   }
 
   .process {
-    padding: 106px 0 22px;
+    padding: 83px 0 4px;
     max-width: 1202px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .process .section-title {
-    margin-bottom: 28px;
+    margin-bottom: 46px;
   }
 
   .process__list {
@@ -5304,13 +5348,13 @@ body.is-modal-open {
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 0;
-    margin-bottom: 103px;
+    margin-bottom: 133px;
   }
 
   .stores {
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 67px;
+    padding-bottom: 104px;
   }
 
   .footer {
