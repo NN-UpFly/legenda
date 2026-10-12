@@ -129,13 +129,22 @@ ol {
   max-width: 100vw;
   height: var(--header-height);
   /* Сколько пикселей обрезаем у белого фона шапки снизу
-     (половина прежнего нижнего зазора до содержимого) */
+     (половина прежнего нижнего зазора до содержимого).
+     Без прокрутки шапка выглядит как до правок (crop 16.5px),
+     у закреплённой (.is-scrolled) блок компактнее — см. правило ниже. */
   --header-crop: 16.5px;
+  --header-crop-scrolled: 33px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* Обычная шапка (без .is-scrolled): отступы и геометрия как до правок.
+     padding-bottom задаётся только у .is-scrolled — он сдвигает
+     центрированное содержимое вверх ровно на половину своего значения.
+     --header-height не меняется — от него зависят .page, модалки и меню. */
   padding: 0 15px 0 20px;
   box-sizing: border-box;
+  /* Плавный переход к «закреплённому» виду при начале прокрутки */
+  transition: padding-bottom 0.3s ease;
 }
 
 /* Белый фон и тень шапки выносим на псевдоэлемент, чтобы обрезать их
@@ -151,7 +160,18 @@ ol {
   height: calc(var(--header-height) - var(--header-crop));
   background: #fff;
   border-radius: 0 0 30px 30px;
-  transition: box-shadow 0.3s ease;
+  /* height в transition — блок плавно сужается при прокрутке */
+  transition:
+    box-shadow 0.3s ease,
+    height 0.3s ease;
+}
+
+/* Закреплённая шапка (при прокрутке): содержимое поднято вверх — верхний
+   отступ в два раза меньше, а белый фон компактнее (crop вдвое больше),
+   т.к. содержимое сдвинуто. Без прокрутки геометрия остаётся прежней. */
+.header.is-scrolled {
+  --header-crop: var(--header-crop-scrolled);
+  padding-bottom: 33px;
 }
 
 .header.is-scrolled::before {
@@ -862,6 +882,7 @@ body.is-menu-open {
    отступа .faster даёт ~70px, как в макетах 640/320 (71px и 66px). */
 .notice {
   padding: 40px 15px;
+  padding-top: 0;
   background: #fff;
 }
 
@@ -965,6 +986,7 @@ body.is-menu-open {
 @media (min-width: 960px) {
   .notice {
     padding: 55px 80px;
+    padding-top: 30px;
   }
 
   .notice__container {
@@ -1008,7 +1030,7 @@ body.is-menu-open {
 /* 1200px+: зазор до .faster 95px (макет 1200) */
 @media (min-width: 1200px) {
   .notice {
-    padding-top: 65px;
+    padding-top: 30px;
     padding-bottom: 65px;
   }
 }
@@ -1018,7 +1040,7 @@ body.is-menu-open {
    как в макете 1200 (зазор 95px). */
 @media (min-width: 1440px) {
   .notice {
-    padding-top: 65px;
+    padding-top: 18px;
     padding-bottom: 65px;
     padding-left: 0;
     padding-right: 0;
@@ -1031,17 +1053,7 @@ body.is-menu-open {
 }
 
 /* ========== Какие инструменты мы выкупаем ========== */
-/* Новая секция между .notice и .faster. Макеты: 1345-4889 (1440),
-   1376-5426 (1200), 1376-5807 (960), 1376-6212 (640), 1376-6540 (480),
-   1376-6852 (320): заголовок (22/32/42px, line-height 1.2) и сетка
-   карточек с подписью слева и фото инструмента справа.
-   Карточка: фон #f4f5f7, радиус 15px, подпись 16px #282828 в 108px
-   (переносится на две строки у «Сварочное оборудование»), фото
-   позиционировано по правому краю со смещением, как в макете
-   (9–30px в зависимости от картинки), по вертикали — центр 61px
-   (на 320 — 90px, карточка выше: 142×130 против 103px).
-   Колонки: 2 (до 640) / 3 (960) / 4 (1200) / 5 (1440).
-   Видимых карточек, как в макетах: 8 до 960px, 12 до 1440px, 13 с 1440px. */
+
 .tools {
   padding: 20px 15px 44px;
   background: #fff;
@@ -1093,32 +1105,6 @@ body.is-menu-open {
   right: 20px;
   display: block;
   transform: translateY(-50%);
-}
-
-/* Правые отступы фото — по макету (одинаковы на всех разрешениях) */
-.tools-card__img--drill {
-  right: 29px;
-}
-
-.tools-card__img--perforator {
-  right: 9px;
-}
-
-.tools-card__img--welding {
-  right: 20px;
-}
-
-.tools-card__img--jigsaw {
-  right: 22px;
-}
-
-.tools-card__img--compressor {
-  right: 24px;
-}
-
-/* До 960px в макетах 8 карточек (4 ряда по 2) */
-.tools-card:nth-child(n + 9) {
-  display: none;
 }
 
 /* 480px+: боковые отступы 20px, заголовок 32px, карточки высотой 103px */
@@ -1177,14 +1163,6 @@ body.is-menu-open {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px 8px;
   }
-
-  .tools-card:nth-child(n + 9) {
-    display: block;
-  }
-
-  .tools-card:nth-child(n + 13) {
-    display: none;
-  }
 }
 
 /* 1200px+: четыре колонки (карточки 254px, как в макете) */
@@ -1216,10 +1194,6 @@ body.is-menu-open {
 
   .tools__title {
     margin-bottom: 34px;
-  }
-
-  .tools-card:nth-child(n + 13) {
-    display: block;
   }
 }
 
@@ -2744,8 +2718,15 @@ body:not(.variant-legacy) .footer__policy {
 /* ========== Мобильный, альбомная ориентация (480–639) ========== */
 @media (min-width: 480px) and (max-width: 639px) {
   .header {
+    /* Обычная шапка — как до правок (crop 14.25px); у закреплённой
+       (--header-crop-scrolled) блок компактнее */
     --header-crop: 14.25px;
+    --header-crop-scrolled: 28.5px;
     padding: 0 20px;
+  }
+
+  .header.is-scrolled {
+    padding-bottom: 28.5px;
   }
 
   .section-title {
@@ -2964,9 +2945,16 @@ body:not(.variant-legacy) .footer__policy {
   }
 
   .header {
+    /* Обычная шапка — как до правок (crop 14.25px); у закреплённой
+       (--header-crop-scrolled) блок компактнее */
     --header-crop: 14.25px;
+    --header-crop-scrolled: 30.5px;
     align-items: center;
     padding: 0 24px;
+  }
+
+  .header.is-scrolled {
+    padding-bottom: 32.5px;
   }
 
   .header > .header__city {
@@ -4944,12 +4932,19 @@ body.is-modal-open {
     width: 100%;
     z-index: 310;
     height: var(--header-height);
+    /* Обычная шапка — как до правок (crop 19.25px); у закреплённой
+       (--header-crop-scrolled) блок компактнее */
     --header-crop: 19.25px;
+    --header-crop-scrolled: 38.5px;
     align-items: center;
     padding: 0 80px;
     justify-content: flex-start;
     gap: 0;
     box-sizing: border-box;
+  }
+
+  .header.is-scrolled {
+    padding-bottom: 38.5px;
   }
 
   .header::before {
