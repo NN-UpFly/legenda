@@ -503,6 +503,73 @@ body.is-menu-open {
   pointer-events: none;
 }
 
+/* ========== Хлебные крошки над главным экраном ========== */
+/* Макет 1345-5037 («Главная / Что мы выкупаем / Инструмент»).
+   Типографика и цвета совпадают с .page-hero__crumbs и с макетом:
+   14px/1, разделители и «Главная» — rgba(40, 40, 40, 0.3), текущая
+   страница — rgba(40, 40, 40, 0.8). Боковые отступы повторяют паддинги
+   .hero, чтобы крошки были на одной линии с левым краем панели
+   (x=119 при 1440). */
+.breadcrumbs {
+  position: relative;
+  z-index: 1;
+  padding: 16px 15px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(40, 40, 40, 0.3);
+}
+
+.breadcrumbs a {
+  color: rgba(40, 40, 40, 0.3);
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: rgba(40, 40, 40, 0.6);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: rgba(40, 40, 40, 0.8);
+}
+
+/* Крошки — сосед hero сверху: убираем отрицательный отступ (иначе hero
+   уезжает вверх и перекрывает крошки) и верхний паддинг, который на
+   index освобождает место под прозрачную шапку. Боковые/нижние паддинги
+   hero при этом остаются как есть. */
+.breadcrumbs + .hero {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 480px) {
+  .breadcrumbs {
+    padding: 16px 20px;
+  }
+}
+
+@media (min-width: 640px) {
+  .breadcrumbs {
+    padding: 20px 24px;
+  }
+}
+
+@media (min-width: 960px) {
+  .breadcrumbs {
+    /* 31px + 14px строки = макет: текст начинается на y=162 при шапке 131px */
+    padding: 31px 80px 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .breadcrumbs {
+    /* Как .hero: фиксированная ширина 1440px по центру, гуттер 119px */
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 31px 119px 16px;
+  }
+}
+
 /* ========== Главный экран ========== */
 .hero {
   position: relative;
@@ -563,6 +630,44 @@ body.is-menu-open {
   color: #8bb5e8;
 }
 
+.hero__content.hero__content--category h1 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+@media (min-width: 480px) {
+  .hero__content.hero__content--category h1 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero__content.hero__content--category h1 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__content.hero__content--category h1 {
+    font-size: 38px;
+    margin-bottom: 38px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__content.hero__content--category h1 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero__content.hero__content--category h1 {
+    font-size: 42px;
+  }
+}
+
 .hero__features {
   display: flex;
   flex-direction: column;
@@ -585,6 +690,42 @@ body.is-menu-open {
   line-height: 1.25;
   color: #2a2c2e;
   text-align: left;
+}
+
+.hero__description {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 285px;
+}
+
+@media (min-width: 480px) {
+  .hero__description {
+    font-size: 14px;
+    margin-bottom: 250px;
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero__description {
+    font-size: 18px;
+    margin-bottom: 220px;
+    max-width: 460px;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__description {
+    margin-bottom: 140px;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__description {
+    margin-bottom: 120px;
+    max-width: 450px;
+  }
 }
 
 .hero__cta {
@@ -706,6 +847,563 @@ body.is-menu-open {
   flex: 0 1 auto;
   max-width: 52%;
   max-height: 100%;
+}
+
+/* ========== Плашка «Выкупаем только рабочую технику» ========== */
+/* Секция перед «Продайте быстрее». Структура по макетам 1345-5656 (1440),
+   1376-5757 (1200), 1376-6173 (960), 1376-6522 (640), 1376-6817 (480),
+   1376-7147 (320): градиентный бокс (#425576 → #414763, радиус 20px)
+   с иконкой-галкой 76×76, двухстрочным заголовком и пояснением.
+   До 960px — колонкой, с рамкой 1px rgba(0,174,255,.2) и горизонтальным
+   разделителем; с 960px — в строку без рамки, разделитель вертикальный
+   74px, пояснение фиксированной ширины 301px. Боковые отступы секции
+   совпадают с отступами .faster (15/20/24/80, с 1440 — колонка 1202px).
+   Ниже 960px отступ секции 40px сверху/снизу: в сумме с 30px верхнего
+   отступа .faster даёт ~70px, как в макетах 640/320 (71px и 66px). */
+.notice {
+  padding: 40px 15px;
+  background: #fff;
+}
+
+.notice__container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid rgba(0, 174, 255, 0.2);
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #425576, #414763);
+}
+
+.notice__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.notice__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+}
+
+.notice__icon img {
+  width: 63px;
+  height: 63.59px;
+}
+
+.notice__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.notice__lead {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  letter-spacing: -0.12px;
+  color: #fff;
+}
+
+.notice__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.16px;
+  color: #fff;
+}
+
+.notice__lead span,
+.notice__title span {
+  color: #8bb5e8;
+}
+
+.notice__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #8bb5e8;
+}
+
+.notice__text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: -0.12px;
+  color: #ededed;
+}
+
+/* 480px+: боковые отступы 20px */
+@media (min-width: 480px) {
+  .notice {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* 640px+: боковые отступы 24px */
+@media (min-width: 640px) {
+  .notice {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* 960px+: строка без рамки, вертикальный разделитель 74px,
+   пояснение 301px, кегли 16/21/14px.
+   Отступы секции 55px: в сумме с 30px верхнего отступа .faster даёт
+   ~85px, как в макете 960 (зазор 85px). */
+@media (min-width: 960px) {
+  .notice {
+    padding: 55px 80px;
+  }
+
+  .notice__container {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 26px 32px;
+    border: none;
+  }
+
+  .notice__heading {
+    flex: 1 1 auto;
+    max-width: 503px;
+  }
+
+  .notice__lead {
+    font-size: 16px;
+    letter-spacing: -0.16px;
+  }
+
+  .notice__title {
+    font-size: 21px;
+    letter-spacing: -0.21px;
+  }
+
+  .notice__divider {
+    flex-shrink: 0;
+    width: 1px;
+    height: 74px;
+  }
+
+  .notice__text {
+    flex-shrink: 0;
+    width: 301px;
+    font-size: 14px;
+    letter-spacing: -0.14px;
+    color: #fff;
+  }
+}
+
+/* 1200px+: зазор до .faster 95px (макет 1200) */
+@media (min-width: 1200px) {
+  .notice {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+}
+
+/* 1440px+: центрированная колонка 1202px, зазор 50px (как у .faster).
+   Вертикальный отступ 65px: в сумме с 30px .faster даёт ~95px,
+   как в макете 1200 (зазор 95px). */
+@media (min-width: 1440px) {
+  .notice {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .notice__container {
+    max-width: 1202px;
+    gap: 50px;
+  }
+}
+
+/* ========== Какие инструменты мы выкупаем ========== */
+/* Новая секция между .notice и .faster. Макеты: 1345-4889 (1440),
+   1376-5426 (1200), 1376-5807 (960), 1376-6212 (640), 1376-6540 (480),
+   1376-6852 (320): заголовок (22/32/42px, line-height 1.2) и сетка
+   карточек с подписью слева и фото инструмента справа.
+   Карточка: фон #f4f5f7, радиус 15px, подпись 16px #282828 в 108px
+   (переносится на две строки у «Сварочное оборудование»), фото
+   позиционировано по правому краю со смещением, как в макете
+   (9–30px в зависимости от картинки), по вертикали — центр 61px
+   (на 320 — 90px, карточка выше: 142×130 против 103px).
+   Колонки: 2 (до 640) / 3 (960) / 4 (1200) / 5 (1440).
+   Видимых карточек, как в макетах: 8 до 960px, 12 до 1440px, 13 с 1440px. */
+.tools {
+  padding: 20px 15px 44px;
+  background: #fff;
+}
+
+.tools__container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tools__title {
+  margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #282828;
+}
+
+.tools__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tools-card {
+  position: relative;
+  height: 130px;
+  border-radius: 15px;
+  background: #f4f5f7;
+}
+
+.tools-card__label {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  max-width: 108px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #282828;
+}
+
+.tools-card__img {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  display: block;
+  transform: translateY(-50%);
+}
+
+/* Правые отступы фото — по макету (одинаковы на всех разрешениях) */
+.tools-card__img--drill {
+  right: 29px;
+}
+
+.tools-card__img--perforator {
+  right: 9px;
+}
+
+.tools-card__img--welding {
+  right: 20px;
+}
+
+.tools-card__img--jigsaw {
+  right: 22px;
+}
+
+.tools-card__img--compressor {
+  right: 24px;
+}
+
+/* До 960px в макетах 8 карточек (4 ряда по 2) */
+.tools-card:nth-child(n + 9) {
+  display: none;
+}
+
+/* 480px+: боковые отступы 20px, заголовок 32px, карточки высотой 103px */
+@media (min-width: 480px) {
+  .tools {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tools__title {
+    font-size: 32px;
+    margin-bottom: 26px;
+  }
+
+  .tools-card {
+    height: 103px;
+  }
+
+  .tools-card__label {
+    left: 20px;
+  }
+
+  .tools-card__img {
+    top: 61px;
+  }
+}
+
+/* 640px+: отступы 24px, заголовок 42px, зазор между колонками 10px */
+@media (min-width: 640px) {
+  .tools {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .tools__title {
+    font-size: 42px;
+    margin-bottom: 36px;
+  }
+
+  .tools__grid {
+    gap: 6px 10px;
+  }
+}
+
+/* 960px+: отступы 80px, три колонки, 12 карточек (4 ряда по 3) */
+@media (min-width: 960px) {
+  .tools {
+    padding: 16px 80px 60px;
+  }
+
+  .tools__title {
+    margin-bottom: 30px;
+  }
+
+  .tools__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px 8px;
+  }
+
+  .tools-card:nth-child(n + 9) {
+    display: block;
+  }
+
+  .tools-card:nth-child(n + 13) {
+    display: none;
+  }
+}
+
+/* 1200px+: четыре колонки (карточки 254px, как в макете) */
+@media (min-width: 1200px) {
+  .tools {
+    padding-top: 12px;
+    padding-bottom: 62px;
+  }
+
+  .tools__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* 1440px+: центрированная колонка 1202px, пять колонок (карточки
+   234px), все 13 карточек — как в макете 1440 */
+@media (min-width: 1440px) {
+  .tools {
+    padding: 10px 0 63px;
+  }
+
+  .tools__container {
+    max-width: 1202px;
+  }
+
+  .tools__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .tools__title {
+    margin-bottom: 34px;
+  }
+
+  .tools-card:nth-child(n + 13) {
+    display: block;
+  }
+}
+
+/* ========== Продайте быстрее, чем через Авито ========== */
+/* Секция перед «Подход». Структура по макету 1376-5716 (1440), 1376-5735 (1200),
+   1376-6151 (960), 1376-6847 (640), 1376-6832 (480), 1376-7106 (320):
+   заголовок + три пункта (иконка 32×32 + текст) + фото в скруглённом контейнере.
+   До 960px — колонкой (текст сверху, фото снизу), с 960px — две колонки. */
+.faster {
+  padding: 30px 15px 44px;
+  background: #fff;
+}
+
+.faster__container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.faster__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.faster__title {
+  max-width: 440px;
+  margin: 0 0 30px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #282828;
+}
+
+.faster__features {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faster-feature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.faster-feature__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  color: #8bb5e8;
+}
+
+.faster-feature__icon svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.faster-feature__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #282828;
+}
+
+.faster__media {
+  margin-top: 24px;
+  width: 100%;
+  height: 265px;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Временный градиент-подложка под фото (видна, пока файл-плейсхолдер
+     не заменён на экспорт из макета). */
+  background: linear-gradient(139deg, #fff -18.92%, #cdddfb 76.93%);
+}
+
+.faster__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 480px+: боковые отступы 20px, заголовок 32px */
+@media (min-width: 480px) {
+  .faster {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  .faster__title {
+    font-size: 32px;
+    max-width: 480px;
+  }
+}
+
+/* 640px+: отступы 24px, заголовок 42px */
+@media (min-width: 640px) {
+  .faster {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .faster__title {
+    font-size: 42px;
+    max-width: 500px;
+  }
+}
+
+/* 960px+: две колонки (текст слева, фото справа), отступы 80px */
+@media (min-width: 960px) {
+  .faster {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .faster__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 11px;
+    align-items: end;
+  }
+
+  .faster__title {
+    max-width: 500px;
+    margin-bottom: 38px;
+  }
+
+  .faster__features {
+    gap: 34px;
+  }
+
+  .faster__media {
+    margin-top: 0;
+    height: 236px;
+  }
+}
+
+/* 1200px+: фото растянуто на всю высоту строки */
+@media (min-width: 1200px) {
+  .faster__container {
+    align-items: stretch;
+  }
+
+  .faster__title {
+    font-size: 42px;
+  }
+
+  .faster__features {
+    gap: 38px;
+  }
+
+  .faster__media {
+    height: auto;
+    min-height: 349px;
+  }
+}
+
+/* 960–1199: текстовая колонка уже (~370px), поэтому кегль заголовка
+   уменьшаем, чтобы он оставался в две строки, как в макете 960. */
+@media (min-width: 960px) and (max-width: 1199px) {
+  .faster__title {
+    font-size: 36px;
+    max-width: 100%;
+  }
+}
+
+/* 1440px+: центрированная колонка 1202px (как у .process/.approach) */
+@media (min-width: 1440px) {
+  .faster {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .faster__container {
+    max-width: 1202px;
+  }
 }
 
 /* ========== Подход ========== */
@@ -1179,6 +1877,227 @@ body.is-menu-open {
   font-size: 14px;
   line-height: 18px;
   color: #7c7c7c;
+}
+
+/* ========== А еще мы выкупаем ========== */
+/* Слайдер категорий после «Частых вопросов», внутри .bottom-band.
+   Макеты: 193-2824 (480), 193-2716 (640), 193-2153 (960), 193-2020 (1200),
+   193-2280 (1440). Карточки — плитки .cat-tile со главной страницы, но
+   белые (на сером фоне .bottom-band): ниже 640px — 135×122 и подпись 12px
+   (как на главной), в 640–959 — 253×228 и подпись 20px, с 960px — 284×256
+   и стрелки 53×53 справа от заголовка (оформление стрелок как у
+   .reviews__nav). С 960px секция прижата к колонке с отступом 80px,
+   с 1440px — к колонке 1202px, как и другие секции .bottom-band. */
+.also-categories {
+  padding: 0 0 30px;
+  background: transparent;
+}
+
+.also-categories__header {
+  margin-bottom: 25px;
+}
+
+.also-categories .section-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 40px;
+  padding: 0 15px;
+}
+
+.also-categories__nav {
+  display: none;
+}
+
+.also-categories-swiper {
+  padding: 0 15px;
+}
+
+.also-categories-swiper .swiper-slide {
+  /* !important — как у .categories-col: swiper-bundle растягивает слайд */
+  width: 135px !important;
+  height: auto;
+}
+
+.also-categories .cat-tile {
+  /* На сером фоне .bottom-band плитки белые (макет 193-2824) */
+  background: #fff;
+}
+
+/* 480px+: боковые отступы 20px, заголовок 32px (макет 193-2824) */
+@media (min-width: 480px) and (max-width: 639px) {
+  .also-categories {
+    padding-bottom: 40px;
+  }
+
+  .also-categories .section-title {
+    font-size: 32px;
+    line-height: 50px;
+    padding: 0 20px;
+  }
+
+  .also-categories-swiper {
+    padding: 0 20px;
+  }
+}
+
+/* 640–959px: отступы 24px, заголовок 42px, плитки 253×228, подпись 20px,
+   свайп без стрелок (макет 193-2716) */
+@media (min-width: 640px) and (max-width: 959px) {
+  .also-categories {
+    padding-bottom: 60px;
+  }
+
+  .also-categories .section-title {
+    font-size: 42px;
+    line-height: 50px;
+    padding: 0 24px;
+  }
+
+  .also-categories__header {
+    margin-bottom: 33px;
+  }
+
+  .also-categories-swiper {
+    padding: 0 24px;
+  }
+
+  .also-categories-swiper .swiper-slide {
+    width: 253px !important;
+  }
+
+  .also-categories .cat-tile {
+    width: 253px;
+    height: 228px;
+  }
+
+  .also-categories .cat-tile__label {
+    top: 20px;
+    left: 27px;
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 200px;
+  }
+
+  .also-categories .cat-tile__img {
+    right: 12px;
+    bottom: -4px;
+    max-width: 90%;
+    max-height: 80%;
+  }
+
+  .also-categories .cat-tile__stack {
+    inset: 64px 12px 4px;
+  }
+}
+
+/* 960px+: плитки 284×256, стрелки 53×53 справа от заголовка (макеты
+   193-2153 и 193-2020) */
+@media (min-width: 960px) {
+  .also-categories {
+    padding: 0 80px 80px;
+  }
+
+  .also-categories__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  .also-categories .section-title {
+    margin: 0;
+    padding: 0;
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .also-categories__nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+  }
+
+  .also-categories__btn {
+    width: 53px;
+    height: 53px;
+    padding: 0;
+    border-radius: 50%;
+    background: #dfdfdf;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #282828;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .also-categories__btn svg {
+    display: block;
+  }
+
+  .also-categories__btn:hover {
+    background: #e5f1ff;
+  }
+
+  .also-categories__btn:active {
+    background: #d8e9ff;
+  }
+
+  .also-categories__btn.swiper-button-disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .also-categories-swiper {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .also-categories-swiper .swiper-slide {
+    width: 284px !important;
+  }
+
+  .also-categories .cat-tile {
+    width: 284px;
+    height: 256px;
+  }
+
+  .also-categories .cat-tile__label {
+    top: 22px;
+    left: 27px;
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 230px;
+  }
+
+  .also-categories .cat-tile__img {
+    right: 14px;
+    bottom: -6px;
+    max-width: 92%;
+    max-height: 82%;
+  }
+
+  .also-categories .cat-tile__stack {
+    inset: 70px 14px 6px;
+  }
+}
+
+/* 1440px+: центрированная колонка 1202px, как у других секций
+   .bottom-band (макет 193-2280) */
+@media (min-width: 1440px) {
+  .also-categories {
+    max-width: 1202px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 100px;
+  }
 }
 
 /* ========== Магазины ========== */

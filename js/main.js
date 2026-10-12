@@ -549,6 +549,29 @@ $(function () {
     },
   });
 
+  /* Слайдер «А еще мы выкупаем» (страница категории): ширина карточек
+     берётся из CSS (.also-categories-swiper .swiper-slide): 135px ниже 640,
+     253px в 640–959 и 284px с 960, поэтому slidesPerView: "auto".
+     Стрелки в макете есть с 960px, но навигацию инициализируем сразу —
+     ниже 960px кнопки скрыты стилями. */
+  const alsoCategoriesSwiper = new Swiper(".also-categories-swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 11,
+    rewind: true,
+    navigation: {
+      nextEl: ".also-categories__btn--next",
+      prevEl: ".also-categories__btn--prev",
+    },
+    breakpoints: {
+      640: {
+        spaceBetween: 20,
+      },
+      960: {
+        spaceBetween: 22,
+      },
+    },
+  });
+
   const approachSwiper = new Swiper(".approach-swiper", {
     slidesPerView: "auto",
     spaceBetween: 17,
