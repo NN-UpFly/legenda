@@ -538,6 +538,7 @@ body.is-menu-open {
   font-size: 14px;
   line-height: 1;
   color: rgba(40, 40, 40, 0.3);
+  padding-top: 0 !important;
 }
 
 .breadcrumbs a {
@@ -772,7 +773,7 @@ body.is-menu-open {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center;
+  object-position: left;
 }
 
 /* ========== Категории ========== */
@@ -839,34 +840,15 @@ body.is-menu-open {
 
 .cat-tile__img {
   position: absolute;
-  right: 6px;
-  bottom: 4px;
+  right: 15px;
+  bottom: 0;
   width: auto;
   height: auto;
-  max-width: 88%;
-  max-height: 72%;
+  max-width: 75%;
+  max-height: 60%;
   object-fit: contain;
   object-position: right bottom;
   pointer-events: none;
-}
-
-.cat-tile__stack {
-  position: absolute;
-  inset: 28px 6px 4px 6px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 2px;
-  pointer-events: none;
-}
-
-.cat-tile__stack .cat-tile__img {
-  position: static;
-  right: auto;
-  bottom: auto;
-  flex: 0 1 auto;
-  max-width: 52%;
-  max-height: 100%;
 }
 
 /* ========== Плашка «Выкупаем только рабочую технику» ========== */
@@ -1951,17 +1933,6 @@ body.is-menu-open {
     line-height: 24px;
     max-width: 200px;
   }
-
-  .also-categories .cat-tile__img {
-    right: 12px;
-    bottom: -4px;
-    max-width: 90%;
-    max-height: 80%;
-  }
-
-  .also-categories .cat-tile__stack {
-    inset: 64px 12px 4px;
-  }
 }
 
 /* 960px+: плитки 284×256, стрелки 53×53 справа от заголовка (макеты
@@ -2047,17 +2018,6 @@ body.is-menu-open {
     font-size: 20px;
     line-height: 24px;
     max-width: 230px;
-  }
-
-  .also-categories .cat-tile__img {
-    right: 14px;
-    bottom: -6px;
-    max-width: 92%;
-    max-height: 82%;
-  }
-
-  .also-categories .cat-tile__stack {
-    inset: 70px 14px 6px;
   }
 }
 
@@ -3086,21 +3046,6 @@ body:not(.variant-legacy) .footer__policy {
     top: 22px;
     left: 27px;
     max-width: 200px;
-  }
-
-  .cat-tile__img {
-    right: 14px;
-    bottom: 10px;
-    max-width: 78%;
-    max-height: 66%;
-  }
-
-  .cat-tile__stack {
-    inset: 50px 14px 10px 14px;
-  }
-
-  .cat-tile__stack .cat-tile__img {
-    max-width: 48%;
   }
 
   /* ========== Подход ========== */
