@@ -292,6 +292,36 @@ $(function () {
           renderEvalPreviews();
         },
       );
+
+      // Загрузка фото перетаскиванием в зону загрузки (.eval-modal__upload)
+      const $evalUpload = $evalModal.find(".eval-modal__upload");
+
+      const stopDropEvent = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+      };
+
+      // Подсвечиваем зону, пока файл наведён над ней; preventDefault
+      // нужен, чтобы браузер разрешил событие drop.
+      $evalUpload.on("dragenter dragover", (event) => {
+        stopDropEvent(event);
+        $evalUpload.addClass("eval-modal__upload--dragover");
+      });
+
+      $evalUpload.on("dragleave drop", (event) => {
+        stopDropEvent(event);
+        $evalUpload.removeClass("eval-modal__upload--dragover");
+      });
+
+      $evalUpload.on("drop", (event) => {
+        const files = [
+          ...(((event.originalEvent && event.originalEvent.dataTransfer) || {})
+            .files || []),
+        ];
+        addEvalPreviewFiles(files);
+        syncEvalPhotosInput();
+        renderEvalPreviews();
+      });
     }
 
     if ($evalForm.length) {
